@@ -1,68 +1,140 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Ponto de Partida Dev</title>
-        <meta name="description" content="Um site para ajudar pessoas que desejam iniciar no mundo da programação."> 
-    </head>
-
-    <body>
-        <header style="text-align: center;">
-                <figure>
-                    <img src="./assets/logoppd.jpeg" alt="Logo do site Ponto de Partida Dev.">
-                </figure>
-
-                <!--introdução sobre o site-->
-                <p><strong> Ponto de Partida Dev </strong> é uma plataforma criada para ajudar iniciantes na programação, especialmente estudantes de cursos de T.I.<br></p>
-                <p>Reunimos conteúdos introdutórios, videoaulas, cursos, trilhas de aprendizagem e recursos gratuitos para facilitar seus primeiros passos na área.<br></p>
-                <p>Nosso foco é tornar o aprendizado acessível e claro. Sabemos que dúvidas vão surgir, por isso oferecemos canais de contato para ajudar sempre que necessário.</p>
-                <p>Lembre-se: todo programador já foi iniciante. Comece do zero e chegue ao código.</p>
-
-        <main>
-            <section style="text-align: center;">
-                <h2>Trilhas de Aprendizado</h2>
-                <p>Explore as principais áreas de conhecimento para iniciar sua jornada como desenvolvedor.</p>
-            </section>
-
-            <!--Pagina de direcionamento para os cursos -->
-            <section style="text-align: center;">
-
-                <a href="FLM.html" target="_blank" style="text-align: right;">
-                    <img src="./assets/FLM.jpeg" alt="imagem de fundamentos lógicos e matemáticas" width="550"  height="350">
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Ponto de Partida Dev</title>
+    <meta name="description" content="Um site para ajudar pessoas que desejam iniciar no mundo da programação.">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f0f8ff;
+            color: #222;
+        }
+        header {
+            background: #4fc3f7;
+            padding: 30px 0 10px 0;
+            text-align: center;
+        }
+        header img {
+            width: 180px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        header p {
+            max-width: 700px;
+            margin: 12px auto;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        main {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        section {
+            margin-bottom: 40px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            padding: 30px 0;
+        }
+        h2 {
+            color: #1976d2;
+            margin-bottom: 10px;
+        }
+        .courses {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        .courses a {
+            display: block;
+            transition: transform 0.2s;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        }
+        .courses a:hover {
+            transform: scale(1.04);
+            box-shadow: 0 4px 16px rgba(33,150,243,0.15);
+        }
+        .courses img {
+            width: 320px;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        footer {
+            background: #1976d2;
+            color: #fff;
+            text-align: center;
+            padding: 18px 0;
+            margin-top: 40px;
+            font-size: 1em;
+            letter-spacing: 1px;
+        }
+        @media (max-width: 700px) {
+            .courses {
+                flex-direction: column;
+                align-items: center;
+            }
+            .courses img {
+                width: 95vw;
+                height: 180px;
+            }
+            main {
+                padding: 0 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <figure>
+            <img src="./assets/logoppd.jpeg" alt="Logo do site Ponto de Partida Dev.">
+        </figure>
+        <p>
+            <strong>Ponto de Partida Dev</strong> ajuda iniciantes em programação com cursos, 
+            trilhas e suporte gratuito. Comece do zero e aprenda de forma simples!
+        </p>
+    </header>
+    <main>
+        <section style="text-align: center;">
+            <h2>Trilhas de Aprendizado</h2>
+            <p>Explore as principais áreas de conhecimento para iniciar sua jornada como desenvolvedor.</p>
+            <div class="courses">
+                <a href="FLM.html" target="_blank">
+                    <img src="./assets/FLM.jpeg" alt="Fundamentos Lógicos e Matemáticos">
                 </a>
-
-                <a href="progwebmob.html" target="_blank" style="text-align: left;">
-                    
-                    <img src="./assets/programação web e mobile.jpeg" alt="imagem de programação web e mobile" width="550"  height="350">
+                <a href="progwebmob.html" target="_blank">
+                    <img src="./assets/programação web e mobile.jpeg" alt="Programação Web e Mobile">
                 </a>
-            </section>
-
-            <section style="text-align: center;">
-                
-                <a href="sistemas.html" target="_blank" style="text-align: right;">
-                    <img src="./assets/infraestrutura e sistema.jpeg" alt="imagem de infraestrutura e sistemas" width="550"  height="350">
+                <a href="sistemas.html" target="_blank">
+                    <img src="./assets/infraestrutura e sistema.jpeg" alt="Infraestrutura e Sistemas">
                 </a>
-
                 <a href="lingprogramação.html" target="_blank">
-                    <img src="./assets/linguagens de programação.jpeg" alt="imagem de linguagens de programação" width="550"  height="350">
+                    <img src="./assets/linguagens de programação.jpeg" alt="Linguagens de Programação">
                 </a>
-
-                <p>Além disso, oferecemos conteúdos atualizados, linguagem acessível e uma navegação intuitiva, para que o usuário não se sinta perdido e possa evoluir no seu próprio ritmo. Valorizamos a experiência do usuário e queremos que ele se sinta acolhido, motivado e, acima de tudo, capaz de aprender.</p>
-                <p>No <b>Ponto de Partida Dev</b>, acreditamos que todo programador tem uma história —<strong> e toda história começa com um primeiro passo.</strong> Estamos aqui para ser esse passo.</p>
-            </section>
-
-            <section style="text-align: center;" style="text-align: left;">
-
-                <h2>Sobre o Site</h2>
-                
-                <!--falar sobre o cónteudo do site-->
-                <p><strong>Ponto de Partida Dev </strong> surgiu da necessidade real que muitos estudantes e curiosos da área da tecnologia enfrentam: como começar a programar?<br>
-                 Essa é uma dúvida comum para quem está dando os primeiros passos no mundo da programação, especialmente para os calouros de cursos como Ciência da Computação, Sistemas de Informação ou até mesmo autodidatas que desejam entrar nesse universo.
-                 Sabemos que aprender a programar pode parecer algo distante, técnico e até assustador para quem está começando. Foi justamente pensando nisso que desenvolvemos essa plataforma. Queremos ser o primeiro passo seguro e amigável na jornada de quem quer se tornar um programador.
-            <section>
-            
-        </main>
-
-        <footer></footer>
-
-    </body>
+            </div>
+            <p>
+                Além disso, oferecemos conteúdos atualizados, linguagem acessível e uma navegação intuitiva, para que o usuário não se sinta perdido e possa evoluir no seu próprio ritmo. Valorizamos a experiência do usuário e queremos que ele se sinta acolhido, motivado e, acima de tudo, capaz de aprender.<br>
+                No <b>Ponto de Partida Dev</b>, acreditamos que todo programador tem uma história — <strong>e toda história começa com um primeiro passo.</strong> Estamos aqui para ser esse passo.
+            </p>
+        </section>
+        <section>
+            <h2 style="text-align: center;">Sobre o Site</h2>
+            <p>
+                <strong>Ponto de Partida Dev</strong> é uma plataforma criada para ajudar iniciantes em programação a dar seus primeiros passos de forma simples e acolhedora. 
+                Surgiu da dificuldade comum de estudantes de TI e autodidatas em começar na área, 
+                oferecendo um ponto de partida seguro e descomplicado para quem deseja entrar no universo da programação
+            </p>
+        </section>
+    </main>
+    <footer>
+        &copy; 2025 Ponto de Partida Dev. Todos os direitos reservados.
+    </footer>
+</body>
 </html>

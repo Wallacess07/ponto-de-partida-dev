@@ -1,24 +1,131 @@
 <!--Página para colocar os cursos--> 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Infraestrutura e Sistemas</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f0f8ff;
+            color: #222;
+        }
+        header {
+            background: #4fc3f7;
+            padding: 30px 0 10px 0;
+            text-align: center;
+        }
+        header img {
+            width: 180px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        header h1 {
+            margin: 18px 0 10px 0;
+            color: #1976d2;
+            font-size: 2em;
+        }
+        main {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        section {
+            margin-bottom: 40px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            padding: 30px 0;
+            text-align: center;
+        }
+        section img {
+            width: 350px;
+            max-width: 90vw;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 18px;
+        }
+        ul {
+            list-style: disc inside;
+            text-align: left;
+            max-width: 600px;
+            margin: 18px auto 24px auto;
+            padding: 0;
+        }
+        ul li {
+            margin-bottom: 12px;
+            font-size: 1.08em;
+        }
+        h2 {
+            color: #1976d2;
+            margin-bottom: 10px;
+        }
+        p {
+            max-width: 700px;
+            margin: 12px auto;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        footer {
+            background: #1976d2;
+            color: #fff;
+            text-align: center;
+            padding: 18px 0;
+            margin-top: 40px;
+            font-size: 1em;
+            letter-spacing: 1px;
+        }
+        @media (max-width: 700px) {
+            main {
+                padding: 0 5px;
+            }
+            section img {
+                width: 95vw;
+            }
+        }
+    </style>
 </head>
-
 <body>
-    <section Style="text-align: center;">
-        <figure>
-            <img src="./assets/IS(title).png" alt="imagem de infraestrutura e sistemas" width="600" height="400">
-        </figure>
-
-        <!--Explicão sobre o curso de infraestrutura e sistemas-->
-        <p>Este curso explora os conceitos essenciais de redes e sistemas operacionais, fundamentais para qualquer profissional de TI.<br></p>
-        <p>Você aprenderá como os dispositivos se comunicam em rede e como os sistemas operacionais funcionam, garantindo uma base sólida para administrar ambientes tecnológicos.<br><p>
-        <p><strong>Conteúdos do curso</strong><br></p>
-        <li><strong>Redes de Computadores</strong>: Como dispositivos se conectam e compartilham dados.</li>
-        <li><strong>Sistemas Operacionais</strong>: Fundamentos dos principais sistemas usados na área de TI.</li>
-    </section>
+    <header>
+        <img src="./assets/logoppd.jpeg" alt="Logo do site Ponto de Partida Dev.">
+        <h1>Infraestrutura e Sistemas</h1>
+    </header>
+    <main>
+        <section>
+            <figure>
+                <img src="./assets/IS(title).png" alt="Imagem de Infraestrutura e Sistemas">
+            </figure>
+            <p>
+                Este curso explora os <strong>conceitos essenciais de redes e sistemas operacionais</strong>, fundamentais para qualquer profissional de TI.
+            </p>
+            <p>
+                Você aprenderá como os dispositivos se comunicam em rede e como os sistemas operacionais funcionam, garantindo uma base sólida para administrar ambientes tecnológicos.
+            </p>
+            <h2>Conteúdos do Curso</h2>
+            <ul>
+                <li>
+                    <strong>Redes de Computadores</strong>: Como dispositivos se conectam e compartilham dados.
+                </li>
+                <li>
+                    <strong>Sistemas Operacionais</strong>: Fundamentos dos principais sistemas usados na área de TI.
+                </li>
+            </ul>
+            <p>
+                Com esses conhecimentos, você estará preparado para atuar em infraestrutura, suporte e administração de sistemas.
+            </p>
+        </section>
+        <section>
+            <h2>Prática em Infraestrutura</h2>
+            <p>
+                Em breve, conteúdos e exercícios práticos para você aplicar os conceitos de redes e sistemas operacionais no seu dia a dia!
+            </p>
+        </section>
+    </main>
+    <footer>
+        &copy; 2025 Ponto de Partida Dev. Todos os direitos reservados.
+    </footer>
 </body>
 </html>

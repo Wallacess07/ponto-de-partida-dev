@@ -1,32 +1,134 @@
 <!--Página para colocar os cursos--> 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fundamentos Lógicos e Matemáticos</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f0f8ff;
+            color: #222;
+        }
+        header {
+            background: #4fc3f7;
+            padding: 30px 0 10px 0;
+            text-align: center;
+        }
+        header img {
+            width: 180px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        header h1 {
+            margin: 18px 0 10px 0;
+            color: #1976d2;
+            font-size: 2em;
+        }
+        main {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        section {
+            margin-bottom: 40px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            padding: 30px 0;
+            text-align: center;
+        }
+        section img {
+            width: 350px;
+            max-width: 90vw;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 18px;
+        }
+        ul {
+            list-style: disc inside;
+            text-align: left;
+            max-width: 600px;
+            margin: 18px auto 24px auto;
+            padding: 0;
+        }
+        ul li {
+            margin-bottom: 12px;
+            font-size: 1.08em;
+        }
+        h2 {
+            color: #1976d2;
+            margin-bottom: 10px;
+        }
+        p {
+            max-width: 700px;
+            margin: 12px auto;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        footer {
+            background: #1976d2;
+            color: #fff;
+            text-align: center;
+            padding: 18px 0;
+            margin-top: 40px;
+            font-size: 1em;
+            letter-spacing: 1px;
+        }
+        @media (max-width: 700px) {
+            main {
+                padding: 0 5px;
+            }
+            section img {
+                width: 95vw;
+            }
+        }
+    </style>
 </head>
-
 <body>
-        <section style="text-align: center;">
-                <figure>
-                    <img src="./assets/FLM(TITLE).jpeg" alt="imagem de fundamentos lógicos e matemáticas" width="500" height="300">
-                </figure>
-
-                <!--Explicão sobre o curso de fundamentos logicos e matemáticas-->                
-                 <p><strong>Dominar os fundamentos lógicos e matemáticos</strong> é essencial para quem está começando na programação. Essa base fortalece o raciocínio lógico, facilita a compreensão de algoritmos e prepara o caminho para resolver problemas de forma estruturada e eficiente.<br></p>
-                 <p><strong>Conteúdos do curso</strong></p>
-                 <li><strong>Lógica de Programação</strong>: Aprenda a pensar como um programador! Aqui você desenvolve o raciocínio computacional e aprende a criar algoritmos passo a passo, compreendendo como máquinas processam instruções.</li>
-                 <li><strong>Lógica Matemática</strong>: Explore os princípios da lógica formal que sustentam o pensamento algorítmico, como proposições, operadores lógicos, tabelas verdade e deduções. Essa parte é crucial para entender estruturas de decisão e controle em código.</li>
-                 <li><strong>Matemática Aplicada</strong>: Estude os conceitos matemáticos mais usados na computação, como conjuntos, funções, relações, álgebra e aritmética. Esses conhecimentos são a base para áreas como ciência de dados, inteligência artificial e desenvolvimento de sistemas.</li>
-                 <p>Com esses pilares bem estruturados, você estará pronto para avançar com <strong> mais segurança </strong> na sua jornada na tecnologia</p>
-                
-
-                <main>
-
-                </main>
+    <header>
+        <img src="./assets/logoppd.jpeg" alt="Logo do site Ponto de Partida Dev.">
+        <h1>Fundamentos Lógicos e Matemáticos</h1>
+    </header>
+    <main>
+        <section>
+            <figure>
+                <img src="./assets/FLM(TITLE).jpeg" alt="Imagem de Fundamentos Lógicos e Matemáticos">
+            </figure>
+            <p>
+                <strong>Dominar os fundamentos lógicos e matemáticos</strong> é essencial para quem está começando na programação.
+            </p>
+            <p>
+                Essa base fortalece o raciocínio lógico, facilita a compreensão de algoritmos e prepara o caminho para resolver problemas de forma estruturada e eficiente.
+            </p>
+            <h2>Conteúdos do Curso</h2>
+            <ul>
+                <li>
+                    <strong>Lógica de Programação</strong>: Desenvolva raciocínio computacional e aprenda a criar algoritmos, entendendo como máquinas executam instruções.
+                </li>
+                <li>
+                    <strong>Lógica Matemática</strong>: Estude proposições, operadores lógicos e tabelas verdade para dominar estruturas de decisão em programação.
+                </li>
+                <li>
+                    <strong>Matemática Aplicada</strong>: Aprenda conjuntos, funções e álgebra, fundamentais para ciência de dados, IA e desenvolvimento de sistemas.
+                </li>
+            </ul>
+            <p>
+                Com esses pilares bem estruturados, você estará pronto para avançar com <strong>mais segurança</strong> na sua jornada na tecnologia.
+            </p>
         </section>
+        <section>
+            <h2>Lógica de Programação</h2>
+            <p>
+                Em breve, conteúdos e exercícios práticos para você desenvolver seu raciocínio lógico e aprender a criar algoritmos do zero!
+            </p>
+        </section>
+    </main>
+    <footer>
+        &copy; 2025 Ponto de Partida Dev. Todos os direitos reservados.
+    </footer>
 </body>
-
-
 </html>
