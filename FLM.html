@@ -78,12 +78,120 @@
             font-size: 1em;
             letter-spacing: 1px;
         }
+        .header-btn {
+            padding: 8px 22px;
+            background: linear-gradient(90deg, #4fc3f7 0%, #1976d2 100%);
+            color: #fff;
+            border: none;
+            border-radius: 7px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(33,150,243,0.10);
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+        .header-btn:hover {
+            background: linear-gradient(90deg, #1976d2 0%, #4fc3f7 100%);
+            box-shadow: 0 4px 16px rgba(33,150,243,0.18);
+        }
+        .modal-bg {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0,0,0,0.35);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .close-modal-btn {
+            position: absolute;
+            top: 10px;
+            right: 18px;
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            color: #1976d2;
+            cursor: pointer;
+        }
+        .register-form {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.13);
+            width: 350px;
+            padding: 0 28px 28px 28px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .register-header {
+            background: linear-gradient(90deg, #4fc3f7 0%, #1976d2 100%);
+            border-radius: 14px 14px 0 0;
+            margin: -28px -28px 18px -28px;
+            padding: 22px 0 12px 0;
+            text-align: center;
+        }
+        .register-header h2 {
+            color: #fff;
+            margin: 0;
+            font-size: 1.3em;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .register-form label {
+            display: flex;
+            flex-direction: column;
+            font-size: 1em;
+            color: #222;
+            gap: 6px;
+        }
+        .register-form input {
+            padding: 10px 12px;
+            border: 1px solid #d0d7de;
+            border-radius: 7px;
+            font-size: 1em;
+            background: #f7fafd;
+            outline: none;
+            transition: border 0.2s;
+        }
+        .register-form input:focus {
+            border: 1.5px solid #4fc3f7;
+            background: #fff;
+        }
+        .register-form button[type="submit"] {
+            margin-top: 10px;
+            padding: 12px 0;
+            background: linear-gradient(90deg, #4fc3f7 0%, #1976d2 100%);
+            color: #fff;
+            border: none;
+            border-radius: 7px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(33,150,243,0.10);
+        }
+        .register-form button[type="submit"]:hover {
+            background: linear-gradient(90deg, #1976d2 0%, #4fc3f7 100%);
+            box-shadow: 0 4px 16px rgba(33,150,243,0.18);
+        }
         @media (max-width: 700px) {
             main {
                 padding: 0 5px;
             }
             section img {
                 width: 95vw;
+            }
+            #header-buttons {
+                top: 10px;
+                right: 10px;
+            }
+            .register-form {
+                width: 98vw;
+                padding: 0 5vw 28px 5vw;
             }
         }
     </style>
@@ -93,6 +201,19 @@
         <img src="./assets/logoppd.jpeg" alt="Logo do site Ponto de Partida Dev.">
         <h1>Fundamentos Lógicos e Matemáticos</h1>
     </header>
+    <div id="header-buttons" style="position:absolute;top:24px;right:32px;display:flex;gap:12px;z-index:10;">
+        <button id="open-login-modal" class="header-btn">Login</button>
+        <button id="open-register-modal" class="header-btn">Cadastro</button>
+        <div id="user-profile-area" style="display:none;align-items:center;gap:10px;">
+            <button id="user-profile-btn" class="header-btn" style="display:flex;align-items:center;gap:8px;padding:8px 18px;">
+                <span id="user-profile-icon" style="font-size:1.2em;">👤</span>
+                <span id="user-profile-name"></span>
+            </button>
+            <div id="profile-dropdown" style="display:none;position:absolute;top:48px;right:0;background:#fff;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.13);padding:10px 0;min-width:140px;z-index:1001;">
+                <button id="logout-btn" style="background:none;border:none;width:100%;text-align:left;padding:10px 18px;font-size:1em;color:#1976d2;cursor:pointer;">Sair</button>
+            </div>
+        </div>
+    </div>
     <main>
         <section>
             <figure>
@@ -130,5 +251,54 @@
     <footer>
         &copy; 2025 Ponto de Partida Dev. Todos os direitos reservados.
     </footer>
+    <!-- Modal de Cadastro -->
+    <div id="register-modal" class="modal-bg">
+        <div class="register-form" style="position:relative;">
+            <div class="register-header">
+                <h2>Nova conta</h2>
+            </div>
+            <button id="close-register-modal" class="close-modal-btn">&times;</button>
+            <form id="register-form-fields">
+                <label>
+                    Nome do usuário
+                    <input type="text" placeholder="Digite o nome do usuário..." required>
+                </label>
+                <label>
+                    Email
+                    <input type="email" placeholder="Digite o seu email..." required>
+                </label>
+                <label>
+                    Senha
+                    <input type="password" placeholder="Digite sua senha..." required>
+                </label>
+                <label>
+                    Confirmação de senha
+                    <input type="password" placeholder="Digite sua senha novamente..." required>
+                </label>
+                <button type="submit">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+    <!-- Modal de Login -->
+    <div id="login-modal" class="modal-bg">
+        <div class="register-form" style="position:relative;max-width:350px;">
+            <div class="register-header">
+                <h2>Login</h2>
+            </div>
+            <button id="close-login-modal" class="close-modal-btn">&times;</button>
+            <form id="login-form-fields">
+                <label>
+                    Email
+                    <input type="email" placeholder="Digite o seu email..." required>
+                </label>
+                <label>
+                    Senha
+                    <input type="password" placeholder="Digite sua senha..." required>
+                </label>
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+    </div>
+    <script src="funcionalidadejs.js"></script>
 </body>
 </html>
