@@ -129,6 +129,19 @@ O **Ponto de Partida Dev** foi criado para ser o primeiro contato de estudantes 
 
 ---
 
+## 🌱 Implementações Futuras
+
+- **Implementação de um banco de dados:**  
+  Permitir o salvamento real de usuários cadastrados e logins, tornando o sistema persistente e seguro.
+
+- **Uso de MediaPlayer:**  
+  Adicionar suporte a vídeos e áudios interativos para enriquecer o ensino e facilitar o aprendizado do usuário.
+
+- **Salvamento de progresso de aprendizado:**  
+  Registrar o progresso do usuário em cada trilha, permitindo que ele continue de onde parou ao fazer login.
+
+---
+
 ## 💡 Contribuição
 
 Sinta-se à vontade para abrir issues, sugerir melhorias ou enviar pull requests!
