@@ -23,8 +23,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 1vw; /* Reduzido de 2vw para 1vw */
-            height: 48px;   /* Reduzido de 64px para 48px */
+            padding: 0 1vw;
+            height: 48px;
             z-index: 2000;
             box-shadow: 0 2px 12px rgba(0,0,0,0.07);
             box-sizing: border-box;
@@ -36,44 +36,59 @@
             text-decoration: none;
         }
         .navbar-logo img {
-            width: 32px;   /* Reduzido de 44px para 32px */
-            height: 32px;  /* Reduzido de 44px para 32px */
+            width: 32px;
+            height: 32px;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             background: #fff;
+            object-fit: cover;
+            transition: width 0.2s, height 0.2s;
+        }
+        header figure img {
+            width: 600px;
+            max-width: 98vw;
+            height: auto;
+            border-radius: 44px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin: 0 auto 12px auto;
+            display: block;
+            transition: width 0.2s;
         }
         .navbar-logo span {
             color: #fff;
-            font-size: 1em; /* Reduzido de 1.25em para 1em */
+            font-size: 1em;
             font-weight: bold;
             letter-spacing: 1px;
         }
         .navbar-links {
             display: flex;
             align-items: center;
-            gap: 12px; /* Reduzido de 18px para 12px */
+            gap: 12px;
         }
         .navbar-link {
             color: #fff;
             text-decoration: none;
-            font-size: 0.98em; /* Reduzido de 1.08em para 0.98em */
+            font-size: 0.98em;
             font-weight: 500;
-            padding: 6px 10px; /* Reduzido de 8px 14px para 6px 10px */
+            padding: 6px 10px;
             border-radius: 6px;
             transition: background 0.18s;
         }
+        .navbar-link:hover {
+            background: rgba(25, 118, 210, 0.13);
+        }
         #header-buttons {
             display: flex;
-            gap: 8px; /* Reduzido de 12px para 8px */
+            gap: 8px;
             align-items: center;
         }
         .header-btn {
-            padding: 6px 14px; /* Reduzido de 8px 22px para 6px 14px */
+            padding: 6px 14px;
             background: linear-gradient(90deg, #4fc3f7 0%, #1976d2 100%);
             color: #fff;
             border: none;
             border-radius: 7px;
-            font-size: 0.95em; /* Reduzido de 1em para 0.95em */
+            font-size: 0.95em;
             font-weight: 600;
             cursor: pointer;
             box-shadow: 0 2px 8px rgba(33,150,243,0.10);
@@ -82,6 +97,9 @@
         .header-btn:hover {
             background: linear-gradient(90deg, #1976d2 0%, #4fc3f7 100%);
             box-shadow: 0 4px 16px rgba(33,150,243,0.18);
+        }
+        .navbar-space {
+            height: 48px;
         }
         main {
             max-width: 1200px;
@@ -216,35 +234,6 @@
             color: #1976d2;
             cursor: pointer;
         }
-        /* Dropdown perfil */
-        #user-profile-area {
-            display: none;
-            align-items: center;
-            gap: 10px;
-            position: relative;
-        }
-        #profile-dropdown {
-            display: none;
-            position: absolute;
-            top: 48px;
-            right: 0;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.13);
-            padding: 10px 0;
-            min-width: 140px;
-            z-index: 1001;
-        }
-        #logout-btn {
-            background: none;
-            border: none;
-            width: 100%;
-            text-align: left;
-            padding: 10px 18px;
-            font-size: 1em;
-            color: #1976d2;
-            cursor: pointer;
-        }
         @media (max-width: 900px) {
             .navbar {
                 flex-direction: column;
@@ -256,10 +245,24 @@
                 margin-top: 8px;
                 gap: 10px;
             }
+            .navbar-logo img {
+                width: 112px;
+                height: 112px;
+            }
+            header figure img {
+                width: 360px;
+            }
         }
         @media (max-width: 700px) {
             .navbar {
                 padding: 0 2vw;
+            }
+            .navbar-logo img {
+                width: 80px;
+                height: 80px;
+            }
+            header figure img {
+                width: 180px;
             }
             .navbar-logo span {
                 display: none;
@@ -269,9 +272,8 @@
                 padding: 0 5vw 28px 5vw;
             }
         }
-        /* Espaço para compensar a barra fixa */
         .navbar-space {
-            height: 48px; /* Reduzido de 64px para 48px */
+            height: 48px;
         }
     </style>
 </head>
@@ -293,15 +295,6 @@
         <div id="header-buttons">
             <button id="open-login-modal" class="header-btn">Login</button>
             <button id="open-register-modal" class="header-btn">Cadastro</button>
-            <div id="user-profile-area">
-                <button id="user-profile-btn" class="header-btn" style="display:flex;align-items:center;gap:8px;padding:8px 18px;">
-                    <span id="user-profile-icon" style="font-size:1.2em;">👤</span>
-                    <span id="user-profile-name"></span>
-                </button>
-                <div id="profile-dropdown">
-                    <button id="logout-btn">Sair</button>
-                </div>
-            </div>
         </div>
     </nav>
     <div class="navbar-space"></div>
@@ -319,16 +312,16 @@
             <h2>Trilhas de Aprendizado</h2>
             <p>Explore as principais áreas de conhecimento para iniciar sua jornada como desenvolvedor.</p>
             <div class="courses">
-                <a href="FLM.html" target="_blank">
+                <a href="FLM.html" title="Fundamentos Lógicos e Matemáticos">
                     <img src="./assets/FLM.jpeg" alt="Fundamentos Lógicos e Matemáticos">
                 </a>
-                <a href="progwebmob.html" target="_blank">
+                <a href="progwebmob.html" title="Programação Web e Mobile">
                     <img src="./assets/programação web e mobile.jpeg" alt="Programação Web e Mobile">
                 </a>
-                <a href="sistemas.html" target="_blank">
+                <a href="sistemas.html" title="Infraestrutura e Sistemas">
                     <img src="./assets/infraestrutura e sistema.jpeg" alt="Infraestrutura e Sistemas">
                 </a>
-                <a href="lingprogramação.html" target="_blank">
+                <a href="lingprogramação.html" title="Linguagens de Programação">
                     <img src="./assets/linguagens de programação.jpeg" alt="Linguagens de Programação">
                 </a>
             </div>

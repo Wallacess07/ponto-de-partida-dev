@@ -21,6 +21,27 @@ O **Ponto de Partida Dev** foi criado para ser o primeiro contato de estudantes 
 
 ---
 
+## 📦 Mudanças Recentes
+
+### 🔄 Padronização e Melhoria da Navegação
+
+- **Barra de navegação fixa e padronizada:**  
+  Todas as páginas agora possuem a mesma barra de navegação fixa no topo, com links para todas as trilhas, login e cadastro. O visual e o comportamento são consistentes em todo o site.
+
+- **Links mais amigáveis:**  
+  Os textos dos links do menu foram suavizados para facilitar a navegação e compreensão.
+
+- **Navegação fluida (SPA-like):**  
+  Foi implementado um script JavaScript que permite trocar o conteúdo principal (`<main>`) das páginas sem recarregar toda a página, tornando a navegação mais rápida e suave. O endereço na barra do navegador é atualizado e o botão voltar/avançar funciona normalmente.
+
+- **Responsividade e acessibilidade mantidas:**  
+  O layout segue adaptado para desktop e mobile, com contraste adequado e navegação simples.
+
+- **Exibição do perfil:**  
+  O botão de perfil e logout só aparece após o login, mantendo a interface limpa para visitantes.
+
+---
+
 ## 📁 Estrutura e Navegação
 
 ```
@@ -31,7 +52,7 @@ O **Ponto de Partida Dev** foi criado para ser o primeiro contato de estudantes 
 ├── sistemas.html             # Infraestrutura e Sistemas
 ├── lingprogramação.html      # Linguagens de Programação
 ├── instalVscode.html         # Guia de instalação do VS Code e linguagens
-├── funcionalidadejs.js       # Funcionalidades de login/cadastro/perfil
+├── funcionalidadejs.js       # Funcionalidades de login/cadastro/perfil e navegação fluida
 ├── assets/                   # Imagens e logos do projeto
 └── README.md                 # Documentação do projeto
 ```
@@ -55,6 +76,9 @@ O **Ponto de Partida Dev** foi criado para ser o primeiro contato de estudantes 
 
 - **Trilhas Temáticas:**  
   Links para páginas de Fundamentos, Web/Mobile, Infraestrutura e Linguagens.
+
+- **Navegação fluida:**  
+  Troca de páginas sem recarregar todo o site, proporcionando experiência mais rápida e moderna.
 
 - **Responsividade:**  
   Layout adaptado para desktop e mobile.
@@ -101,6 +125,7 @@ O **Ponto de Partida Dev** foi criado para ser o primeiro contato de estudantes 
 
 - O sistema de login/cadastro é apenas simulado no front-end (não há backend).
 - Para uso real, seria necessário integrar com um serviço de autenticação.
+- A navegação fluida depende de todas as páginas seguirem a mesma estrutura de `<main>`.
 
 ---
 
