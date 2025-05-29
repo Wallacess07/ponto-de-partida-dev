@@ -26,6 +26,17 @@ document.addEventListener('DOMContentLoaded', function () {
         if (modal) modal.style.display = 'none';
     }
 
+    // Persistência do login usando localStorage
+    function saveLogin(nome) {
+        localStorage.setItem('ppd_user', nome);
+    }
+    function clearLogin() {
+        localStorage.removeItem('ppd_user');
+    }
+    function getLogin() {
+        return localStorage.getItem('ppd_user');
+    }
+
     // Cadastro
     if (openRegisterBtn && registerModal && closeRegisterBtn) {
         openRegisterBtn.addEventListener('click', () => openModal(registerModal));
@@ -33,12 +44,14 @@ document.addEventListener('DOMContentLoaded', function () {
         registerModal.addEventListener('click', (e) => {
             if (e.target === registerModal) closeModal(registerModal);
         });
-        registerForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            alert('Cadastro enviado!');
-            closeModal(registerModal);
-            registerForm.reset();
-        });
+        if (registerForm) {
+            registerForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                alert('Cadastro enviado!');
+                closeModal(registerModal);
+                registerForm.reset();
+            });
+        }
     }
 
     // Login
@@ -48,16 +61,19 @@ document.addEventListener('DOMContentLoaded', function () {
         loginModal.addEventListener('click', (e) => {
             if (e.target === loginModal) closeModal(loginModal);
         });
-        loginForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            // Simula login e mostra perfil
-            const email = loginForm.querySelector('input[type="email"]').value;
-            let nome = email.split('@')[0];
-            nome = nome.charAt(0).toUpperCase() + nome.slice(1);
-            showUserProfile(nome);
-            closeModal(loginModal);
-            loginForm.reset();
-        });
+        if (loginForm) {
+            loginForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                // Simula login e mostra perfil
+                const email = loginForm.querySelector('input[type="email"]').value;
+                let nome = email.split('@')[0];
+                nome = nome.charAt(0).toUpperCase() + nome.slice(1);
+                saveLogin(nome); // Salva login no localStorage
+                showUserProfile(nome);
+                closeModal(loginModal);
+                loginForm.reset();
+            });
+        }
     }
 
     // Mostrar perfil e esconder botões login/cadastro
@@ -70,6 +86,12 @@ document.addEventListener('DOMContentLoaded', function () {
         if (openRegisterBtn) openRegisterBtn.style.display = 'none';
     }
 
+    // Checa se já está logado ao carregar a página
+    const usuarioSalvo = getLogin();
+    if (usuarioSalvo) {
+        showUserProfile(usuarioSalvo);
+    }
+
     // Logout
     if (logoutBtn) {
         logoutBtn.addEventListener('click', function () {
@@ -77,6 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (openLoginBtn) openLoginBtn.style.display = '';
             if (openRegisterBtn) openRegisterBtn.style.display = '';
             profileDropdown.style.display = 'none';
+            clearLogin(); // Limpa login do localStorage
         });
     }
 

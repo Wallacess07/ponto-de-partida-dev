@@ -241,10 +241,12 @@
             cursor: pointer;
             transition: background 0.2s, box-shadow 0.2s;
             box-shadow: 0 2px 8px rgba(33,150,243,0.10);
-        }
-        .register-form button[type="submit"]:hover {
-            background: linear-gradient(90deg, #1976d2 0%, #4fc3f7 100%);
-            box-shadow: 0 4px 16px rgba(33,150,243,0.18);
+            display: block;           /* Centraliza horizontalmente */
+            margin-left: auto;        /* Centraliza horizontalmente */
+            margin-right: auto;       /* Centraliza horizontalmente */
+            width: 70%;               /* Opcional: largura agradável */
+            max-width: 180px;         /* Opcional: largura máxima */
+            text-align: center;       /* Opcional: centraliza texto */
         }
         #login-form-fields button[type="submit"] {
             display: block;
