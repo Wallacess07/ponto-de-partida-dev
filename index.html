@@ -23,8 +23,8 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 2vw;
-            height: 64px;
+            padding: 0 1vw; /* Reduzido de 2vw para 1vw */
+            height: 48px;   /* Reduzido de 64px para 48px */
             z-index: 2000;
             box-shadow: 0 2px 12px rgba(0,0,0,0.07);
             box-sizing: border-box;
@@ -36,47 +36,44 @@
             text-decoration: none;
         }
         .navbar-logo img {
-            width: 44px;
-            height: 44px;
+            width: 32px;   /* Reduzido de 44px para 32px */
+            height: 32px;  /* Reduzido de 44px para 32px */
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             background: #fff;
         }
         .navbar-logo span {
             color: #fff;
-            font-size: 1.25em;
+            font-size: 1em; /* Reduzido de 1.25em para 1em */
             font-weight: bold;
             letter-spacing: 1px;
         }
         .navbar-links {
             display: flex;
             align-items: center;
-            gap: 18px;
+            gap: 12px; /* Reduzido de 18px para 12px */
         }
         .navbar-link {
             color: #fff;
             text-decoration: none;
-            font-size: 1.08em;
+            font-size: 0.98em; /* Reduzido de 1.08em para 0.98em */
             font-weight: 500;
-            padding: 8px 14px;
+            padding: 6px 10px; /* Reduzido de 8px 14px para 6px 10px */
             border-radius: 6px;
             transition: background 0.18s;
         }
-        .navbar-link:hover {
-            background: rgba(255,255,255,0.13);
-        }
         #header-buttons {
             display: flex;
-            gap: 12px;
+            gap: 8px; /* Reduzido de 12px para 8px */
             align-items: center;
         }
         .header-btn {
-            padding: 8px 22px;
+            padding: 6px 14px; /* Reduzido de 8px 22px para 6px 14px */
             background: linear-gradient(90deg, #4fc3f7 0%, #1976d2 100%);
             color: #fff;
             border: none;
             border-radius: 7px;
-            font-size: 1em;
+            font-size: 0.95em; /* Reduzido de 1em para 0.95em */
             font-weight: 600;
             cursor: pointer;
             box-shadow: 0 2px 8px rgba(33,150,243,0.10);
@@ -274,7 +271,7 @@
         }
         /* Espaço para compensar a barra fixa */
         .navbar-space {
-            height: 64px;
+            height: 48px; /* Reduzido de 64px para 48px */
         }
     </style>
 </head>

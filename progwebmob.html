@@ -12,6 +12,83 @@
             background: #f0f8ff;
             color: #222;
         }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            min-width: 320px;
+            max-width: 100vw;
+            background: linear-gradient(90deg, #4fc3f7 0%, #1976d2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1vw;
+            height: 48px;
+            z-index: 2000;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+            box-sizing: border-box;
+        }
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        .navbar-logo img {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            background: #fff;
+        }
+        .navbar-logo span {
+            color: #fff;
+            font-size: 1em;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .navbar-links {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .navbar-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.98em;
+            font-weight: 500;
+            padding: 6px 10px;
+            border-radius: 6px;
+            transition: background 0.18s;
+        }
+        .navbar-link:hover {
+            background: rgba(25, 118, 210, 0.13);
+        }
+        #header-buttons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .header-btn {
+            padding: 6px 14px;
+            background: linear-gradient(90deg, #4fc3f7 0%, #1976d2 100%);
+            color: #fff;
+            border: none;
+            border-radius: 7px;
+            font-size: 0.95em;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(33,150,243,0.10);
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+        .header-btn:hover {
+            background: linear-gradient(90deg, #1976d2 0%, #4fc3f7 100%);
+            box-shadow: 0 4px 16px rgba(33,150,243,0.18);
+        }
+        .navbar-space {
+            height: 48px;
+        }
         header {
             background: #4fc3f7;
             padding: 30px 0 10px 0;
@@ -78,23 +155,6 @@
             font-size: 1em;
             letter-spacing: 1px;
         }
-        @media (max-width: 700px) {
-            #header-buttons {
-                top: 10px;
-                right: 10px;
-            }
-            main {
-                padding: 0 5px;
-            }
-            section img {
-                width: 95vw;
-            }
-            .register-form {
-                width: 98vw;
-                padding: 0 5vw 28px 5vw;
-            }
-        }
-        /* Estilos para os modais */
         .modal-bg {
             display: none;
             position: fixed;
@@ -106,22 +166,6 @@
             z-index: 1000;
             justify-content: center;
             align-items: center;
-        }
-        .header-btn {
-            padding: 8px 22px;
-            background: linear-gradient(90deg, #4fc3f7 0%, #1976d2 100%);
-            color: #fff;
-            border: none;
-            border-radius: 7px;
-            font-size: 1em;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 2px 8px rgba(33,150,243,0.10);
-            transition: background 0.2s, box-shadow 0.2s;
-        }
-        .header-btn:hover {
-            background: linear-gradient(90deg, #1976d2 0%, #4fc3f7 100%);
-            box-shadow: 0 4px 16px rgba(33,150,243,0.18);
         }
         .close-modal-btn {
             position: absolute;
@@ -146,6 +190,7 @@
             display: flex;
             flex-direction: column;
             gap: 18px;
+            position: relative;
         }
         .register-header {
             background: linear-gradient(90deg, #4fc3f7 0%, #1976d2 100%);
@@ -160,33 +205,6 @@
             font-size: 1.3em;
             font-weight: 600;
             letter-spacing: 1px;
-        }
-        label {
-            display: block;
-            margin-bottom: 12px;
-            font-weight: 500;
-        }
-        input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 1em;
-            margin-top: 6px;
-        }
-        button {
-            background: #1976d2;
-            color: #fff;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1.1em;
-            margin-top: 10px;
-            width: 100%;
-        }
-        button:hover {
-            background: #155a8a;
         }
         .register-form label {
             display: flex;
@@ -225,26 +243,67 @@
             background: linear-gradient(90deg, #1976d2 0%, #4fc3f7 100%);
             box-shadow: 0 4px 16px rgba(33,150,243,0.18);
         }
+        @media (max-width: 700px) {
+            main {
+                padding: 0 5px;
+            }
+            section img {
+                width: 95vw;
+            }
+            #header-buttons {
+                top: 10px;
+                right: 10px;
+            }
+            .register-form {
+                width: 98vw;
+                padding: 0 5vw 28px 5vw;
+            }
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px;
+                height: auto;
+            }
+            .navbar-links {
+                flex-direction: column;
+                width: 100%;
+            }
+            .navbar-link {
+                padding: 10px 0;
+                width: 100%;
+                text-align: center;
+            }
+            .navbar-space {
+                height: 60px;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Barra de navegação fixa -->
+    <nav class="navbar">
+        <a href="index.html" class="navbar-logo">
+            <img src="./assets/logoppd.jpeg" alt="Logo do site Ponto de Partida Dev.">
+            <span>Ponto de Partida Dev</span>
+        </a>
+        <div class="navbar-links">
+            <a href="index.html" class="navbar-link">Início</a>
+            <a href="FLM.html" class="navbar-link">Fundamentos Lógicos</a>
+            <a href="progwebmob.html" class="navbar-link">Web & Mobile</a>
+            <a href="sistemas.html" class="navbar-link">Infraestrutura</a>
+            <a href="lingprogramação.html" class="navbar-link">Linguagens</a>
+            <a href="instalVscode.html" class="navbar-link">Instalar VS Code</a>
+        </div>
+        <div id="header-buttons">
+            <button id="open-login-modal" class="header-btn">Login</button>
+            <button id="open-register-modal" class="header-btn">Cadastro</button>
+        </div>
+    </nav>
+    <div class="navbar-space"></div>
     <header>
         <img src="./assets/logoppd.jpeg" alt="Logo do site Ponto de Partida Dev.">
         <h1>Programação para Web e Mobile</h1>
     </header>
-    <div id="header-buttons" style="position:absolute;top:24px;right:32px;display:flex;gap:12px;z-index:10;">
-        <button id="open-login-modal" class="header-btn">Login</button>
-        <button id="open-register-modal" class="header-btn">Cadastro</button>
-        <div id="user-profile-area" style="display:none;align-items:center;gap:10px;">
-            <button id="user-profile-btn" class="header-btn" style="display:flex;align-items:center;gap:8px;padding:8px 18px;">
-                <span id="user-profile-icon" style="font-size:1.2em;">👤</span>
-                <span id="user-profile-name"></span>
-            </button>
-            <div id="profile-dropdown" style="display:none;position:absolute;top:48px;right:0;background:#fff;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.13);padding:10px 0;min-width:140px;z-index:1001;">
-                <button id="logout-btn" style="background:none;border:none;width:100%;text-align:left;padding:10px 18px;font-size:1em;color:#1976d2;cursor:pointer;">Sair</button>
-            </div>
-        </div>
-    </div>
     <main>
         <section>
             <figure>
@@ -274,9 +333,6 @@
             </p>
         </section>
     </main>
-    <footer>
-        &copy; 2025 Ponto de Partida Dev. Todos os direitos reservados.
-    </footer>
     <!-- Modal de Cadastro -->
     <div id="register-modal" class="modal-bg">
         <div class="register-form" style="position:relative;">
@@ -325,6 +381,9 @@
             </form>
         </div>
     </div>
+    <footer>
+        &copy; 2025 Ponto de Partida Dev. Todos os direitos reservados.
+    </footer>
     <script src="funcionalidadejs.js"></script>
 </body>
 </html>
