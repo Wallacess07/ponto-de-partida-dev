@@ -83,6 +83,9 @@ O **Ponto de Partida Dev** foi criado para ser o primeiro contato de estudantes 
 - **Responsividade:**  
   Layout adaptado para desktop e mobile.
 
+- **Acessibilidade:**  
+  Botão de audiodescrição disponível em todas as páginas, facilitando o acesso para pessoas com deficiência visual.
+
 ---
 
 ## 🎨 Decisões de Design
@@ -94,7 +97,7 @@ O **Ponto de Partida Dev** foi criado para ser o primeiro contato de estudantes 
   Todos os modais e botões seguem o mesmo padrão visual em todas as páginas.
 
 - **Acessibilidade:**  
-  Contraste adequado e navegação simples.
+  Contraste adequado, navegação simples e recursos como audiodescrição.
 
 - **Sem dependências externas:**  
   O projeto é 100% HTML, CSS e JS puro, facilitando o estudo e a customização.
