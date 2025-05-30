@@ -268,6 +268,42 @@
             background: linear-gradient(90deg, #1976d2 0%, #4fc3f7 100%);
             box-shadow: 0 4px 16px rgba(33,150,243,0.18);
         }
+        /* Estilos para os botões de acessibilidade */
+        .acessibilidade-btns {
+            position: fixed;
+            bottom: 16px;
+            left: 16px;
+            top: auto;
+            right: auto;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .acess-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(90deg, #4fc3f7 0%, #1976d2 100%);
+            color: #fff;
+            border: none;
+            border-radius: 7px;
+            padding: 6px 12px;
+            font-size: 0.93em;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(33,150,243,0.10);
+            transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+            outline: none;
+        }
+        .acess-btn:hover, .acess-btn:focus {
+            background: linear-gradient(90deg, #1976d2 0%, #4fc3f7 100%);
+            box-shadow: 0 4px 16px rgba(33,150,243,0.18);
+            transform: translateY(-2px) scale(1.04);
+        }
+        .acess-btn-text {
+            display: inline;
+        }
         @media (max-width: 700px) {
             main {
                 padding: 0 5px;
@@ -301,11 +337,22 @@
             .navbar-space {
                 height: 60px;
             }
+            .acessibilidade-btns {
+                bottom: 8px;
+                left: 8px;
+            }
+            .acess-btn {
+                padding: 5px 8px;
+                font-size: 0.85em;
+            }
+            .acess-btn-text {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Barra de navegação fixa -->
+    <!-- Barra de navegação fixa com todas as funcionalidades do index.html -->
     <nav class="navbar">
         <a href="index.html" class="navbar-logo">
             <img src="./assets/logoppd.jpeg" alt="Logo do site Ponto de Partida Dev.">
@@ -322,6 +369,15 @@
         <div id="header-buttons">
             <button id="open-login-modal" class="header-btn">Login</button>
             <button id="open-register-modal" class="header-btn">Cadastro</button>
+            <div id="user-profile-area" style="display:none;align-items:center;gap:10px;position:relative;">
+                <button id="user-profile-btn" class="header-btn" style="display:flex;align-items:center;gap:8px;padding:8px 18px;">
+                    <span id="user-profile-icon" style="font-size:1.2em;">👤</span>
+                    <span id="user-profile-name"></span>
+                </button>
+                <div id="profile-dropdown" style="display:none;position:absolute;top:48px;right:0;background:#fff;border-radius:8px;box-shadow:0 2px 12px rgba(0,0,0,0.13);padding:10px 0;min-width:140px;z-index:1001;">
+                    <button id="logout-btn" style="background:none;border:none;width:100%;text-align:left;padding:10px 18px;font-size:1em;color:#1976d2;cursor:pointer;">Sair</button>
+                </div>
+            </div>
         </div>
     </nav>
     <div class="navbar-space"></div>
@@ -450,6 +506,36 @@
             </form>
         </div>
     </div>
+    <!-- Botões de acessibilidade estilizados com funcionalidade de audiodescrição -->
+    <div class="acessibilidade-btns">
+        <button class="acess-btn" id="btn-audiodescricao" title="Ativar audiodescrição">
+            <span aria-hidden="true" style="font-size:1.2em;vertical-align:middle;">🔊</span>
+            <span class="acess-btn-text">Audiodescrição</span>
+        </button>
+        <button class="acess-btn" id="btn-parar-audiodescricao" title="Parar audiodescrição">
+            <span aria-hidden="true" style="font-size:1.2em;vertical-align:middle;">⏹️</span>
+            <span class="acess-btn-text">Parar</span>
+        </button>
+    </div>
+    <script>
+        function iniciarAudiodescricao() {
+            let texto = "";
+            const header = document.querySelector("header");
+            if (header) texto += header.innerText + ". ";
+            const main = document.querySelector("main");
+            if (main) texto += main.innerText;
+            if (texto.trim() === "") return;
+            const synth = window.speechSynthesis;
+            const utterThis = new SpeechSynthesisUtterance(texto);
+            utterThis.lang = "pt-BR";
+            synth.speak(utterThis);
+        }
+        function pararAudiodescricao() {
+            window.speechSynthesis.cancel();
+        }
+        document.getElementById('btn-audiodescricao').addEventListener('click', iniciarAudiodescricao);
+        document.getElementById('btn-parar-audiodescricao').addEventListener('click', pararAudiodescricao);
+    </script>
     <footer>
         &copy; 2025 Ponto de Partida Dev. Todos os direitos reservados.
     </footer>

@@ -116,4 +116,25 @@ document.addEventListener('DOMContentLoaded', function () {
             e.stopPropagation();
         });
     }
+
+    // Audiodescrição: inicia a leitura do conteúdo
+    function iniciarAudiodescricao() {
+        const descricaoElem = document.getElementById("descricao");
+        const paragrafoElem = document.querySelector("p");
+        if (!descricaoElem || !paragrafoElem) return;
+        const descricao = descricaoElem.innerText;
+        const paragrafo = paragrafoElem.innerText;
+        const texto = descricao + ". " + paragrafo;
+
+        const synth = window.speechSynthesis;
+        const utterThis = new SpeechSynthesisUtterance(texto);
+        utterThis.lang = "pt-BR";
+        synth.speak(utterThis);
+    }
+
+    // Audiodescrição: para a leitura
+    function pararAudiodescricao() {
+        const synth = window.speechSynthesis;
+        synth.cancel();
+    }
 });
