@@ -240,12 +240,12 @@
             cursor: pointer;
             transition: background 0.2s, box-shadow 0.2s;
             box-shadow: 0 2px 8px rgba(33,150,243,0.10);
-            display: block;           /* Centraliza horizontalmente */
-            margin-left: auto;        /* Centraliza horizontalmente */
-            margin-right: auto;       /* Centraliza horizontalmente */
-            width: 70%;               /* Opcional: largura agradável */
-            max-width: 180px;         /* Opcional: largura máxima */
-            text-align: center;       /* Opcional: centraliza texto */
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 70%;
+            max-width: 180px;
+            text-align: center;
         }
         #login-form-fields button[type="submit"] {
             display: block;
@@ -518,27 +518,42 @@
         </button>
     </div>
     <script>
-        function iniciarAudiodescricao() {
-            let texto = "";
-            const header = document.querySelector("header");
-            if (header) texto += header.innerText + ". ";
-            const main = document.querySelector("main");
-            if (main) texto += main.innerText;
-            if (texto.trim() === "") return;
-            const synth = window.speechSynthesis;
-            const utterThis = new SpeechSynthesisUtterance(texto);
-            utterThis.lang = "pt-BR";
-            synth.speak(utterThis);
-        }
-        function pararAudiodescricao() {
-            window.speechSynthesis.cancel();
-        }
-        document.getElementById('btn-audiodescricao').addEventListener('click', iniciarAudiodescricao);
-        document.getElementById('btn-parar-audiodescricao').addEventListener('click', pararAudiodescricao);
+        document.addEventListener('DOMContentLoaded', function () {
+            function iniciarAudiodescricao() {
+                let texto = "";
+                const header = document.querySelector("header");
+                if (header) texto += header.innerText + ". ";
+                const main = document.querySelector("main");
+                if (main) texto += main.innerText;
+                if (texto.trim() === "") return;
+                const synth = window.speechSynthesis;
+                const utterThis = new SpeechSynthesisUtterance(texto);
+                utterThis.lang = "pt-BR";
+                synth.speak(utterThis);
+            }
+            function pararAudiodescricao() {
+                window.speechSynthesis.cancel();
+            }
+            const btnAudio = document.getElementById('btn-audiodescricao');
+            const btnParar = document.getElementById('btn-parar-audiodescricao');
+            if (btnAudio) btnAudio.addEventListener('click', iniciarAudiodescricao);
+            if (btnParar) btnParar.addEventListener('click', pararAudiodescricao);
+        });
     </script>
     <footer>
         &copy; 2025 Ponto de Partida Dev. Todos os direitos reservados.
     </footer>
     <script src="funcionalidadejs.js"></script>
+    <!-- VLibras Plugin (Intérprete de Libras) -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget("https://vlibras.gov.br/app");
+    </script>
 </body>
 </html>

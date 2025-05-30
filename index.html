@@ -480,34 +480,39 @@
     <footer>
         &copy; 2025 Ponto de Partida Dev. Todos os direitos reservados.
     </footer>
+    <!-- VLibras Plugin (Intérprete de Libras) -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
     <script src="funcionalidadejs.js"></script>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
     <script>
-        // Delegue a chamada para as funções do funcionalidadejs.js
-        document.getElementById('btn-audiodescricao').addEventListener('click', function() {
-            if (typeof iniciarAudiodescricao === 'function') iniciarAudiodescricao();
+        new window.VLibras.Widget("https://vlibras.gov.br/app");
+        // Garante que o DOM está carregado antes de adicionar os eventos
+        document.addEventListener('DOMContentLoaded', function () {
+            function iniciarAudiodescricao() {
+                let texto = "";
+                const header = document.querySelector("header");
+                if (header) texto += header.innerText + ". ";
+                const main = document.querySelector("main");
+                if (main) texto += main.innerText;
+                if (texto.trim() === "") return;
+                const synth = window.speechSynthesis;
+                const utterThis = new SpeechSynthesisUtterance(texto);
+                utterThis.lang = "pt-BR";
+                synth.speak(utterThis);
+            }
+            function pararAudiodescricao() {
+                window.speechSynthesis.cancel();
+            }
+            const btnAudio = document.getElementById('btn-audiodescricao');
+            const btnParar = document.getElementById('btn-parar-audiodescricao');
+            if (btnAudio) btnAudio.addEventListener('click', iniciarAudiodescricao);
+            if (btnParar) btnParar.addEventListener('click', pararAudiodescricao);
         });
-        document.getElementById('btn-parar-audiodescricao').addEventListener('click', function() {
-            if (typeof pararAudiodescricao === 'function') pararAudiodescricao();
-        });
-        // Função de audiodescrição
-        function iniciarAudiodescricao() {
-            let texto = "";
-            // Tenta pegar o conteúdo principal para audiodescrição
-            const header = document.querySelector("header");
-            if (header) texto += header.innerText + ". ";
-            const main = document.querySelector("main");
-            if (main) texto += main.innerText;
-            if (texto.trim() === "") return;
-            const synth = window.speechSynthesis;
-            const utterThis = new SpeechSynthesisUtterance(texto);
-            utterThis.lang = "pt-BR";
-            synth.speak(utterThis);
-        }
-        function pararAudiodescricao() {
-            window.speechSynthesis.cancel();
-        }
-        document.getElementById('btn-audiodescricao').addEventListener('click', iniciarAudiodescricao);
-        document.getElementById('btn-parar-audiodescricao').addEventListener('click', pararAudiodescricao);
     </script>
 </body>
 </html>
