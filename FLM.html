@@ -363,8 +363,412 @@
         </section>
         <section>
             <h2>Lógica de Programação</h2>
+            <h4>1. Por que Estudar Lógica de Programação?</h4>
+            <ul>
+                <li><b>Desenvolve o pensamento estruturado</b>: Ensina a resolver problemas de forma organizada, dividindo-os em etapas lógicas.</li>
+                <li><b>É a base para qualquer linguagem de programação</b>: Python, Java, C e outras linguagens dependem de conceitos como variáveis, condições e repetições.</li>
+                <li><b>Melhora a eficiência na solução de problemas</b>: Permite criar algoritmos mais rápidos e com menos erros.</li>
+                <li><b>Prepara para estruturas avançadas</b>: Vetores, matrizes e funções são essenciais para programas complexos.</li>
+            </ul>
+            <hr>
+            <h4>2. Trilha de Aprendizado</h4>
+            <ol>
+                <li>
+                    <b>Conceitos Básicos</b>
+                    <ul>
+                        <li>O que é um <b>algoritmo</b>? (Sequência de passos para resolver um problema).</li>
+                        <li><b>Variáveis e tipos de dados</b> (números, textos, valores lógicos).</li>
+                        <li><b>Operadores</b> (matemáticos, comparação, lógicos).</li>
+                    </ul>
+                </li>
+                <li>
+                    <b>Estruturas de Controle</b>
+                    <ul>
+                        <li><b>Sequência</b>: Execução linha por linha.</li>
+                        <li><b>Condicionais</b>: Tomar decisões (<code>if-else</code>, <code>switch-case</code>).</li>
+                        <li><b>Repetição</b>: Loops (<code>while</code>, <code>for</code>, <code>do-while</code>).</li>
+                    </ul>
+                </li>
+                <li>
+                    <b>Estruturas de Dados</b>
+                    <ul>
+                        <li><b>Vetores (arrays)</b>: Listas ordenadas.</li>
+                        <li><b>Matrizes</b>: Tabelas com linhas e colunas.</li>
+                        <li><b>Registros (structs)</b>: Agrupamento de dados diferentes.</li>
+                    </ul>
+                </li>
+                <li>
+                    <b>Modularização e Funções</b>
+                    <ul>
+                        <li>Dividir um problema em partes menores (funções).</li>
+                        <li>Reutilização de código.</li>
+                    </ul>
+                </li>
+                <li>
+                    <b>Manipulação de Arquivos</b>
+                    <ul>
+                        <li>Ler e gravar dados em arquivos.</li>
+                    </ul>
+                </li>
+                <li>
+                    <b>Tópicos Avançados</b>
+                    <ul>
+                        <li>Recursividade, listas encadeadas, pilhas e filas.</li>
+                    </ul>
+                </li>
+            </ol>
+            <hr>
+            <h4>3. Explicação Detalhada</h4>
+            <h5>1. Algoritmos e Pseudocódigo</h5>
+            <p><b>Algoritmo</b>: Sequência lógica para resolver um problema.<br>
+            Exemplo: "Trocar uma lâmpada queimada".</p>
+            <p><b>Pseudocódigo</b>: Linguagem informal que simula código real.</p>
+            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+Se (lâmpada está queimada) então
+    Pegar escada
+    Trocar lâmpada
+Senão
+    Ligar interruptor
+FimSe
+            </pre>
+            <h5>2. Variáveis e Tipos de Dados</h5>
+            <ul>
+                <li><b>Variável</b>: Espaço na memória que armazena um valor.</li>
+                <li><b>Tipos comuns:</b>
+                    <ul>
+                        <li><code>Inteiro</code> (ex.: <code>idade = 25</code>).</li>
+                        <li><code>Real</code> (ex.: <code>peso = 68.5</code>).</li>
+                        <li><code>Caractere</code> (ex.: <code>nome = "Maria"</code>).</li>
+                        <li><code>Lógico</code> (ex.: <code>aprovado = verdadeiro</code>).</li>
+                    </ul>
+                </li>
+            </ul>
+            <h5>3. Estruturas de Controle</h5>
+            <b>Condicionais</b>
+            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+Se (nota >= 7) então
+    Escreva("Aprovado")
+Senão
+    Escreva("Reprovado")
+FimSe
+            </pre>
+            <b>Escolha-Caso (switch-case)</b>
+            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+Escolha (opção)
+    Caso 1: Escreva("Opção 1")
+    Caso 2: Escreva("Opção 2")
+    Senão: Escreva("Inválido")
+FimEscolha
+            </pre>
+            <b>Repetição (Loops)</b>
+            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+i ← 1
+Enquanto (i <= 10) faça
+    Escreva(i)
+    i ← i + 1
+FimEnquanto
+            </pre>
+            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+Para i de 1 até 10 passo 1 faça
+    Escreva(i)
+FimPara
+            </pre>
+            <h5>4. Estruturas de Dados</h5>
+            <b>Vetores (Arrays)</b>
+            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+tipo Vetor = vetor [1..5] de inteiro
+Vetor: numeros
+numeros[1] ← 10
+numeros[2] ← 20
+            </pre>
+            <b>Matrizes</b>
+            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+tipo Matriz = matriz [1..3, 1..3] de inteiro
+Matriz: tabuleiro
+tabuleiro[2,2] ← 1
+            </pre>
+            <b>Registros (Structs)</b>
+            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+tipo Aluno = registro
+    caracter: nome
+    inteiro: idade
+    real: nota
+fimregistro
+Aluno: aluno1
+aluno1.nome ← "João"
+            </pre>
+            <h5>5. Funções (Modularização)</h5>
+            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+Função Soma(a, b)
+    Retorne a + b
+FimFunção
+
+resultado ← Soma(5, 3)
+Escreva(resultado)  // Saída: 8
+            </pre>
+            <hr>
+            <h4>Conclusão</h4>
             <p>
-                Em breve, conteúdos e exercícios práticos para você desenvolver seu raciocínio lógico e aprender a criar algoritmos do zero!
+                A lógica de programação é essencial para quem quer aprender a programar. Ela ensina a pensar de forma estruturada, criar algoritmos eficientes e dominar conceitos que são a base de todas as linguagens de programação. Comece com problemas simples, pratique muito e evolua para estruturas mais complexas. 🚀
+            </p>
+        </section>
+        <section>
+            <h2>Lógica Matemática Aplicada na Programação</h2>
+            <h4>1. Por que Estudar Lógica Matemática?</h4>
+            <ul>
+                <li><b>Base para decisões em algoritmos</b>: Permite criar condições e estruturas de decisão precisas.</li>
+                <li><b>Facilita a compreensão de operadores lógicos</b>: Essencial para trabalhar com <code>AND</code>, <code>OR</code>, <code>NOT</code> e tabelas verdade.</li>
+                <li><b>Ajuda na validação de dados e regras</b>: Garante que programas sigam regras corretas e evitem erros lógicos.</li>
+                <li><b>Prepara para áreas avançadas</b>: Fundamenta estudos em inteligência artificial, bancos de dados e automação.</li>
+            </ul>
+            <hr>
+            <h4>2. Trilha de Aprendizado</h4>
+            <ol>
+                <li>
+                    <b>Proposições e Operadores Lógicos</b>
+                    <ul>
+                        <li>O que é uma <b>proposição</b>? (Afirmação que pode ser verdadeira ou falsa).</li>
+                        <li><b>Operadores lógicos</b>: <code>AND</code> (E), <code>OR</code> (OU), <code>NOT</code> (NÃO).</li>
+                        <li><b>Tabelas verdade</b>: Visualizar todas as possibilidades de valor lógico.</li>
+                    </ul>
+                </li>
+                <li>
+                    <b>Leis e Equivalências Lógicas</b>
+                    <ul>
+                        <li><b>Leis de De Morgan</b>: Simplificam expressões lógicas.</li>
+                        <li><b>Equivalências</b>: Transformar expressões mantendo o mesmo resultado.</li>
+                    </ul>
+                </li>
+                <li>
+                    <b>Quantificadores</b>
+                    <ul>
+                        <li><b>Universal</b> (<code>∀</code>): Afirma que algo vale para todos os casos.</li>
+                        <li><b>Existencial</b> (<code>∃</code>): Afirma que existe pelo menos um caso.</li>
+                    </ul>
+                </li>
+                <li>
+                    <b>Aplicações em Programação</b>
+                    <ul>
+                        <li>Validação de condições em <code>if</code>, <code>while</code>, <code>for</code>.</li>
+                        <li>Filtragem de dados e buscas em listas.</li>
+                        <li>Construção de regras de negócio e restrições.</li>
+                    </ul>
+                </li>
+            </ol>
+            <hr>
+            <h4>3. Exemplos Práticos</h4>
+            <h5>1. Proposições e Operadores</h5>
+            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+// Exemplo de proposições
+A: "O número é par"
+B: "O número é maior que 10"
+
+// Operadores lógicos
+Se (A E B) então
+    Escreva("Número par e maior que 10")
+Senão
+    Escreva("Condição não satisfeita")
+FimSe
+            </pre>
+            <h5>2. Tabela Verdade</h5>
+            <table style="margin:16px auto; border-collapse:collapse; min-width:220px;">
+                <tr style="background:#e3f2fd;">
+                    <th style="border:1px solid #b3c6e7;padding:4px 10px;">A</th>
+                    <th style="border:1px solid #b3c6e7;padding:4px 10px;">B</th>
+                    <th style="border:1px solid #b3c6e7;padding:4px 10px;">A E B</th>
+                    <th style="border:1px solid #b3c6e7;padding:4px 10px;">A OU B</th>
+                    <th style="border:1px solid #b3c6e7;padding:4px 10px;">NÃO A</th>
+                </tr>
+                <tr>
+                    <td>V</td><td>V</td><td>V</td><td>V</td><td>F</td>
+                </tr>
+                <tr style="background:#f7fafd;">
+                    <td>V</td><td>F</td><td>F</td><td>V</td><td>F</td>
+                </tr>
+                <tr>
+                    <td>F</td><td>V</td><td>F</td><td>V</td><td>V</td>
+                </tr>
+                <tr style="background:#f7fafd;">
+                    <td>F</td><td>F</td><td>F</td><td>F</td><td>V</td>
+                </tr>
+            </table>
+            <h5>3. Leis de De Morgan</h5>
+            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+// Negação de expressões
+NÃO (A E B) ≡ (NÃO A) OU (NÃO B)
+NÃO (A OU B) ≡ (NÃO A) E (NÃO B)
+            </pre>
+            <h5>4. Aplicação em Programação</h5>
+            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+// Exemplo em pseudocódigo
+Se (idade >= 18 E possui_carteira) então
+    Escreva("Pode dirigir")
+Senão
+    Escreva("Não pode dirigir")
+FimSe
+            </pre>
+            <hr>
+            <h4>Conclusão</h4>
+            <p>
+                Lógica matemática aplicada é indispensável para criar programas corretos, seguros e eficientes. Ela permite que você construa condições, valide regras e compreenda o funcionamento interno dos algoritmos. Pratique operadores, tabelas verdade e aplique essas ideias em seus códigos!
+            </p>
+        </section>
+        <section>
+            <h2>Matemática Aplicada para Ciência de Dados, IA e Desenvolvimento de Sistemas</h2>
+            <h4>1. Por que Estudar Essa Matemática?</h4>
+            <ul>
+                <li><b>Ciência de Dados</b>: Estatística, álgebra linear e cálculo são usados para análise e modelagem.</li>
+                <li><b>Inteligência Artificial</b>: Redes neurais, aprendizado de máquina e otimização dependem de vetores, derivadas e probabilidade.</li>
+                <li><b>Desenvolvimento de Sistemas</b>: Algoritmos eficientes exigem lógica, teoria dos grafos e estruturas discretas.</li>
+            </ul>
+            <hr>
+            <h4>2. Trilha de Aprendizado</h4>
+            <table style="margin:16px auto; border-collapse:collapse; min-width:320px;">
+                <tr style="background:#e3f2fd;">
+                    <th style="border:1px solid #b3c6e7;padding:4px 10px;">Área</th>
+                    <th style="border:1px solid #b3c6e7;padding:4px 10px;">Tópicos Principais</th>
+                    <th style="border:1px solid #b3c6e7;padding:4px 10px;">Aplicações</th>
+                </tr>
+                <tr>
+                    <td>Álgebra Linear</td>
+                    <td>Vetores, matrizes, decomposições (SVD, PCA)</td>
+                    <td>Redes neurais, processamento de imagens</td>
+                </tr>
+                <tr style="background:#f7fafd;">
+                    <td>Cálculo</td>
+                    <td>Derivadas, integrais, gradientes</td>
+                    <td>Otimização (gradiente descendente)</td>
+                </tr>
+                <tr>
+                    <td>Estatística</td>
+                    <td>Probabilidade, distribuições, testes de hipóteses</td>
+                    <td>Análise exploratória, A/B testing</td>
+                </tr>
+                <tr style="background:#f7fafd;">
+                    <td>Matemática Discreta</td>
+                    <td>Grafos, combinatória, lógica booleana</td>
+                    <td>Bancos de dados, algoritmos de busca</td>
+                </tr>
+                <tr>
+                    <td>Otimização</td>
+                    <td>Programação linear, algoritmos genéticos</td>
+                    <td>Ajuste de modelos (IA, logística)</td>
+                </tr>
+            </table>
+            <hr>
+            <h4>3. Resumo do Conteúdo</h4>
+            <h5>1. Álgebra Linear (Base para IA e Gráficos 3D)</h5>
+            <ul>
+                <li><b>Vetores</b>: Representam dados em múltiplas dimensões (ex.: features em ML).</li>
+                <li><b>Matrizes</b>: Usadas em redes neurais e transformações geométricas.</li>
+                <li><b>Operações Chave</b>:
+                    <ul>
+                        <li>Multiplicação de matrizes (fundamental em deep learning).</li>
+                        <li>Autovalores e autovetores (usados em PCA para redução de dimensionalidade).</li>
+                    </ul>
+                </li>
+            </ul>
+            <b>Exemplo em Python (NumPy):</b>
+            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+import numpy as np
+A = np.array([[1, 2], [3, 4]])
+B = np.array([[5, 6], [7, 8]])
+print(A @ B)  # Multiplicação matricial
+            </pre>
+            <span style="font-size:0.98em;">Saída:</span>
+            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+[[19 22]
+ [43 50]]
+            </pre>
+            <h5>2. Cálculo (Otimização e Gradientes)</h5>
+            <ul>
+                <li><b>Derivadas</b>: Medem taxas de variação (ex.: ajuste de pesos em redes neurais).</li>
+                <li><b>Gradiente Descendente</b>: Minimiza funções de custo (usado em treinamento de IA).</li>
+            </ul>
+            <b>Exemplo (Derivada de f(x) = x²):</b>
+            <p>A derivada f'(x) = 2x indica como a função cresce.</p>
+            <b>Aplicação em IA:</b>
+            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+# Gradiente descendente simples
+def gradient_descent(x, learning_rate=0.1, epochs=100):
+    for _ in range(epochs):
+        grad = 2 * x  # Derivada de x²
+        x -= learning_rate * grad
+    return x
+
+print(gradient_descent(5))  # Aproxima-se de 0
+            </pre>
+            <h5>3. Estatística (Ciência de Dados)</h5>
+            <ul>
+                <li><b>Distribuições</b>: Normal, binomial, Poisson (modelam dados reais).</li>
+                <li><b>Testes de Hipóteses</b>: p-valor, ANOVA (validam resultados).</li>
+                <li><b>Regressão</b>: Relaciona variáveis (ex.: prever preços de imóveis).</li>
+            </ul>
+            <b>Exemplo (Distribuição Normal):</b>
+            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+from scipy.stats import norm
+media, desvio = 0, 1
+norm.pdf(0, media, desvio)  # Probabilidade em x=0
+            </pre>
+            <h5>4. Matemática Discreta (Algoritmos e Bancos de Dados)</h5>
+            <ul>
+                <li><b>Grafos</b>:
+                    <ul>
+                        <li><b>DFS/BFS</b>: Usados em redes sociais e rotas.</li>
+                        <li><b>Dijkstra</b>: Encontra caminhos mais curtos (GPS).</li>
+                    </ul>
+                </li>
+                <li><b>Lógica Booleana</b>: Fundamenta circuitos e queries SQL.</li>
+            </ul>
+            <b>Exemplo (Grafo em Python):</b>
+            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+grafo = {
+    'A': ['B', 'C'],
+    'B': ['D'],
+    'C': ['E']
+}
+# Busca em largura (BFS)
+from collections import deque
+def bfs(grafo, inicio):
+    fila = deque([inicio])
+    while fila:
+        no = fila.popleft()
+        print(no)
+        for vizinho in grafo.get(no, []):
+            fila.append(vizinho)
+bfs(grafo, 'A')
+            </pre>
+            <h5>5. Otimização (IA e Logística)</h5>
+            <ul>
+                <li><b>Programação Linear</b>: Maximiza/minimiza funções lineares (ex.: alocação de recursos).</li>
+                <li><b>Algoritmos Genéticos</b>: Inspirados na evolução (usados em design automático).</li>
+            </ul>
+            <b>Exemplo (SciPy):</b>
+            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+from scipy.optimize import linprog
+# Minimizar 2x + y, sujeito a:
+# x + y >= 1, x >= 0, y >= 0
+c = [2, 1]
+A = [[-1, -1]]  # Restrição: -x - y <= -1
+b = [-1]
+linprog(c, A_ub=A, b_ub=b).x  # Solução ótima
+            </pre>
+            <hr>
+            <h4>Conclusão</h4>
+            <p>
+                Essa matemática é essencial para:<br>
+                🔹 <b>Ciência de Dados</b>: Estatística + álgebra linear.<br>
+                🔹 <b>IA</b>: Cálculo + otimização.<br>
+                🔹 <b>Desenvolvimento</b>: Grafos + lógica.<br>
+            </p>
+            <p>
+                <b>Próximos Passos:</b>
+                <ol style="max-width:700px;margin:12px auto 0 auto;text-align:left;">
+                    <li>Pratique com bibliotecas como NumPy, Pandas e SciPy.</li>
+                    <li>Implemente um modelo de regressão linear do zero.</li>
+                    <li>Explore frameworks de ML (TensorFlow, PyTorch).</li>
+                </ol>
+                Dominar esses tópicos tornará você um profissional completo na era dos dados! 🚀
             </p>
         </section>
     </main>
