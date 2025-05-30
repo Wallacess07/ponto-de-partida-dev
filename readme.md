@@ -129,6 +129,7 @@ O **Ponto de Partida Dev** foi criado para ser o primeiro contato de estudantes 
 - O sistema de login/cadastro é apenas simulado no front-end (não há backend).
 - Para uso real, seria necessário integrar com um serviço de autenticação.
 - A navegação fluida depende de todas as páginas seguirem a mesma estrutura de `<main>`.
+- as informações constadas sobre os conteudos são meramente ilustrativos para a estrutura desse projeto!
 
 ---
 
