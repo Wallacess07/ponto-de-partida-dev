@@ -11,6 +11,14 @@
             font-family: 'Segoe UI', Arial, sans-serif;
             background: #f0f8ff;
             color: #222;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        body.fade-out {
+            opacity: 0 !important;
+        }
+        body.fade-in {
+            opacity: 1 !important;
         }
         .navbar {
             position: fixed;
@@ -108,6 +116,61 @@
             max-width: 900px;
             margin: 30px auto;
             padding: 0 20px;
+            display: flex;
+            align-items: flex-start;
+        }
+        nav.mini-vertical-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            min-width: 180px;
+            margin-top: 0;
+            align-items: stretch;
+            position: sticky;
+            top: 64px;
+            z-index: 100;
+            margin-right: 30px;
+            animation: slide-in-left 0.5s;
+        }
+        nav.mini-vertical-menu a {
+            display: block;
+            background: linear-gradient(90deg, #4fc3f7 0%, #1976d2 100%);
+            color: #fff;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: 500;
+            padding: 18px 16px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(33,150,243,0.10);
+            transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.15s;
+            text-align: center;
+            margin: 0;
+        }
+        nav.mini-vertical-menu a:hover,
+        nav.mini-vertical-menu a:focus {
+            background: linear-gradient(90deg, #1976d2 0%, #4fc3f7 100%);
+            color: #e3f2fd;
+            box-shadow: 0 4px 16px rgba(33,150,243,0.18);
+            transform: scale(1.04);
+        }
+        nav.mini-vertical-menu a.active,
+        nav.mini-vertical-menu a.active:focus {
+            background: #fff;
+            color: #1976d2;
+            border: 2px solid #1976d2;
+            font-weight: bold;
+            box-shadow: 0 4px 16px rgba(33,150,243,0.13);
+            transform: none;
+        }
+        @keyframes slide-in-left {
+            0% {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
         section {
             margin-bottom: 40px;
@@ -308,6 +371,13 @@
         @media (max-width: 700px) {
             main {
                 padding: 0 5px;
+                flex-direction: column;
+                align-items: stretch;
+            }
+            nav.mini-vertical-menu {
+                margin-right: 0;
+                margin-bottom: 20px;
+                width: 100%;
             }
             section img {
                 width: 95vw;
@@ -350,6 +420,60 @@
                 display: none;
             }
         }
+        /* CSS - Side menu styles */
+        nav.mini-vertical-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            min-width: 180px;
+            margin-top: 0;
+            align-items: stretch;
+            position: sticky;
+            top: 64px;
+            z-index: 100;
+            margin-right: 30px;
+            animation: slide-in-left 0.5s;
+        }
+        nav.mini-vertical-menu a {
+            display: block;
+            background: linear-gradient(90deg, #4fc3f7 0%, #1976d2 100%);
+            color: #fff;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: 500;
+            padding: 18px 16px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(33,150,243,0.10);
+            transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.15s;
+            text-align: center;
+            margin: 0;
+        }
+        nav.mini-vertical-menu a:hover,
+        nav.mini-vertical-menu a:focus {
+            background: linear-gradient(90deg, #1976d2 0%, #4fc3f7 100%);
+            color: #e3f2fd;
+            box-shadow: 0 4px 16px rgba(33,150,243,0.18);
+            transform: scale(1.04);
+        }
+        nav.mini-vertical-menu a.active,
+        nav.mini-vertical-menu a.active:focus {
+            background: #fff;
+            color: #1976d2;
+            border: 2px solid #1976d2;
+            font-weight: bold;
+            box-shadow: 0 4px 16px rgba(33,150,243,0.13);
+            transform: none;
+        }
+        @keyframes slide-in-left {
+            0% {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
     </style>
 </head>
 <body>
@@ -386,75 +510,85 @@
         <img src="./assets/logoppd.jpeg" alt="Logo do site Ponto de Partida Dev.">
         <h1>Linguagens de Programação</h1>
     </header>
-    <main>
-        <section>
-            <figure>
-                <img src="./assets/LP(title).png" alt="Imagem de Linguagens de Programação">
-            </figure>
-            <p>
-                Este módulo apresenta as <strong>principais linguagens de programação</strong>, desde opções amigáveis para iniciantes até ferramentas poderosas para desenvolvimento avançado.
-            </p>
-            <p>
-                Com uma abordagem prática e didática, você <strong>aprenderá</strong> a criar desde páginas web interativas até sistemas de alto desempenho.
-            </p>
-            <h2>Conteúdos do Curso</h2>
-            <ul>
-                <li><strong>Python</strong>: Linguagem simples e versátil, perfeita para iniciantes.</li>
-                <li><strong>JavaScript</strong>: Adicione interatividade e dinamismo a páginas web.</li>
-                <li><strong>C++</strong>: Domine uma linguagem robusta para projetos de alta performance.</li>
-                <li><strong>HTML/CSS</strong>: A base do desenvolvimento web: estrutura e estilo.</li>
-            </ul>
-            <p>
-                Com esses conhecimentos, você poderá escolher a linguagem ideal para cada projeto e ampliar suas oportunidades no mundo da tecnologia.
-            </p>
-        </section>
-        <section>
-            <h2>Prática em Linguagens</h2>
-            <p>
-                Em breve, conteúdos e exercícios práticos para você experimentar diferentes linguagens e desenvolver seus próprios projetos!
-            </p>
-        </section>
-        <section>
-            <h2>Otimização em Python: Guia Completo</h2>
-            <h4>1. Por que Otimizar Código Python?</h4>
-            <ul>
-                <li>⚡ <b>Melhora desempenho:</b> Código rápido processa mais dados em menos tempo</li>
-                <li>🔋 <b>Reduz consumo de recursos:</b> Menor uso de CPU e memória</li>
-                <li>📈 <b>Aumenta escalabilidade:</b> Aplicações suportam mais usuários concorrentes</li>
-                <li>💰 <b>Economiza custos:</b> Menos necessidade de hardware em nuvem</li>
-            </ul>
-            <hr>
-            <h4>2. Trilha de Aprendizado</h4>
-            <ol>
-                <li>
-                    <b>Nível Básico</b>
-                    <ul>
-                        <li><b>Escolha de Estruturas de Dados</b>: Listas vs Tuplas vs Conjuntos, dicionários para acesso rápido (O(1))</li>
-                        <li><b>Compreensões</b>: List comprehensions mais rápidas que loops, generator expressions para economia de memória</li>
-                        <li><b>Manipulação de Strings</b>: f-strings mais eficientes que format(), evitar concatenação com +</li>
-                    </ul>
-                </li>
-                <li>
-                    <b>Nível Intermediário</b>
-                    <ul>
-                        <li><b>Funções Built-in Otimizadas</b>: map(), filter(), reduce(), any()/all() em vez de loops</li>
-                        <li><b>Gerenciamento de Memória</b>: Generators para grandes datasets, <code>__slots__</code> para reduzir overhead em classes</li>
-                        <li><b>Bibliotecas de Alto Desempenho</b>: NumPy para operações vetorizadas, Pandas para manipulação eficiente de dados</li>
-                    </ul>
-                </li>
-                <li>
-                    <b>Nível Avançado</b>
-                    <ul>
-                        <li><b>Cython e Compilação</b>: Tipagem estática para ganhos de performance, compilação para extensões C</li>
-                        <li><b>Concorrência e Paralelismo</b>: Multiprocessing para CPU-bound, AsyncIO para IO-bound</li>
-                        <li><b>Benchmarking e Profiling</b>: cProfile para análise detalhada, timeit para micro-otimizações</li>
-                    </ul>
-                </li>
-            </ol>
-            <hr>
-            <h4>3. Técnicas de Otimização</h4>
-            <h5>1. Operações Vetorizadas</h5>
-            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+    <main style="display: flex; align-items: flex-start;">
+        <!-- HTML - Side menu structure -->
+        <nav class="mini-vertical-menu">
+            <a href="index.html" class="mini-menu-btn">Início</a>
+            <a href="FLM.html" class="mini-menu-btn">Fundamentos Lógicos</a>
+            <a href="progwebmob.html" class="mini-menu-btn">Web & Mobile</a>
+            <a href="sistemas.html" class="mini-menu-btn">Infraestrutura</a>
+            <a href="lingprogramação.html" class="mini-menu-btn active">Linguagens</a>
+            <a href="instalVscode.html" class="mini-menu-btn">Instalar VS Code</a>
+        </nav>
+        <div style="flex:1;">
+            <section>
+                <figure>
+                    <img src="./assets/LP(title).png" alt="Imagem de Linguagens de Programação">
+                </figure>
+                <p>
+                    Este módulo apresenta as <strong>principais linguagens de programação</strong>, desde opções amigáveis para iniciantes até ferramentas poderosas para desenvolvimento avançado.
+                </p>
+                <p>
+                    Com uma abordagem prática e didática, você <strong>aprenderá</strong> a criar desde páginas web interativas até sistemas de alto desempenho.
+                </p>
+                <h2>Conteúdos do Curso</h2>
+                <ul>
+                    <li><strong>Python</strong>: Linguagem simples e versátil, perfeita para iniciantes.</li>
+                    <li><strong>JavaScript</strong>: Adicione interatividade e dinamismo a páginas web.</li>
+                    <li><strong>C++</strong>: Domine uma linguagem robusta para projetos de alta performance.</li>
+                    <li><strong>HTML/CSS</strong>: A base do desenvolvimento web: estrutura e estilo.</li>
+                </ul>
+                <p>
+                    Com esses conhecimentos, você poderá escolher a linguagem ideal para cada projeto e ampliar suas oportunidades no mundo da tecnologia.
+                </p>
+            </section>
+            <section>
+                <h2>Prática em Linguagens</h2>
+                <p>
+                    Em breve, conteúdos e exercícios práticos para você experimentar diferentes linguagens e desenvolver seus próprios projetos!
+                </p>
+            </section>
+            <section>
+                <h2>Otimização em Python: Guia Completo</h2>
+                <h4>1. Por que Otimizar Código Python?</h4>
+                <ul>
+                    <li>⚡ <b>Melhora desempenho:</b> Código rápido processa mais dados em menos tempo</li>
+                    <li>🔋 <b>Reduz consumo de recursos:</b> Menor uso de CPU e memória</li>
+                    <li>📈 <b>Aumenta escalabilidade:</b> Aplicações suportam mais usuários concorrentes</li>
+                    <li>💰 <b>Economiza custos:</b> Menos necessidade de hardware em nuvem</li>
+                </ul>
+                <hr>
+                <h4>2. Trilha de Aprendizado</h4>
+                <ol>
+                    <li>
+                        <b>Nível Básico</b>
+                        <ul>
+                            <li><b>Escolha de Estruturas de Dados</b>: Listas vs Tuplas vs Conjuntos, dicionários para acesso rápido (O(1))</li>
+                            <li><b>Compreensões</b>: List comprehensions mais rápidas que loops, generator expressions para economia de memória</li>
+                            <li><b>Manipulação de Strings</b>: f-strings mais eficientes que format(), evitar concatenação com +</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Nível Intermediário</b>
+                        <ul>
+                            <li><b>Funções Built-in Otimizadas</b>: map(), filter(), reduce(), any()/all() em vez de loops</li>
+                            <li><b>Gerenciamento de Memória</b>: Generators para grandes datasets, <code>__slots__</code> para reduzir overhead em classes</li>
+                            <li><b>Bibliotecas de Alto Desempenho</b>: NumPy para operações vetorizadas, Pandas para manipulação eficiente de dados</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Nível Avançado</b>
+                        <ul>
+                            <li><b>Cython e Compilação</b>: Tipagem estática para ganhos de performance, compilação para extensões C</li>
+                            <li><b>Concorrência e Paralelismo</b>: Multiprocessing para CPU-bound, AsyncIO para IO-bound</li>
+                            <li><b>Benchmarking e Profiling</b>: cProfile para análise detalhada, timeit para micro-otimizações</li>
+                        </ul>
+                    </li>
+                </ol>
+                <hr>
+                <h4>3. Técnicas de Otimização</h4>
+                <h5>1. Operações Vetorizadas</h5>
+                <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
 # Ruim (loop lento)
 result = []
 for x in range(1000000):
@@ -463,9 +597,9 @@ for x in range(1000000):
 # Bom (vetorizado com NumPy)
 import numpy as np
 result = np.arange(1000000) * 2
-            </pre>
-            <h5>2. Cache de Funções</h5>
-            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+                </pre>
+                <h5>2. Cache de Funções</h5>
+                <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
 from functools import lru_cache
 
 @lru_cache(maxsize=128)
@@ -473,9 +607,9 @@ def fibonacci(n):
     if n < 2:
         return n
     return fibonacci(n-1) + fibonacci(n-2)
-            </pre>
-            <h5>3. Uso Eficiente de Memória</h5>
-            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+                </pre>
+                <h5>3. Uso Eficiente de Memória</h5>
+                <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
 # Generator expression (lazy evaluation)
 squares = (x**2 for x in range(1000000))  # Não aloca toda a memória
 
@@ -485,89 +619,89 @@ class Ponto:
     def __init__(self, x, y):
         self.x = x
         self.y = y
-            </pre>
-            <hr>
-            <h4>4. Ferramentas Essenciais</h4>
-            <ul>
-                <li>🛠 <b>Profiling</b>: cProfile (<code>python -m cProfile meu_script.py</code>), memory_profiler (<code>@profile</code> decorator)</li>
-                <li>📊 <b>Visualização</b>: snakeviz, py-spy</li>
-                <li>⚡ <b>Aceleração</b>: Numba (JIT compiler), PyPy (implementação alternativa do Python)</li>
-            </ul>
-            <hr>
-            <h4>5. Onde Aprender Mais?</h4>
-            <h5>Livros Recomendados</h5>
-            <ul>
-                <li>"High Performance Python" - Micha Gorelick</li>
-                <li>"Fluent Python" - Luciano Ramalho</li>
-            </ul>
-            <h5>Cursos</h5>
-            <ul>
-                <li>Python Optimization (Udemy)</li>
-                <li>Advanced Python (Coursera)</li>
-            </ul>
-            <h5>Recursos Online</h5>
-            <ul>
-                <li><a href="https://wiki.python.org/moin/PythonSpeed" target="_blank">Python Speed</a></li>
-                <li><a href="https://realpython.com" target="_blank">Real Python Tutorials</a></li>
-            </ul>
-            <hr>
-            <h4>6. Conclusão</h4>
-            <p>
-                <b>Checklist de Otimização:</b>
-                <ol style="max-width:700px;margin:12px auto 0 auto;text-align:left;">
-                    <li>Identifique gargalos (use cProfile)</li>
-                    <li>Substitua loops por operações vetorizadas</li>
-                    <li>Use estruturas de dados apropriadas</li>
-                    <li>Considere compilação (Cython/Numba) para partes críticas</li>
+                </pre>
+                <hr>
+                <h4>4. Ferramentas Essenciais</h4>
+                <ul>
+                    <li>🛠 <b>Profiling</b>: cProfile (<code>python -m cProfile meu_script.py</code>), memory_profiler (<code>@profile</code> decorator)</li>
+                    <li>📊 <b>Visualização</b>: snakeviz, py-spy</li>
+                    <li>⚡ <b>Aceleração</b>: Numba (JIT compiler), PyPy (implementação alternativa do Python)</li>
+                </ul>
+                <hr>
+                <h4>5. Onde Aprender Mais?</h4>
+                <h5>Livros Recomendados</h5>
+                <ul>
+                    <li>"High Performance Python" - Micha Gorelick</li>
+                    <li>"Fluent Python" - Luciano Ramalho</li>
+                </ul>
+                <h5>Cursos</h5>
+                <ul>
+                    <li>Python Optimization (Udemy)</li>
+                    <li>Advanced Python (Coursera)</li>
+                </ul>
+                <h5>Recursos Online</h5>
+                <ul>
+                    <li><a href="https://wiki.python.org/moin/PythonSpeed" target="_blank">Python Speed</a></li>
+                    <li><a href="https://realpython.com" target="_blank">Real Python Tutorials</a></li>
+                </ul>
+                <hr>
+                <h4>6. Conclusão</h4>
+                <p>
+                    <b>Checklist de Otimização:</b>
+                    <ol style="max-width:700px;margin:12px auto 0 auto;text-align:left;">
+                        <li>Identifique gargalos (use cProfile)</li>
+                        <li>Substitua loops por operações vetorizadas</li>
+                        <li>Use estruturas de dados apropriadas</li>
+                        <li>Considere compilação (Cython/Numba) para partes críticas</li>
+                    </ol>
+                    🚀 <b>Dica Final:</b><br>
+                    <i>"90% do tempo de execução está em 10% do código - foque nessas partes críticas!"</i>
+                </p>
+                <p>
+                    <b>Próximo nível?</b> Explore <b>programação assíncrona</b> com asyncio e <b>computação distribuída</b> com Dask!
+                </p>
+            </section>
+            <section>
+                <h2>Otimização em JavaScript: Guia Completo</h2>
+                <h4>1. Por que Otimizar Código JavaScript?</h4>
+                <ul>
+                    <li>⚡ <b>Melhora performance:</b> Tempo de carregamento mais rápido</li>
+                    <li>🚀 <b>Experiência do usuário:</b> Interfaces mais fluidas e responsivas</li>
+                    <li>📱 <b>Eficiência mobile:</b> Reduz consumo de bateria e dados</li>
+                    <li>🔍 <b>SEO:</b> Sites rápidos rankeiam melhor no Google</li>
+                </ul>
+                <hr>
+                <h4>2. Trilha de Aprendizado</h4>
+                <ol>
+                    <li>
+                        <b>Nível Básico</b>
+                        <ul>
+                            <li><b>Manipulação eficiente do DOM</b>: <code>querySelector</code> vs <code>getElementById</code>, batch updates com <code>DocumentFragment</code></li>
+                            <li><b>Escolha de estruturas de dados</b>: Objetos vs Maps vs Arrays, uso adequado de Sets para operações únicas</li>
+                            <li><b>Escopo e closures</b>: Evitar vazamentos de memória, uso inteligente de variáveis globais/locais</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Nível Intermediário</b>
+                        <ul>
+                            <li><b>Event delegation</b>: Substituir múltiplos listeners por um único, <code>event.target</code> vs <code>event.currentTarget</code></li>
+                            <li><b>Web Workers</b>: Offload de tarefas pesadas, comunicação thread principal ↔ worker</li>
+                            <li><b>RequestAnimationFrame</b>: Animações suaves e eficientes, evitar <code>setTimeout</code>/<code>setInterval</code> para animações</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Nível Avançado</b>
+                        <ul>
+                            <li><b>Memoization</b>: Cache de funções pesadas, implementação com closures e WeakMaps</li>
+                            <li><b>Virtual DOM e reconciliation</b>: Como frameworks otimizam atualizações, técnicas de diffing algorítmico</li>
+                            <li><b>WebAssembly</b>: Integração com JS para tarefas intensivas, casos de uso e benchmarks</li>
+                        </ul>
+                    </li>
                 </ol>
-                🚀 <b>Dica Final:</b><br>
-                <i>"90% do tempo de execução está em 10% do código - foque nessas partes críticas!"</i>
-            </p>
-            <p>
-                <b>Próximo nível?</b> Explore <b>programação assíncrona</b> com asyncio e <b>computação distribuída</b> com Dask!
-            </p>
-        </section>
-        <section>
-            <h2>Otimização em JavaScript: Guia Completo</h2>
-            <h4>1. Por que Otimizar Código JavaScript?</h4>
-            <ul>
-                <li>⚡ <b>Melhora performance:</b> Tempo de carregamento mais rápido</li>
-                <li>🚀 <b>Experiência do usuário:</b> Interfaces mais fluidas e responsivas</li>
-                <li>📱 <b>Eficiência mobile:</b> Reduz consumo de bateria e dados</li>
-                <li>🔍 <b>SEO:</b> Sites rápidos rankeiam melhor no Google</li>
-            </ul>
-            <hr>
-            <h4>2. Trilha de Aprendizado</h4>
-            <ol>
-                <li>
-                    <b>Nível Básico</b>
-                    <ul>
-                        <li><b>Manipulação eficiente do DOM</b>: <code>querySelector</code> vs <code>getElementById</code>, batch updates com <code>DocumentFragment</code></li>
-                        <li><b>Escolha de estruturas de dados</b>: Objetos vs Maps vs Arrays, uso adequado de Sets para operações únicas</li>
-                        <li><b>Escopo e closures</b>: Evitar vazamentos de memória, uso inteligente de variáveis globais/locais</li>
-                    </ul>
-                </li>
-                <li>
-                    <b>Nível Intermediário</b>
-                    <ul>
-                        <li><b>Event delegation</b>: Substituir múltiplos listeners por um único, <code>event.target</code> vs <code>event.currentTarget</code></li>
-                        <li><b>Web Workers</b>: Offload de tarefas pesadas, comunicação thread principal ↔ worker</li>
-                        <li><b>RequestAnimationFrame</b>: Animações suaves e eficientes, evitar <code>setTimeout</code>/<code>setInterval</code> para animações</li>
-                    </ul>
-                </li>
-                <li>
-                    <b>Nível Avançado</b>
-                    <ul>
-                        <li><b>Memoization</b>: Cache de funções pesadas, implementação com closures e WeakMaps</li>
-                        <li><b>Virtual DOM e reconciliation</b>: Como frameworks otimizam atualizações, técnicas de diffing algorítmico</li>
-                        <li><b>WebAssembly</b>: Integração com JS para tarefas intensivas, casos de uso e benchmarks</li>
-                    </ul>
-                </li>
-            </ol>
-            <hr>
-            <h4>3. Técnicas de Otimização</h4>
-            <h5>1. Otimização de Loops</h5>
-            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+                <hr>
+                <h4>3. Técnicas de Otimização</h4>
+                <h5>1. Otimização de Loops</h5>
+                <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
 // Ruim: recalcula length a cada iteração
 for (let i = 0; i < array.length; i++) { ... }
 
@@ -576,9 +710,9 @@ for (let i = 0, len = array.length; i < len; i++) { ... }
 
 // Melhor: for...of quando possível
 for (const item of array) { ... }
-            </pre>
-            <h5>2. Debounce e Throttle</h5>
-            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+                </pre>
+                <h5>2. Debounce e Throttle</h5>
+                <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
 // Implementação de debounce
 function debounce(func, delay) {
   let timeout;
@@ -590,9 +724,9 @@ function debounce(func, delay) {
 
 // Uso para eventos de resize
 window.addEventListener('resize', debounce(handleResize, 200));
-            </pre>
-            <h5>3. Lazy Loading</h5>
-            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+                </pre>
+                <h5>3. Lazy Loading</h5>
+                <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
 // Carregamento preguiçoso de imagens
 const lazyImages = document.querySelectorAll('img[data-src]');
 
@@ -607,89 +741,89 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 lazyImages.forEach(img => observer.observe(img));
-            </pre>
-            <hr>
-            <h4>4. Ferramentas Essenciais</h4>
-            <ul>
-                <li>🛠 <b>Profiling e Debugging</b>: Chrome DevTools (Performance tab), Lighthouse para métricas de performance</li>
-                <li>📊 <b>Bundlers e Optimizers</b>: Webpack (tree shaking, code splitting), ESBuild para builds ultra-rápidos</li>
-                <li>⚡ <b>Frameworks Otimizados</b>: Svelte (compilação eficiente), SolidJS (reatividade granular)</li>
-            </ul>
-            <hr>
-            <h4>5. Onde Aprender Mais?</h4>
-            <h5>Livros Recomendados</h5>
-            <ul>
-                <li>"High Performance JavaScript" - Nicholas Zakas</li>
-                <li>"JavaScript: The Good Parts" - Douglas Crockford</li>
-            </ul>
-            <h5>Cursos</h5>
-            <ul>
-                <li>JavaScript Optimization (Frontend Masters)</li>
-                <li>Advanced JavaScript Patterns (Udemy)</li>
-            </ul>
-            <h5>Recursos Online</h5>
-            <ul>
-                <li><a href="https://developer.mozilla.org/en-US/docs/Web/Performance" target="_blank">MDN Performance</a></li>
-                <li><a href="https://web.dev/javascript/" target="_blank">Web.dev JavaScript</a></li>
-            </ul>
-            <hr>
-            <h4>6. Conclusão</h4>
-            <p>
-                <b>Checklist de Otimização:</b>
-                <ol style="max-width:700px;margin:12px auto 0 auto;text-align:left;">
-                    <li>Minimize repaints/reflows no DOM</li>
-                    <li>Use Web Workers para tarefas pesadas</li>
-                    <li>Implemente lazy loading para recursos</li>
-                    <li>Monitore performance continuamente</li>
+                </pre>
+                <hr>
+                <h4>4. Ferramentas Essenciais</h4>
+                <ul>
+                    <li>🛠 <b>Profiling e Debugging</b>: Chrome DevTools (Performance tab), Lighthouse para métricas de performance</li>
+                    <li>📊 <b>Bundlers e Optimizers</b>: Webpack (tree shaking, code splitting), ESBuild para builds ultra-rápidos</li>
+                    <li>⚡ <b>Frameworks Otimizados</b>: Svelte (compilação eficiente), SolidJS (reatividade granular)</li>
+                </ul>
+                <hr>
+                <h4>5. Onde Aprender Mais?</h4>
+                <h5>Livros Recomendados</h5>
+                <ul>
+                    <li>"High Performance JavaScript" - Nicholas Zakas</li>
+                    <li>"JavaScript: The Good Parts" - Douglas Crockford</li>
+                </ul>
+                <h5>Cursos</h5>
+                <ul>
+                    <li>JavaScript Optimization (Frontend Masters)</li>
+                    <li>Advanced JavaScript Patterns (Udemy)</li>
+                </ul>
+                <h5>Recursos Online</h5>
+                <ul>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/Performance" target="_blank">MDN Performance</a></li>
+                    <li><a href="https://web.dev/javascript/" target="_blank">Web.dev JavaScript</a></li>
+                </ul>
+                <hr>
+                <h4>6. Conclusão</h4>
+                <p>
+                    <b>Checklist de Otimização:</b>
+                    <ol style="max-width:700px;margin:12px auto 0 auto;text-align:left;">
+                        <li>Minimize repaints/reflows no DOM</li>
+                        <li>Use Web Workers para tarefas pesadas</li>
+                        <li>Implemente lazy loading para recursos</li>
+                        <li>Monitore performance continuamente</li>
+                    </ol>
+                    🚀 <b>Dica Final:</b><br>
+                    <i>"O JavaScript moderno executa em ~10.000x mais rápido que em 1995 - mas código mal escrito ainda pode travar seu navegador!"</i>
+                </p>
+                <p>
+                    <b>Próximo nível?</b> Explore <b>WebAssembly</b> para performance nativa e <b>Service Workers</b> para PWA ultrarrápidos!
+                </p>
+            </section>
+            <section>
+                <h2>Otimização em C++: Guia Completo</h2>
+                <h4>1. Por que Otimizar Código C++?</h4>
+                <ul>
+                    <li>⚡ <b>Desempenho máximo:</b> Aproveita todo o potencial do hardware</li>
+                    <li>⏱ <b>Baixa latência:</b> Crítico para sistemas em tempo real</li>
+                    <li>🖥 <b>Eficiência de recursos:</b> Menor consumo de CPU e memória</li>
+                    <li>🚀 <b>Aplicações intensivas:</b> Games, HFT, sistemas embarcados</li>
+                </ul>
+                <hr>
+                <h4>2. Trilha de Aprendizado</h4>
+                <ol>
+                    <li>
+                        <b>Nível Básico</b>
+                        <ul>
+                            <li><b>Escolha de estruturas de dados</b>: <code>std::vector</code> vs <code>std::list</code> vs <code>std::array</code>, mapas (<code>std::map</code> vs <code>std::unordered_map</code>)</li>
+                            <li><b>Alocação de memória</b>: Stack vs Heap, RAII e smart pointers</li>
+                            <li><b>Loops e branches</b>: Otimização de cache locality, prevenção de branch misprediction</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Nível Intermediário</b>
+                        <ul>
+                            <li><b>Move semantics</b>: <code>std::move</code> e rvalue references, regra dos 5</li>
+                            <li><b>SIMD e paralelismo</b>: Intrinsics (SSE, AVX), OpenMP básico</li>
+                            <li><b>Template metaprogramming</b>: SFINAE, <code>constexpr</code>, CRTP</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Nível Avançado</b>
+                        <ul>
+                            <li><b>Lock-free programming</b>: Atomics, memory ordering, estruturas de dados não bloqueantes</li>
+                            <li><b>Compile-time optimization</b>: Expression templates, metaprogramação avançada</li>
+                            <li><b>Profile-guided optimization</b>: Uso de PGO no GCC/Clang/MSVC, análise de hotspots</li>
+                        </ul>
+                    </li>
                 </ol>
-                🚀 <b>Dica Final:</b><br>
-                <i>"O JavaScript moderno executa em ~10.000x mais rápido que em 1995 - mas código mal escrito ainda pode travar seu navegador!"</i>
-            </p>
-            <p>
-                <b>Próximo nível?</b> Explore <b>WebAssembly</b> para performance nativa e <b>Service Workers</b> para PWA ultrarrápidos!
-            </p>
-        </section>
-        <section>
-            <h2>Otimização em C++: Guia Completo</h2>
-            <h4>1. Por que Otimizar Código C++?</h4>
-            <ul>
-                <li>⚡ <b>Desempenho máximo:</b> Aproveita todo o potencial do hardware</li>
-                <li>⏱ <b>Baixa latência:</b> Crítico para sistemas em tempo real</li>
-                <li>🖥 <b>Eficiência de recursos:</b> Menor consumo de CPU e memória</li>
-                <li>🚀 <b>Aplicações intensivas:</b> Games, HFT, sistemas embarcados</li>
-            </ul>
-            <hr>
-            <h4>2. Trilha de Aprendizado</h4>
-            <ol>
-                <li>
-                    <b>Nível Básico</b>
-                    <ul>
-                        <li><b>Escolha de estruturas de dados</b>: <code>std::vector</code> vs <code>std::list</code> vs <code>std::array</code>, mapas (<code>std::map</code> vs <code>std::unordered_map</code>)</li>
-                        <li><b>Alocação de memória</b>: Stack vs Heap, RAII e smart pointers</li>
-                        <li><b>Loops e branches</b>: Otimização de cache locality, prevenção de branch misprediction</li>
-                    </ul>
-                </li>
-                <li>
-                    <b>Nível Intermediário</b>
-                    <ul>
-                        <li><b>Move semantics</b>: <code>std::move</code> e rvalue references, regra dos 5</li>
-                        <li><b>SIMD e paralelismo</b>: Intrinsics (SSE, AVX), OpenMP básico</li>
-                        <li><b>Template metaprogramming</b>: SFINAE, <code>constexpr</code>, CRTP</li>
-                    </ul>
-                </li>
-                <li>
-                    <b>Nível Avançado</b>
-                    <ul>
-                        <li><b>Lock-free programming</b>: Atomics, memory ordering, estruturas de dados não bloqueantes</li>
-                        <li><b>Compile-time optimization</b>: Expression templates, metaprogramação avançada</li>
-                        <li><b>Profile-guided optimization</b>: Uso de PGO no GCC/Clang/MSVC, análise de hotspots</li>
-                    </ul>
-                </li>
-            </ol>
-            <hr>
-            <h4>3. Técnicas de Otimização</h4>
-            <h5>1. Cache Optimization</h5>
-            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+                <hr>
+                <h4>3. Técnicas de Otimização</h4>
+                <h5>1. Cache Optimization</h5>
+                <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
 // Ruim: cache misses frequentes
 for (int i = 0; i < N; ++i)
     for (int j = 0; j < M; ++j)
@@ -699,9 +833,9 @@ for (int i = 0; i < N; ++i)
 for (int j = 0; j < M; ++j)
     for (int i = 0; i < N; ++i)
         process(matrix[j][i]);
-    </pre>
-    <h5>2. Move Semantics</h5>
-    <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+                </pre>
+                <h5>2. Move Semantics</h5>
+                <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
 class BigObject {
     std::vector<double> data;
 public:
@@ -715,9 +849,9 @@ public:
         return *this;
     }
 };
-    </pre>
-    <h5>3. SIMD Optimization</h5>
-    <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+                </pre>
+                <h5>3. SIMD Optimization</h5>
+                <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
 #include &lt;immintrin.h&gt;
 
 void add_arrays(float* a, float* b, float* c, size_t n) {
@@ -728,89 +862,89 @@ void add_arrays(float* a, float* b, float* c, size_t n) {
         _mm256_store_ps(c + i, cv);
     }
 }
-    </pre>
-    <hr>
-    <h4>4. Ferramentas Essenciais</h4>
-    <ul>
-        <li>🛠 <b>Compiladores e Build Systems</b>: GCC, Clang, MSVC (flags de otimização), CMake</li>
-        <li>📊 <b>Profilers e Debuggers</b>: perf (Linux), VTune (Intel), Visual Studio Profiler</li>
-        <li>⚡ <b>Bibliotecas de Alto Desempenho</b>: Eigen, Abseil, Boost.Compute</li>
-    </ul>
-    <hr>
-    <h4>5. Onde Aprender Mais?</h4>
-    <h5>Livros Recomendados</h5>
-    <ul>
-        <li>"Effective C++" - Scott Meyers</li>
-        <li>"Optimized C++" - Kurt Guntheroth</li>
-    </ul>
-    <h5>Cursos</h5>
-    <ul>
-        <li>C++ Optimization (Pluralsight)</li>
-        <li>High Performance Computing (Coursera)</li>
-    </ul>
-    <h5>Recursos Online</h5>
-    <ul>
-        <li><a href="https://isocpp.github.io/CppCoreGuidelines/" target="_blank">C++ Core Guidelines</a></li>
-        <li><a href="https://quick-bench.com" target="_blank">Quick-Bench</a></li>
-    </ul>
-    <hr>
-    <h4>6. Conclusão</h4>
-    <p>
-        <b>Checklist de Otimização:</b>
-        <ol style="max-width:700px;margin:12px auto 0 auto;text-align:left;">
-            <li>Meça antes de otimizar (use profilers)</li>
-            <li>Aproveite a semântica de movimento</li>
-            <li>Otimize para a hierarquia de cache</li>
-            <li>Explore paralelismo (SIMD, threads)</li>
-        </ol>
-        🚀 <b>Dica Final:</b><br>
-        <i>"Em C++, você está sempre a um passo de assembly - conheça o que seu código gera!"</i>
-    </p>
-    <p>
-        <b>Próximo nível?</b> Explore <b>metaprogramação em tempo de compilação</b> e <b>programação heterogênea</b> (CPU+GPU)!
-    </p>
-</section>
-<section>
-    <h2>Otimização de HTML/CSS: Guia Completo</h2>
-    <h4>1. Por que Otimizar HTML/CSS?</h4>
-    <ul>
-        <li>⚡ <b>Melhora performance:</b> Reduz tempo de carregamento</li>
-        <li>📱 <b>Experiência mobile:</b> Consome menos dados e bateria</li>
-        <li>📈 <b>SEO:</b> Sites rápidos rankeiam melhor no Google</li>
-        <li>💵 <b>Conversão:</b> 1s de atraso pode reduzir vendas em 7%</li>
-    </ul>
-    <hr>
-    <h4>2. Trilha de Aprendizado</h4>
-    <ol>
-        <li>
-            <b>Nível Básico</b>
-            <ul>
-                <li><b>HTML Semântico</b>: Uso correto de tags (<code>&lt;header&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;nav&gt;</code>), hierarquia adequada de headings (<code>&lt;h1&gt;</code> a <code>&lt;h6&gt;</code>)</li>
-                <li><b>CSS Eficiente</b>: Seletores de baixa especificidade, evitar <code>!important</code> e heranças complexas</li>
-                <li><b>Otimização de Imagens</b>: Formatos modernos (WebP, AVIF), dimensionamento adequado e <code>srcset</code></li>
-            </ul>
-        </li>
-        <li>
-            <b>Nível Intermediário</b>
-            <ul>
-                <li><b>Critical CSS</b>: Extração do CSS acima da dobra, técnicas de load-async para demais estilos</li>
-                <li><b>Layouts Modernos</b>: Flexbox e Grid vs floats/position, <code>aspect-ratio</code> para containers responsivos</li>
-                <li><b>Animações Performáticas</b>: <code>transform</code> e <code>opacity</code> (compositor-only), evitar animações que causam reflow/repaint</li>
-            </ul>
-        </li>
-        <li>
-            <b>Nível Avançado</b>
-            <ul>
-                <li><b>CSS Containment</b>: <code>contain: content/layout/paint/strict</code>, otimização para atualizações isoladas</li>
-                <li><b>CSS Houdini</b>: Custom Properties avançadas, Paint API para efeitos complexos</li>
-                <li><b>Pré-renderização</b>: <code>rel="preload"</code> para recursos críticos, <code>prefetch</code>/<code>preconnect</code> para navegação futura</li>
-            </ul>
-        </li>
-    </ol>
-    <hr>
-    <h4>3. Técnicas de Otimização</h4>
-    <h5>1. HTML Minimalista</h5>
-    <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+                </pre>
+                <hr>
+                <h4>4. Ferramentas Essenciais</h4>
+                <ul>
+                    <li>🛠 <b>Compiladores e Build Systems</b>: GCC, Clang, MSVC (flags de otimização), CMake</li>
+                    <li>📊 <b>Profilers e Debuggers</b>: perf (Linux), VTune (Intel), Visual Studio Profiler</li>
+                    <li>⚡ <b>Bibliotecas de Alto Desempenho</b>: Eigen, Abseil, Boost.Compute</li>
+                </ul>
+                <hr>
+                <h4>5. Onde Aprender Mais?</h4>
+                <h5>Livros Recomendados</h5>
+                <ul>
+                    <li>"Effective C++" - Scott Meyers</li>
+                    <li>"Optimized C++" - Kurt Guntheroth</li>
+                </ul>
+                <h5>Cursos</h5>
+                <ul>
+                    <li>C++ Optimization (Pluralsight)</li>
+                    <li>High Performance Computing (Coursera)</li>
+                </ul>
+                <h5>Recursos Online</h5>
+                <ul>
+                    <li><a href="https://isocpp.github.io/CppCoreGuidelines/" target="_blank">C++ Core Guidelines</a></li>
+                    <li><a href="https://quick-bench.com" target="_blank">Quick-Bench</a></li>
+                </ul>
+                <hr>
+                <h4>6. Conclusão</h4>
+                <p>
+                    <b>Checklist de Otimização:</b>
+                    <ol style="max-width:700px;margin:12px auto 0 auto;text-align:left;">
+                        <li>Meça antes de otimizar (use profilers)</li>
+                        <li>Aproveite a semântica de movimento</li>
+                        <li>Otimize para a hierarquia de cache</li>
+                        <li>Explore paralelismo (SIMD, threads)</li>
+                    </ol>
+                    🚀 <b>Dica Final:</b><br>
+                    <i>"Em C++, você está sempre a um passo de assembly - conheça o que seu código gera!"</i>
+                </p>
+                <p>
+                    <b>Próximo nível?</b> Explore <b>metaprogramação em tempo de compilação</b> e <b>programação heterogênea</b> (CPU+GPU)!
+                </p>
+            </section>
+            <section>
+                <h2>Otimização de HTML/CSS: Guia Completo</h2>
+                <h4>1. Por que Otimizar HTML/CSS?</h4>
+                <ul>
+                    <li>⚡ <b>Melhora performance:</b> Reduz tempo de carregamento</li>
+                    <li>📱 <b>Experiência mobile:</b> Consome menos dados e bateria</li>
+                    <li>📈 <b>SEO:</b> Sites rápidos rankeiam melhor no Google</li>
+                    <li>💵 <b>Conversão:</b> 1s de atraso pode reduzir vendas em 7%</li>
+                </ul>
+                <hr>
+                <h4>2. Trilha de Aprendizado</h4>
+                <ol>
+                    <li>
+                        <b>Nível Básico</b>
+                        <ul>
+                            <li><b>HTML Semântico</b>: Uso correto de tags (<code>&lt;header&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;nav&gt;</code>), hierarquia adequada de headings (<code>&lt;h1&gt;</code> a <code>&lt;h6&gt;</code>)</li>
+                            <li><b>CSS Eficiente</b>: Seletores de baixa especificidade, evitar <code>!important</code> e heranças complexas</li>
+                            <li><b>Otimização de Imagens</b>: Formatos modernos (WebP, AVIF), dimensionamento adequado e <code>srcset</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Nível Intermediário</b>
+                        <ul>
+                            <li><b>Critical CSS</b>: Extração do CSS acima da dobra, técnicas de load-async para demais estilos</li>
+                            <li><b>Layouts Modernos</b>: Flexbox e Grid vs floats/position, <code>aspect-ratio</code> para containers responsivos</li>
+                            <li><b>Animações Performáticas</b>: <code>transform</code> e <code>opacity</code> (compositor-only), evitar animações que causam reflow/repaint</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Nível Avançado</b>
+                        <ul>
+                            <li><b>CSS Containment</b>: <code>contain: content/layout/paint/strict</code>, otimização para atualizações isoladas</li>
+                            <li><b>CSS Houdini</b>: Custom Properties avançadas, Paint API para efeitos complexos</li>
+                            <li><b>Pré-renderização</b>: <code>rel="preload"</code> para recursos críticos, <code>prefetch</code>/<code>preconnect</code> para navegação futura</li>
+                        </ul>
+                    </li>
+                </ol>
+                <hr>
+                <h4>3. Técnicas de Otimização</h4>
+                <h5>1. HTML Minimalista</h5>
+                <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
 &lt;!-- Ruim --&gt;
 &lt;div class="header"&gt;
   &lt;div class="nav"&gt;
@@ -824,9 +958,9 @@ void add_arrays(float* a, float* b, float* c, size_t n) {
     &lt;ul&gt;...&lt;/ul&gt;
   &lt;/nav&gt;
 &lt;/header&gt;
-    </pre>
-    <h5>2. CSS Otimizado</h5>
-    <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+                </pre>
+                <h5>2. CSS Otimizado</h5>
+                <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
 /* Ruim: seletores complexos */
 div.container > ul.list > li.item a.link { ... }
 
@@ -840,57 +974,58 @@ div.container > ul.list > li.item a.link { ... }
 .btn {
   background: var(--primary-color);
 }
-    </pre>
-    <h5>3. Imagens Responsivas</h5>
-    <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+                </pre>
+                <h5>3. Imagens Responsivas</h5>
+                <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
 &lt;picture&gt;
   &lt;source srcset="image.avif" type="image/avif"&gt;
   &lt;source srcset="image.webp" type="image/webp"&gt;
   &lt;img src="image.jpg" alt="Descrição" loading="lazy" width="800" height="600"&gt;
 &lt;/picture&gt;
-    </pre>
-    <hr>
-    <h4>4. Ferramentas Essenciais</h4>
-    <ul>
-        <li>🛠 <b>Análise e Debug</b>: Lighthouse (Chrome DevTools), WebPageTest</li>
-        <li>⚡ <b>Processadores CSS</b>: PostCSS (autoprefixer, cssnano), Sass</li>
-        <li>📦 <b>Bundlers</b>: Vite, Parcel</li>
-    </ul>
-    <hr>
-    <h4>5. Onde Aprender Mais?</h4>
-    <h5>Livros Recomendados</h5>
-    <ul>
-        <li>"CSS Secrets" - Lea Verou</li>
-        <li>"Responsive Web Design" - Ethan Marcotte</li>
-    </ul>
-    <h5>Cursos</h5>
-    <ul>
-        <li>Advanced CSS (Frontend Masters)</li>
-        <li>Web Performance (Udacity)</li>
-    </ul>
-    <h5>Recursos Online</h5>
-    <ul>
-        <li><a href="https://web.dev" target="_blank">web.dev</a></li>
-        <li><a href="https://css-tricks.com" target="_blank">CSS-Tricks</a></li>
-        <li><a href="https://developer.mozilla.org" target="_blank">MDN Web Docs</a></li>
-    </ul>
-    <hr>
-    <h4>6. Conclusão</h4>
-    <p>
-        <b>Checklist de Otimização:</b>
-        <ol style="max-width:700px;margin:12px auto 0 auto;text-align:left;">
-            <li>Minimize o DOM (menos elementos = mais rápido)</li>
-            <li>Use CSS moderno (Grid/Flexbox, custom properties)</li>
-            <li>Otimize imagens (formatos novos, lazy loading)</li>
-            <li>Priorize conteúdo crítico (above-the-fold first)</li>
-        </ol>
-        🚀 <b>Dica Final:</b><br>
-        <i>"Um DOM com 1.500+ elementos pode levar 30% mais tempo para renderizar - mantenha-o enxuto!"</i>
-    </p>
-    <p>
-        <b>Próximo nível?</b> Explore <b>CSS Scroll Snap</b> para experiências de scroll premium e <b>Container Queries</b> para layouts verdadeiramente modulares!
-    </p>
-</section>
+                </pre>
+                <hr>
+                <h4>4. Ferramentas Essenciais</h4>
+                <ul>
+                    <li>🛠 <b>Análise e Debug</b>: Lighthouse (Chrome DevTools), WebPageTest</li>
+                    <li>⚡ <b>Processadores CSS</b>: PostCSS (autoprefixer, cssnano), Sass</li>
+                    <li>📦 <b>Bundlers</b>: Vite, Parcel</li>
+                </ul>
+                <hr>
+                <h4>5. Onde Aprender Mais?</h4>
+                <h5>Livros Recomendados</h5>
+                <ul>
+                    <li>"CSS Secrets" - Lea Verou</li>
+                    <li>"Responsive Web Design" - Ethan Marcotte</li>
+                </ul>
+                <h5>Cursos</h5>
+                <ul>
+                    <li>Advanced CSS (Frontend Masters)</li>
+                    <li>Web Performance (Udacity)</li>
+                </ul>
+                <h5>Recursos Online</h5>
+                <ul>
+                    <li><a href="https://web.dev" target="_blank">web.dev</a></li>
+                    <li><a href="https://css-tricks.com" target="_blank">CSS-Tricks</a></li>
+                    <li><a href="https://developer.mozilla.org" target="_blank">MDN Web Docs</a></li>
+                </ul>
+                <hr>
+                <h4>6. Conclusão</h4>
+                <p>
+                    <b>Checklist de Otimização:</b>
+                    <ol style="max-width:700px;margin:12px auto 0 auto;text-align:left;">
+                        <li>Minimize o DOM (menos elementos = mais rápido)</li>
+                        <li>Use CSS moderno (Grid/Flexbox, custom properties)</li>
+                        <li>Otimize imagens (formatos novos, lazy loading)</li>
+                        <li>Priorize conteúdo crítico (above-the-fold first)</li>
+                    </ol>
+                    🚀 <b>Dica Final:</b><br>
+                    <i>"Um DOM com 1.500+ elementos pode levar 30% mais tempo para renderizar - mantenha-o enxuto!"</i>
+                </p>
+                <p>
+                    <b>Próximo nível?</b> Explore <b>CSS Scroll Snap</b> para experiências de scroll premium e <b>Container Queries</b> para layouts verdadeiramente modulares!
+                </p>
+            </section>
+        </div>
     </main>
     <!-- Modal de Cadastro -->
     <div id="register-modal" class="modal-bg">
@@ -989,5 +1124,138 @@ div.container > ul.list > li.item a.link { ... }
             if (btnParar) btnParar.addEventListener('click', pararAudiodescricao);
         });
     </script>
+    <button id="back-to-top-btn" title="Voltar ao topo">
+        ↑
+    </button>
+    <script>
+        // Fade-in ao carregar a página
+        window.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('fade-in');
+        });
+
+        // Fade-out ao clicar no menu lateral (exceto página atual)
+        document.querySelectorAll('.mini-vertical-menu .mini-menu-btn').forEach(btn => {
+            if (!btn.classList.contains('active')) {
+                btn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.body.classList.remove('fade-in');
+                    setTimeout(() => {
+                        document.body.classList.add('fade-out');
+                        setTimeout(() => {
+                            window.location = this.href;
+                        }, 400); // tempo igual ao transition
+                    }, 150); // pequeno delay antes do fade-out
+                });
+            }
+        });
+
+        // Back to the Top com fade in/out ao chegar no final/topo da página
+        const backToTopBtn = document.getElementById('back-to-top-btn');
+        let ticking = false;
+
+        function handleBackToTopVisibility() {
+            const scrollY = window.scrollY || window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            const docHeight = document.documentElement.scrollHeight;
+
+            // Mostra quando está perto do final (100px do final)
+            if (scrollY + windowHeight >= docHeight - 100) {
+                if (!backToTopBtn.classList.contains('visible')) {
+                    backToTopBtn.classList.add('fade-in-btn');
+                    backToTopBtn.classList.remove('fade-out-btn');
+                    backToTopBtn.classList.add('visible');
+                }
+            } else if (scrollY <= 50) {
+                if (backToTopBtn.classList.contains('visible')) {
+                    backToTopBtn.classList.remove('fade-in-btn');
+                    backToTopBtn.classList.add('fade-out-btn');
+                    setTimeout(() => {
+                        backToTopBtn.classList.remove('visible');
+                    }, 400); // tempo igual ao transition
+                }
+            }
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    handleBackToTopVisibility();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        // Checagem inicial
+        window.addEventListener('DOMContentLoaded', handleBackToTopVisibility);
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+    <style>
+        #back-to-top-btn {
+            display: none;
+            position: fixed;
+            right: 24px;
+            bottom: 80px;
+            z-index: 999;
+            background: linear-gradient(90deg, #4fc3f7 0%, #1976d2 100%);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 72px;
+            height: 72px;
+            font-size: 2.4em;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 12px rgba(33,150,243,0.18);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s, visibility 0.4s;
+        }
+        #back-to-top-btn.visible {
+            display: flex !important;
+            opacity: 1;
+            visibility: visible;
+        }
+        #back-to-top-btn:not(.visible) {
+            opacity: 0;
+            visibility: hidden;
+        }
+        #back-to-top-btn:hover, #back-to-top-btn:focus {
+            background: linear-gradient(90deg, #1976d2 0%, #4fc3f7 100%);
+            box-shadow: 0 4px 16px rgba(33,150,243,0.28);
+            transform: scale(1.08);
+            outline: none;
+        }
+        #back-to-top-btn.fade-in-btn {
+            animation: fadeInBtn 0.4s;
+        }
+        #back-to-top-btn.fade-out-btn {
+            animation: fadeOutBtn 0.4s;
+        }
+        @keyframes fadeInBtn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeOutBtn {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+        @media (max-width: 700px) {
+            #back-to-top-btn {
+                right: 12px;
+                bottom: 12px;
+                width: 52px;
+                height: 52px;
+                font-size: 2em;
+            }
+        }
+    </style>
 </body>
 </html>

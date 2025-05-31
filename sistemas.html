@@ -11,6 +11,14 @@
             font-family: 'Segoe UI', Arial, sans-serif;
             background: #f0f8ff;
             color: #222;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        body.fade-out {
+            opacity: 0 !important;
+        }
+        body.fade-in {
+            opacity: 1 !important;
         }
         .navbar {
             position: fixed;
@@ -108,6 +116,86 @@
             max-width: 900px;
             margin: 30px auto;
             padding: 0 20px;
+            display: flex;
+            align-items: flex-start;
+        }
+        nav.mini-vertical-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            min-width: 180px;
+            margin-top: 0;
+            align-items: stretch;
+            position: sticky;
+            top: 64px;
+            z-index: 100;
+            margin-right: 30px;
+            animation: slide-in-left 0.5s;
+        }
+        nav.mini-vertical-menu a {
+            display: block;
+            background: linear-gradient(90deg, #4fc3f7 0%, #1976d2 100%);
+            color: #fff;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: 500;
+            padding: 18px 16px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(33,150,243,0.10);
+            transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.15s;
+            text-align: center;
+            margin: 0;
+        }
+        nav.mini-vertical-menu a:hover,
+        nav.mini-vertical-menu a:focus {
+            background: linear-gradient(90deg, #1976d2 0%, #4fc3f7 100%);
+            color: #e3f2fd;
+            box-shadow: 0 4px 16px rgba(33,150,243,0.18);
+            transform: scale(1.04);
+        }
+        nav.mini-vertical-menu a.active,
+        nav.mini-vertical-menu a.active:focus {
+            background: #fff;
+            color: #1976d2;
+            border: 2px solid #1976d2;
+            font-weight: bold;
+            box-shadow: 0 4px 16px rgba(33,150,243,0.13);
+            transform: none;
+        }
+        @keyframes slide-in-left {
+            0% {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        .mini-vertical-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        .mini-menu-btn {
+            background: #4fc3f7;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-size: 0.95em;
+            font-weight: 500;
+            transition: background 0.2s;
+            display: block;
+            text-align: center;
+        }
+        .mini-menu-btn:hover {
+            background: #1976d2;
+        }
+        .active {
+            background: #1976d2;
         }
         section {
             margin-bottom: 40px;
@@ -298,9 +386,66 @@
         .acess-btn-text {
             display: inline;
         }
+        /* Botão Back to the Top */
+        #back-to-top-btn {
+            display: none;
+            position: fixed;
+            right: 24px;
+            bottom: 80px;
+            z-index: 999;
+            background: linear-gradient(90deg, #4fc3f7 0%, #1976d2 100%);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 72px;
+            height: 72px;
+            font-size: 2.4em;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 12px rgba(33,150,243,0.18);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s, visibility 0.4s;
+        }
+        #back-to-top-btn.visible {
+            display: flex !important;
+            opacity: 1;
+            visibility: visible;
+        }
+        #back-to-top-btn:not(.visible) {
+            opacity: 0;
+            visibility: hidden;
+        }
+        #back-to-top-btn:hover, #back-to-top-btn:focus {
+            background: linear-gradient(90deg, #1976d2 0%, #4fc3f7 100%);
+            box-shadow: 0 4px 16px rgba(33,150,243,0.28);
+            transform: scale(1.08);
+            outline: none;
+        }
+        #back-to-top-btn.fade-in-btn {
+            animation: fadeInBtn 0.4s;
+        }
+        #back-to-top-btn.fade-out-btn {
+            animation: fadeOutBtn 0.4s;
+        }
+        @keyframes fadeInBtn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeOutBtn {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
         @media (max-width: 700px) {
             main {
                 padding: 0 5px;
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .mini-vertical-menu {
+                margin-right: 0;
+                margin-bottom: 16px;
             }
             section img {
                 width: 95vw;
@@ -342,6 +487,13 @@
             .acess-btn-text {
                 display: none;
             }
+            #back-to-top-btn {
+                right: 12px;
+                bottom: 12px;
+                width: 52px;
+                height: 52px;
+                font-size: 2em;
+            }
         }
     </style>
 </head>
@@ -379,303 +531,313 @@
         <img src="./assets/logoppd.jpeg" alt="Logo do site Ponto de Partida Dev.">
         <h1>Infraestrutura e Sistemas</h1>
     </header>
-    <main>
-        <section>
-            <figure>
-                <img src="./assets/IS(title).png" alt="Imagem de Infraestrutura e Sistemas">
-            </figure>
-            <p>
-                Este curso explora os <strong>conceitos essenciais de redes e sistemas operacionais</strong>, fundamentais para qualquer profissional de TI.
-            </p>
-            <p>
-                Você aprenderá como os dispositivos se comunicam em rede e como os sistemas operacionais funcionam, garantindo uma base sólida para administrar ambientes tecnológicos.
-            </p>
-            <h2>Conteúdos do Curso</h2>
-            <ul>
-                <li>
-                    <strong>Redes de Computadores</strong>: Como dispositivos se conectam e compartilham dados.
-                </li>
-                <li>
-                    <strong>Sistemas Operacionais</strong>: Fundamentos dos principais sistemas usados na área de TI.
-                </li>
-            </ul>
-            <p>
-                Com esses conhecimentos, você estará preparado para atuar em infraestrutura, suporte e administração de sistemas.
-            </p>
-        </section>
-        <section>
-            <h2>Prática em Infraestrutura</h2>
-            <p>
-                Em breve, conteúdos e exercícios práticos para você aplicar os conceitos de redes e sistemas operacionais no seu dia a dia!
-            </p>
-        </section>
-        <section>
-            <h2>Otimização de Redes de Computadores: Guia Completo</h2>
-            <h4>1. Por que Otimizar Redes de Computadores?</h4>
-            <ul>
-                <li>⚡ <b>Melhora desempenho:</b> Reduz latência e aumenta throughput.</li>
-                <li>🔋 <b>Reduz custos operacionais:</b> Melhor uso de banda e energia.</li>
-                <li>📈 <b>Aumenta disponibilidade:</b> Minimiza falhas e tempos de inatividade.</li>
-                <li>🛡 <b>Melhora segurança:</b> Reduz vulnerabilidades e ataques.</li>
-            </ul>
-            <hr>
-            <h4>2. Trilha de Aprendizado</h4>
-            <ol>
-                <li>
-                    <b>Nível Básico</b>
-                    <ul>
-                        <li><b>Topologia de Redes</b>: Escolha entre estrela, malha, anel ou híbrida. Balanceamento de carga básico.</li>
-                        <li><b>Otimização de Banda</b>: QoS para priorizar tráfego, limitação de banda (traffic shaping).</li>
-                        <li><b>Monitoramento Básico</b>: Ferramentas como Ping, Traceroute, Wireshark, SNMP para métricas simples.</li>
-                    </ul>
-                </li>
-                <li>
-                    <b>Nível Intermediário</b>
-                    <ul>
-                        <li><b>Roteamento Eficiente</b>: Protocolos OSPF, EIGRP, BGP. ECMP para balanceamento.</li>
-                        <li><b>Otimização de Protocolos</b>: TCP/IP tuning, migração para IPv6.</li>
-                        <li><b>Redes Definidas por Software (SDN)</b>: OpenFlow, VXLAN, VLANs.</li>
-                        <li><b>Segurança e Performance</b>: Firewalls DPI, balanceadores de carga (HAProxy, Nginx).</li>
-                    </ul>
-                </li>
-                <li>
-                    <b>Nível Avançado</b>
-                    <ul>
-                        <li><b>Redes de Baixa Latência</b>: RDMA, Leaf-Spine architecture.</li>
-                        <li><b>Otimização para Nuvem e CDN</b>: AWS Global Accelerator, cacheamento inteligente.</li>
-                        <li><b>Automação e IA em Redes</b>: Ansible/Python, Machine Learning para congestionamentos.</li>
-                        <li><b>Benchmarking e Testes</b>: Iperf3, TRex.</li>
-                    </ul>
-                </li>
-            </ol>
-            <hr>
-            <h4>3. Técnicas de Otimização</h4>
-            <h5>1. Redução de Latência</h5>
-            <table style="margin:16px auto; border-collapse:collapse; min-width:320px;">
-                <tr style="background:#e3f2fd;">
-                    <th style="border:1px solid #b3c6e7;padding:4px 10px;">Técnica</th>
-                    <th style="border:1px solid #b3c6e7;padding:4px 10px;">Ganho Esperado</th>
-                </tr>
-                <tr>
-                    <td>TCP Fast Open (TFO)</td>
-                    <td>Até 30% menos handshake</td>
-                </tr>
-                <tr style="background:#f7fafd;">
-                    <td>QUIC (HTTP/3)</td>
-                    <td>20-50% mais rápido que TCP em redes instáveis</td>
-                </tr>
-                <tr>
-                    <td>Edge Computing</td>
-                    <td>Redução de latência em 40-60%</td>
-                </tr>
-            </table>
-            <b>Exemplo (Ajuste TCP no Linux):</b>
-            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+    <main style="display: flex; align-items: flex-start;">
+        <nav class="mini-vertical-menu">
+            <a href="index.html" class="mini-menu-btn">Início</a>
+            <a href="FLM.html" class="mini-menu-btn">Fundamentos Lógicos</a>
+            <a href="progwebmob.html" class="mini-menu-btn">Web & Mobile</a>
+            <a href="sistemas.html" class="mini-menu-btn active">Infraestrutura</a>
+            <a href="lingprogramação.html" class="mini-menu-btn">Linguagens</a>
+            <a href="instalVscode.html" class="mini-menu-btn">Instalar VS Code</a>
+        </nav>
+        <div style="flex:1;">
+            <section>
+                <figure>
+                    <img src="./assets/IS(title).png" alt="Imagem de Infraestrutura e Sistemas">
+                </figure>
+                <p>
+                    Este curso explora os <strong>conceitos essenciais de redes e sistemas operacionais</strong>, fundamentais para qualquer profissional de TI.
+                </p>
+                <p>
+                    Você aprenderá como os dispositivos se comunicam em rede e como os sistemas operacionais funcionam, garantindo uma base sólida para administrar ambientes tecnológicos.
+                </p>
+                <h2>Conteúdos do Curso</h2>
+                <ul>
+                    <li>
+                        <strong>Redes de Computadores</strong>: Como dispositivos se conectam e compartilham dados.
+                    </li>
+                    <li>
+                        <strong>Sistemas Operacionais</strong>: Fundamentos dos principais sistemas usados na área de TI.
+                    </li>
+                </ul>
+                <p>
+                    Com esses conhecimentos, você estará preparado para atuar em infraestrutura, suporte e administração de sistemas.
+                </p>
+            </section>
+            <section>
+                <h2>Prática em Infraestrutura</h2>
+                <p>
+                    Em breve, conteúdos e exercícios práticos para você aplicar os conceitos de redes e sistemas operacionais no seu dia a dia!
+                </p>
+            </section>
+            <section>
+                <h2>Otimização de Redes de Computadores: Guia Completo</h2>
+                <h4>1. Por que Otimizar Redes de Computadores?</h4>
+                <ul>
+                    <li>⚡ <b>Melhora desempenho:</b> Reduz latência e aumenta throughput.</li>
+                    <li>🔋 <b>Reduz custos operacionais:</b> Melhor uso de banda e energia.</li>
+                    <li>📈 <b>Aumenta disponibilidade:</b> Minimiza falhas e tempos de inatividade.</li>
+                    <li>🛡 <b>Melhora segurança:</b> Reduz vulnerabilidades e ataques.</li>
+                </ul>
+                <hr>
+                <h4>2. Trilha de Aprendizado</h4>
+                <ol>
+                    <li>
+                        <b>Nível Básico</b>
+                        <ul>
+                            <li><b>Topologia de Redes</b>: Escolha entre estrela, malha, anel ou híbrida. Balanceamento de carga básico.</li>
+                            <li><b>Otimização de Banda</b>: QoS para priorizar tráfego, limitação de banda (traffic shaping).</li>
+                            <li><b>Monitoramento Básico</b>: Ferramentas como Ping, Traceroute, Wireshark, SNMP para métricas simples.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Nível Intermediário</b>
+                        <ul>
+                            <li><b>Roteamento Eficiente</b>: Protocolos OSPF, EIGRP, BGP. ECMP para balanceamento.</li>
+                            <li><b>Otimização de Protocolos</b>: TCP/IP tuning, migração para IPv6.</li>
+                            <li><b>Redes Definidas por Software (SDN)</b>: OpenFlow, VXLAN, VLANs.</li>
+                            <li><b>Segurança e Performance</b>: Firewalls DPI, balanceadores de carga (HAProxy, Nginx).</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Nível Avançado</b>
+                        <ul>
+                            <li><b>Redes de Baixa Latência</b>: RDMA, Leaf-Spine architecture.</li>
+                            <li><b>Otimização para Nuvem e CDN</b>: AWS Global Accelerator, cacheamento inteligente.</li>
+                            <li><b>Automação e IA em Redes</b>: Ansible/Python, Machine Learning para congestionamentos.</li>
+                            <li><b>Benchmarking e Testes</b>: Iperf3, TRex.</li>
+                        </ul>
+                    </li>
+                </ol>
+                <hr>
+                <h4>3. Técnicas de Otimização</h4>
+                <h5>1. Redução de Latência</h5>
+                <table style="margin:16px auto; border-collapse:collapse; min-width:320px;">
+                    <tr style="background:#e3f2fd;">
+                        <th style="border:1px solid #b3c6e7;padding:4px 10px;">Técnica</th>
+                        <th style="border:1px solid #b3c6e7;padding:4px 10px;">Ganho Esperado</th>
+                    </tr>
+                    <tr>
+                        <td>TCP Fast Open (TFO)</td>
+                        <td>Até 30% menos handshake</td>
+                    </tr>
+                    <tr style="background:#f7fafd;">
+                        <td>QUIC (HTTP/3)</td>
+                        <td>20-50% mais rápido que TCP em redes instáveis</td>
+                    </tr>
+                    <tr>
+                        <td>Edge Computing</td>
+                        <td>Redução de latência em 40-60%</td>
+                    </tr>
+                </table>
+                <b>Exemplo (Ajuste TCP no Linux):</b>
+                <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
 sysctl -w net.ipv4.tcp_window_scaling=1
 sysctl -w net.ipv4.tcp_sack=1
 sysctl -w net.core.rmem_max=16777216
-            </pre>
-            <h5>2. Balanceamento de Carga</h5>
-            <ul>
-                <li><b>Round Robin vs Least Connections</b></li>
-                <li><b>Persistência de Sessão</b> para aplicações críticas.</li>
-            </ul>
-            <b>Exemplo (HAProxy):</b>
-            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+                </pre>
+                <h5>2. Balanceamento de Carga</h5>
+                <ul>
+                    <li><b>Round Robin vs Least Connections</b></li>
+                    <li><b>Persistência de Sessão</b> para aplicações críticas.</li>
+                </ul>
+                <b>Exemplo (HAProxy):</b>
+                <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
 backend web_servers
     balance leastconn
     server s1 192.168.1.10:80 check
     server s2 192.168.1.11:80 check
-            </pre>
-            <h5>3. Segurança sem Sacrificar Performance</h5>
-            <ul>
-                <li><b>TLS 1.3</b> (mais rápido que TLS 1.2).</li>
-                <li><b>ACLs otimizadas</b> para evitar sobrecarga de firewall.</li>
-            </ul>
-            <b>Exemplo (Nginx com TLS 1.3):</b>
-            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+                </pre>
+                <h5>3. Segurança sem Sacrificar Performance</h5>
+                <ul>
+                    <li><b>TLS 1.3</b> (mais rápido que TLS 1.2).</li>
+                    <li><b>ACLs otimizadas</b> para evitar sobrecarga de firewall.</li>
+                </ul>
+                <b>Exemplo (Nginx com TLS 1.3):</b>
+                <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
 ssl_protocols TLSv1.3;
 ssl_prefer_server_ciphers on;
-            </pre>
-            <h5>4. Monitoramento Proativo</h5>
-            <ul>
-                <li><b>Grafana + Prometheus</b> para métricas em tempo real.</li>
-                <li><b>NetFlow/sFlow</b> para análise de tráfego.</li>
-            </ul>
-            <hr>
-            <h4>4. Ferramentas Essenciais</h4>
-            <ul>
-                <li>🛠 <b>Análise de Rede:</b> Wireshark, SolarWinds.</li>
-                <li>⚙ <b>Otimização Avançada:</b> Cisco DNA Center, Juniper Apstra.</li>
-                <li>📊 <b>Testes de Performance:</b> Iperf3, TRex.</li>
-            </ul>
-            <hr>
-            <h4>5. Onde Aprender Mais?</h4>
-            <h5>Cursos Recomendados</h5>
-            <ul>
-                <li>Cisco CCNA/CCNP (roteamento e switching)</li>
-                <li>"Computer Networking: A Top-Down Approach" (Kurose & Ross)</li>
-            </ul>
-            <h5>Documentação Oficial</h5>
-            <ul>
-                <li><a href="https://www.ietf.org/" target="_blank">RFCs da IETF</a></li>
-                <li><a href="https://aws.amazon.com/networking/" target="_blank">AWS Networking Guide</a></li>
-            </ul>
-            <h5>Comunidades</h5>
-            <ul>
-                <li><a href="https://www.reddit.com/r/networking/" target="_blank">r/networking (Reddit)</a></li>
-                <li>Network Computing (Fórum profissional)</li>
-            </ul>
-            <hr>
-            <h4>6. Conclusão</h4>
-            <p>
-                <b>Checklist de Otimização:</b>
-                <ol style="max-width:700px;margin:12px auto 0 auto;text-align:left;">
-                    <li>Reduza latência (HTTP/3, TCP tuning).</li>
-                    <li>Balanceie carga (HAProxy, ECMP).</li>
-                    <li>Monitore proativamente (Grafana, NetFlow).</li>
-                    <li>Automatize configurações (Ansible, Python).</li>
+                </pre>
+                <h5>4. Monitoramento Proativo</h5>
+                <ul>
+                    <li><b>Grafana + Prometheus</b> para métricas em tempo real.</li>
+                    <li><b>NetFlow/sFlow</b> para análise de tráfego.</li>
+                </ul>
+                <hr>
+                <h4>4. Ferramentas Essenciais</h4>
+                <ul>
+                    <li>🛠 <b>Análise de Rede:</b> Wireshark, SolarWinds.</li>
+                    <li>⚙ <b>Otimização Avançada:</b> Cisco DNA Center, Juniper Apstra.</li>
+                    <li>📊 <b>Testes de Performance:</b> Iperf3, TRex.</li>
+                </ul>
+                <hr>
+                <h4>5. Onde Aprender Mais?</h4>
+                <h5>Cursos Recomendados</h5>
+                <ul>
+                    <li>Cisco CCNA/CCNP (roteamento e switching)</li>
+                    <li>"Computer Networking: A Top-Down Approach" (Kurose & Ross)</li>
+                </ul>
+                <h5>Documentação Oficial</h5>
+                <ul>
+                    <li><a href="https://www.ietf.org/" target="_blank">RFCs da IETF</a></li>
+                    <li><a href="https://aws.amazon.com/networking/" target="_blank">AWS Networking Guide</a></li>
+                </ul>
+                <h5>Comunidades</h5>
+                <ul>
+                    <li><a href="https://www.reddit.com/r/networking/" target="_blank">r/networking (Reddit)</a></li>
+                    <li>Network Computing (Fórum profissional)</li>
+                </ul>
+                <hr>
+                <h4>6. Conclusão</h4>
+                <p>
+                    <b>Checklist de Otimização:</b>
+                    <ol style="max-width:700px;margin:12px auto 0 auto;text-align:left;">
+                        <li>Reduza latência (HTTP/3, TCP tuning).</li>
+                        <li>Balanceie carga (HAProxy, ECMP).</li>
+                        <li>Monitore proativamente (Grafana, NetFlow).</li>
+                        <li>Automatize configurações (Ansible, Python).</li>
+                    </ol>
+                    🚀 <b>Dica Final:</b><br>
+                    <i>"Redes otimizadas podem reduzir custos em até 40% e melhorar a experiência do usuário em aplicações críticas."</i>
+                </p>
+                <p>
+                    <b>Próximo nível?</b> Explore <b>SD-WAN</b> e <b>Redes Neuralmente Inspiradas</b> para o futuro das comunicações!
+                </p>
+            </section>
+            <section>
+                <h2>Otimização de Sistemas Operacionais: Guia Completo</h2>
+                <h4>1. Por que Otimizar um Sistema Operacional?</h4>
+                <ul>
+                    <li>⚡ <b>Melhora desempenho:</b> Sistemas mais rápidos e responsivos.</li>
+                    <li>🔋 <b>Reduz consumo de recursos:</b> CPU, RAM e armazenamento.</li>
+                    <li>📈 <b>Aumenta estabilidade:</b> Menos travamentos e falhas.</li>
+                    <li>🛡 <b>Reforça segurança:</b> Minimiza vulnerabilidades e ataques.</li>
+                </ul>
+                <hr>
+                <h4>2. Trilha de Aprendizado</h4>
+                <ol>
+                    <li>
+                        <b>Nível Básico</b>
+                        <ul>
+                            <li><b>Gerenciamento de Processos</b>: <code>top</code>, <code>htop</code>, <code>ps</code> (monitoramento), <code>nice</code> e <code>renice</code> (prioridade).</li>
+                            <li><b>Otimização de Memória</b>: Swap tuning (Linux), gerenciamento de cache (<code>RAMMap</code> no Windows).</li>
+                            <li><b>Armazenamento e Disco</b>: Desfragmentação (Windows), <code>fstrim</code> (SSDs no Linux), sistemas de arquivos eficientes (EXT4, NTFS, ZFS).</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Nível Intermediário</b>
+                        <ul>
+                            <li><b>Kernel Tuning</b>: Parâmetros do kernel Linux (<code>sysctl.conf</code>), escalonamento de processos (CFS, BFS).</li>
+                            <li><b>Serviços e Inicialização</b>: <code>systemd-analyze</code> (Linux), <code>msconfig</code> e <code>Services.msc</code> (Windows).</li>
+                            <li><b>Virtualização e Containers</b>: KVM, VMware, Docker (<code>cgroups</code> para limitação de recursos).</li>
+                            <li><b>Segurança e Performance</b>: SELinux/AppArmor (Linux), Windows Defender (exclusões para apps críticas).</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <b>Nível Avançado</b>
+                        <ul>
+                            <li><b>Compilação Customizada do Kernel</b>: <code>make menuconfig</code> (Linux), driver optimization (Windows).</li>
+                            <li><b>Benchmarking e Profiling</b>: <code>perf</code> (Linux), Windows Performance Toolkit, <code>latencymon</code> (Windows).</li>
+                            <li><b>Sistemas de Arquivos Avançados</b>: Btrfs (compressão), ReFS (Windows Server).</li>
+                            <li><b>Automação e Scripting</b>: Bash/PowerShell, Ansible para configuração em massa.</li>
+                        </ul>
+                    </li>
                 </ol>
-                🚀 <b>Dica Final:</b><br>
-                <i>"Redes otimizadas podem reduzir custos em até 40% e melhorar a experiência do usuário em aplicações críticas."</i>
-            </p>
-            <p>
-                <b>Próximo nível?</b> Explore <b>SD-WAN</b> e <b>Redes Neuralmente Inspiradas</b> para o futuro das comunicações!
-            </p>
-        </section>
-        <section>
-            <h2>Otimização de Sistemas Operacionais: Guia Completo</h2>
-            <h4>1. Por que Otimizar um Sistema Operacional?</h4>
-            <ul>
-                <li>⚡ <b>Melhora desempenho:</b> Sistemas mais rápidos e responsivos.</li>
-                <li>🔋 <b>Reduz consumo de recursos:</b> CPU, RAM e armazenamento.</li>
-                <li>📈 <b>Aumenta estabilidade:</b> Menos travamentos e falhas.</li>
-                <li>🛡 <b>Reforça segurança:</b> Minimiza vulnerabilidades e ataques.</li>
-            </ul>
-            <hr>
-            <h4>2. Trilha de Aprendizado</h4>
-            <ol>
-                <li>
-                    <b>Nível Básico</b>
-                    <ul>
-                        <li><b>Gerenciamento de Processos</b>: <code>top</code>, <code>htop</code>, <code>ps</code> (monitoramento), <code>nice</code> e <code>renice</code> (prioridade).</li>
-                        <li><b>Otimização de Memória</b>: Swap tuning (Linux), gerenciamento de cache (<code>RAMMap</code> no Windows).</li>
-                        <li><b>Armazenamento e Disco</b>: Desfragmentação (Windows), <code>fstrim</code> (SSDs no Linux), sistemas de arquivos eficientes (EXT4, NTFS, ZFS).</li>
-                    </ul>
-                </li>
-                <li>
-                    <b>Nível Intermediário</b>
-                    <ul>
-                        <li><b>Kernel Tuning</b>: Parâmetros do kernel Linux (<code>sysctl.conf</code>), escalonamento de processos (CFS, BFS).</li>
-                        <li><b>Serviços e Inicialização</b>: <code>systemd-analyze</code> (Linux), <code>msconfig</code> e <code>Services.msc</code> (Windows).</li>
-                        <li><b>Virtualização e Containers</b>: KVM, VMware, Docker (<code>cgroups</code> para limitação de recursos).</li>
-                        <li><b>Segurança e Performance</b>: SELinux/AppArmor (Linux), Windows Defender (exclusões para apps críticas).</li>
-                    </ul>
-                </li>
-                <li>
-                    <b>Nível Avançado</b>
-                    <ul>
-                        <li><b>Compilação Customizada do Kernel</b>: <code>make menuconfig</code> (Linux), driver optimization (Windows).</li>
-                        <li><b>Benchmarking e Profiling</b>: <code>perf</code> (Linux), Windows Performance Toolkit, <code>latencymon</code> (Windows).</li>
-                        <li><b>Sistemas de Arquivos Avançados</b>: Btrfs (compressão), ReFS (Windows Server).</li>
-                        <li><b>Automação e Scripting</b>: Bash/PowerShell, Ansible para configuração em massa.</li>
-                    </ul>
-                </li>
-            </ol>
-            <hr>
-            <h4>3. Técnicas de Otimização</h4>
-            <h5>1. Aceleração de Boot</h5>
-            <table style="margin:16px auto; border-collapse:collapse; min-width:320px;">
-                <tr style="background:#e3f2fd;">
-                    <th style="border:1px solid #b3c6e7;padding:4px 10px;">Técnica</th>
-                    <th style="border:1px solid #b3c6e7;padding:4px 10px;">Ganho Esperado</th>
-                </tr>
-                <tr>
-                    <td>Desativar serviços inúteis</td>
-                    <td>Até 30% mais rápido</td>
-                </tr>
-                <tr style="background:#f7fafd;">
-                    <td>UEFI + Fast Boot</td>
-                    <td>2-5s de redução</td>
-                </tr>
-                <tr>
-                    <td>Initramfs otimizado (Linux)</td>
-                    <td>Boot mais consistente</td>
-                </tr>
-            </table>
-            <b>Exemplo (Linux – <code>systemd-analyze blame</code>):</b>
-            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+                <hr>
+                <h4>3. Técnicas de Otimização</h4>
+                <h5>1. Aceleração de Boot</h5>
+                <table style="margin:16px auto; border-collapse:collapse; min-width:320px;">
+                    <tr style="background:#e3f2fd;">
+                        <th style="border:1px solid #b3c6e7;padding:4px 10px;">Técnica</th>
+                        <th style="border:1px solid #b3c6e7;padding:4px 10px;">Ganho Esperado</th>
+                    </tr>
+                    <tr>
+                        <td>Desativar serviços inúteis</td>
+                        <td>Até 30% mais rápido</td>
+                    </tr>
+                    <tr style="background:#f7fafd;">
+                        <td>UEFI + Fast Boot</td>
+                        <td>2-5s de redução</td>
+                    </tr>
+                    <tr>
+                        <td>Initramfs otimizado (Linux)</td>
+                        <td>Boot mais consistente</td>
+                    </tr>
+                </table>
+                <b>Exemplo (Linux – <code>systemd-analyze blame</code>):</b>
+                <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
 systemctl disable bluetooth.service
 systemctl mask NetworkManager-wait-online.service
-            </pre>
-            <h5>2. Gerenciamento de Memória</h5>
-            <ul>
-                <li><b>Linux:</b> Ajustar <code>swappiness</code> (evitar swap desnecessário).</li>
-                <li><b>Windows:</b> Usar <code>EmptyStandbyList</code> (limpar memória inativa).</li>
-            </ul>
-            <b>Exemplo (Linux – <code>swappiness</code>):</b>
-            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+                </pre>
+                <h5>2. Gerenciamento de Memória</h5>
+                <ul>
+                    <li><b>Linux:</b> Ajustar <code>swappiness</code> (evitar swap desnecessário).</li>
+                    <li><b>Windows:</b> Usar <code>EmptyStandbyList</code> (limpar memória inativa).</li>
+                </ul>
+                <b>Exemplo (Linux – <code>swappiness</code>):</b>
+                <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
 echo "vm.swappiness=10" >> /etc/sysctl.conf
-            </pre>
-            <h5>3. Otimização de Disco</h5>
-            <ul>
-                <li><b>SSDs:</b> Desativar journaling (em alguns casos).</li>
-                <li><b>HDDs:</b> Alinhamento de partições (<code>parted -a optimal</code>).</li>
-            </ul>
-            <b>Exemplo (Windows – desfragmentação agendada):</b>
-            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+                </pre>
+                <h5>3. Otimização de Disco</h5>
+                <ul>
+                    <li><b>SSDs:</b> Desativar journaling (em alguns casos).</li>
+                    <li><b>HDDs:</b> Alinhamento de partições (<code>parted -a optimal</code>).</li>
+                </ul>
+                <b>Exemplo (Windows – desfragmentação agendada):</b>
+                <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
 Optimize-Volume -DriveLetter C -Defrag -Verbose
-            </pre>
-            <h5>4. Rede e IO</h5>
-            <ul>
-                <li><b>Linux:</b> <code>ionice</code> (priorizar E/S de disco).</li>
-                <li><b>Windows:</b> TCP Chimney (offload de rede).</li>
-            </ul>
-            <b>Exemplo (Linux – prioridade de E/S):</b>
-            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+                </pre>
+                <h5>4. Rede e IO</h5>
+                <ul>
+                    <li><b>Linux:</b> <code>ionice</code> (priorizar E/S de disco).</li>
+                    <li><b>Windows:</b> TCP Chimney (offload de rede).</li>
+                </ul>
+                <b>Exemplo (Linux – prioridade de E/S):</b>
+                <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
 ionice -c1 -n0 -p $(pidof mysqld)
-            </pre>
-            <hr>
-            <h4>4. Ferramentas Essenciais</h4>
-            <ul>
-                <li>🛠 <b>Linux:</b> <code>strace</code>, <code>vmstat</code></li>
-                <li>⚙ <b>Windows:</b> Process Explorer, Resource Monitor (<code>resmon</code>)</li>
-                <li>📊 <b>Cross-Platform:</b> Sysinternals Suite, Prometheus + Grafana</li>
-            </ul>
-            <hr>
-            <h4>5. Onde Aprender Mais?</h4>
-            <h5>Cursos Recomendados</h5>
-            <ul>
-                <li><b>Linux Performance Optimization</b> (Brendan Gregg)</li>
-                <li><b>Windows Internals</b> (Mark Russinovich)</li>
-            </ul>
-            <h5>Documentação Oficial</h5>
-            <ul>
-                <li><a href="https://www.kernel.org/" target="_blank">Kernel.org</a> (Linux)</li>
-                <li><a href="https://docs.microsoft.com/en-us/windows/" target="_blank">Microsoft Docs</a> (Windows)</li>
-            </ul>
-            <h5>Comunidades</h5>
-            <ul>
-                <li><a href="https://www.reddit.com/r/linuxadmin/" target="_blank">r/linuxadmin</a> (Reddit)</li>
-                <li><a href="https://community.spiceworks.com/" target="_blank">Spiceworks</a> (Windows Server)</li>
-            </ul>
-            <hr>
-            <h4>6. Conclusão</h4>
-            <p>
-                <b>Checklist de Otimização:</b>
-                <ol style="max-width:700px;margin:12px auto 0 auto;text-align:left;">
-                    <li>Desative serviços inúteis (<code>systemd-analyze blame</code>).</li>
-                    <li>Ajuste memória e swap (<code>vm.swappiness</code>).</li>
-                    <li>Otimize discos (TRIM, alinhamento).</li>
-                    <li>Monitore desempenho (<code>perf</code>, <code>WPT</code>).</li>
-                </ol>
-                🚀 <b>Dica Final:</b><br>
-                <i>"Um SO otimizado pode dobrar a eficiência de aplicações críticas."</i>
-            </p>
-            <p>
-                <b>Próximo nível?</b> Explore <b>Kernel Patches Customizados</b> (como Liquorix) e <b>RTOS</b> (Sistemas Operacionais de Tempo Real)!
-            </p>
-        </section>
+                </pre>
+                <hr>
+                <h4>4. Ferramentas Essenciais</h4>
+                <ul>
+                    <li>🛠 <b>Linux:</b> <code>strace</code>, <code>vmstat</code></li>
+                    <li>⚙ <b>Windows:</b> Process Explorer, Resource Monitor (<code>resmon</code>)</li>
+                    <li>📊 <b>Cross-Platform:</b> Sysinternals Suite, Prometheus + Grafana</li>
+                </ul>
+                <hr>
+                <h4>5. Onde Aprender Mais?</h4>
+                <h5>Cursos Recomendados</h5>
+                <ul>
+                    <li><b>Linux Performance Optimization</b> (Brendan Gregg)</li>
+                    <li><b>Windows Internals</b> (Mark Russinovich)</li>
+                </ul>
+                <h5>Documentação Oficial</h5>
+                <ul>
+                    <li><a href="https://www.kernel.org/" target="_blank">Kernel.org</a> (Linux)</li>
+                    <li><a href="https://docs.microsoft.com/en-us/windows/" target="_blank">Microsoft Docs</a> (Windows)</li>
+                </ul>
+                <h5>Comunidades</h5>
+                <ul>
+                    <li><a href="https://www.reddit.com/r/linuxadmin/" target="_blank">r/linuxadmin</a> (Reddit)</li>
+                    <li><a href="https://community.spiceworks.com/" target="_blank">Spiceworks</a> (Windows Server)</li>
+                </ul>
+                <hr>
+                <h4>6. Conclusão</h4>
+                <p>
+                    <b>Checklist de Otimização:</b>
+                    <ol style="max-width:700px;margin:12px auto 0 auto;text-align:left;">
+                        <li>Desative serviços inúteis (<code>systemd-analyze blame</code>).</li>
+                        <li>Ajuste memória e swap (<code>vm.swappiness</code>).</li>
+                        <li>Otimize discos (TRIM, alinhamento).</li>
+                        <li>Monitore desempenho (<code>perf</code>, <code>WPT</code>).</li>
+                    </ol>
+                    🚀 <b>Dica Final:</b><br>
+                    <i>"Um SO otimizado pode dobrar a eficiência de aplicações críticas."</i>
+                </p>
+                <p>
+                    <b>Próximo nível?</b> Explore <b>Kernel Patches Customizados</b> (como Liquorix) e <b>RTOS</b> (Sistemas Operacionais de Tempo Real)!
+                </p>
+            </section>
+        </div>
     </main>
     <!-- Modal de Cadastro -->
     <div id="register-modal" class="modal-bg">
@@ -736,6 +898,10 @@ ionice -c1 -n0 -p $(pidof mysqld)
             <span class="acess-btn-text">Parar</span>
         </button>
     </div>
+    <!-- Botão Back to the Top -->
+    <button id="back-to-top-btn" title="Voltar ao topo">
+        ↑
+    </button>
     <footer>
         &copy; 2025 Ponto de Partida Dev. Todos os direitos reservados.
     </footer>
@@ -773,6 +939,75 @@ ionice -c1 -n0 -p $(pidof mysqld)
             const btnParar = document.getElementById('btn-parar-audiodescricao');
             if (btnAudio) btnAudio.addEventListener('click', iniciarAudiodescricao);
             if (btnParar) btnParar.addEventListener('click', pararAudiodescricao);
+        });
+    </script>
+    <script>
+        // Fade-in ao carregar a página
+        window.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('fade-in');
+        });
+
+        // Fade-out ao clicar no menu lateral (exceto página atual)
+        document.querySelectorAll('.mini-vertical-menu .mini-menu-btn').forEach(btn => {
+            if (!btn.classList.contains('active')) {
+                btn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.body.classList.remove('fade-in');
+                    setTimeout(() => {
+                        document.body.classList.add('fade-out');
+                        setTimeout(() => {
+                            window.location = this.href;
+                        }, 400); // tempo igual ao transition
+                    }, 150); // pequeno delay antes do fade-out
+                });
+            }
+        });
+
+        // Back to the Top com fade in/out
+        const backToTopBtn = document.getElementById('back-to-top-btn');
+        let ticking = false;
+
+        function handleBackToTopVisibility() {
+            const scrollY = window.scrollY || window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            const docHeight = document.documentElement.scrollHeight;
+
+            // Show when near the bottom (100px from bottom)
+            if (scrollY + windowHeight >= docHeight - 100) {
+                if (!backToTopBtn.classList.contains('visible')) {
+                    backToTopBtn.classList.add('fade-in-btn');
+                    backToTopBtn.classList.remove('fade-out-btn');
+                    backToTopBtn.classList.add('visible');
+                }
+            } else if (scrollY <= 50) {
+                if (backToTopBtn.classList.contains('visible')) {
+                    backToTopBtn.classList.remove('fade-in-btn');
+                    backToTopBtn.classList.add('fade-out-btn');
+                    setTimeout(() => {
+                        backToTopBtn.classList.remove('visible');
+                    }, 400); // tempo igual ao transition
+                }
+            }
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    handleBackToTopVisibility();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        // Initial check
+        window.addEventListener('DOMContentLoaded', handleBackToTopVisibility);
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     </script>
 </body>

@@ -11,6 +11,14 @@
             font-family: 'Segoe UI', Arial, sans-serif;
             background: #f0f8ff;
             color: #222;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        body.fade-in {
+            opacity: 1 !important;
+        }
+        body.fade-out {
+            opacity: 0 !important;
         }
         .navbar {
             position: fixed;
@@ -105,9 +113,23 @@
             font-size: 2em;
         }
         main {
-            max-width: 900px;
+            display: flex;
+            align-items: flex-start;
+            max-width: 1200px;
             margin: 30px auto;
             padding: 0 20px;
+        }
+        nav.mini-vertical-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            min-width: 180px;
+            align-items: stretch;
+            position: static !important;
+            top: auto !important;
+            left: auto !important;
+            margin: 0 30px 0 0 !important;
+            animation: slide-in-left 0.5s;
         }
         section {
             margin-bottom: 40px;
@@ -302,6 +324,59 @@
         .acess-btn-text {
             display: inline;
         }
+        nav.mini-vertical-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            min-width: 180px;
+            margin-top: 0;
+            align-items: stretch;
+            position: static !important;
+            top: auto !important;
+            left: auto !important;
+            margin: 0 30px 0 0 !important;
+            animation: slide-in-left 0.5s;
+        }
+        nav.mini-vertical-menu a {
+            display: block;
+            background: linear-gradient(90deg, #4fc3f7 0%, #1976d2 100%);
+            color: #fff;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: 500;
+            padding: 18px 16px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(33,150,243,0.10);
+            transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.15s;
+            text-align: center;
+            margin: 0;
+        }
+        nav.mini-vertical-menu a:hover,
+        nav.mini-vertical-menu a:focus {
+            background: linear-gradient(90deg, #1976d2 0%, #4fc3f7 100%);
+            color: #e3f2fd;
+            box-shadow: 0 4px 16px rgba(33,150,243,0.18);
+            transform: scale(1.04);
+        }
+        nav.mini-vertical-menu a.active,
+        nav.mini-vertical-menu a.active:focus {
+            background: #fff;
+            color: #1976d2;
+            border: 2px solid #1976d2;
+            font-weight: bold;
+            box-shadow: 0 4px 16px rgba(33,150,243,0.13);
+            transform: none;
+        }
+        @keyframes slide-in-left {
+            0% {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
         @media (max-width: 700px) {
             main {
                 padding: 0 5px;
@@ -347,6 +422,54 @@
                 display: none;
             }
         }
+        /* Menu lateral */
+        .mini-vertical-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            min-width: 180px;
+            align-items: stretch;
+            position: static !important;
+            top: auto !important;
+            left: auto !important;
+            margin: 0 30px 0 0 !important;
+            animation: slide-in-left 0.5s;
+        }
+        .mini-menu-btn {
+            display: block;
+            background: linear-gradient(90deg, #4fc3f7 0%, #1976d2 100%);
+            color: #fff;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: 500;
+            padding: 18px 16px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(33,150,243,0.10);
+            transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.15s;
+            text-align: center;
+            margin: 0 0 0 10px;
+        }
+        .mini-menu-btn:hover,
+        .mini-menu-btn:focus {
+            background: linear-gradient(90deg, #1976d2 0%, #4fc3f7 100%);
+            color: #e3f2fd;
+            box-shadow: 0 4px 16px rgba(33,150,243,0.18);
+            transform: scale(1.04);
+        }
+        .mini-menu-btn.active,
+        .mini-menu-btn.active:focus {
+            background: #fff;
+            color: #1976d2;
+            border: 2px solid #1976d2;
+            font-weight: bold;
+            box-shadow: 0 4px 16px rgba(33,150,243,0.13);
+            transform: none;
+        }
+        @media (max-width: 900px) {
+            .mini-vertical-menu {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -383,421 +506,431 @@
         <img src="./assets/logoppd.jpeg" alt="Logo do site Ponto de Partida Dev.">
         <h1>Programação para Web e Mobile</h1>
     </header>
-    <main>
-        <section>
-            <figure>
-                <img src="./assets/pwm(title).png" alt="Imagem de Programação Web e Mobile">
-            </figure>
-            <p>
-                Este curso aborda os <strong>fundamentos do desenvolvimento para internet e dispositivos móveis</strong>, ensinando desde a criação de sites e aplicações web até a construção de apps otimizados para smartphones.
-            </p>
-            <p>
-                Com foco em performance e boas práticas, você aprenderá a desenvolver projetos eficientes, rápidos e modernos.
-            </p>
-            <h2>Conteúdos do Curso</h2>
-            <ul>
-                <li><strong>Web Coding</strong>: Criação de sites e sistemas web.</li>
-                <li><strong>Otimização Web</strong>: Técnicas para alta performance na internet.</li>
-                <li><strong>Mobile Coding</strong>: Desenvolvimento de aplicativos para celular.</li>
-                <li><strong>Otimização Mobile</strong>: Práticas para apps leves e rápidos.</li>
-            </ul>
-            <p>
-                Com esses conhecimentos, você estará preparado para criar soluções digitais modernas e adaptadas a diferentes plataformas.
-            </p>
-        </section>
-        <section>
-            <h2>Web Design: Trilha de Aprendizado, Resumo e Recursos</h2>
-            <h4>1. Trilha de Aprendizado</h4>
-            <ol>
-                <li>
-                    <b>Nível Iniciante</b>
+    <main style="display: flex; align-items: flex-start; max-width: 1200px; margin: 30px auto; padding: 0 20px;">
+         <nav class="mini-vertical-menu" style="position:static; top:auto; left:auto; margin-right:30px;">
+             <a href="index.html" class="mini-menu-btn">Início</a>
+             <a href="FLM.html" class="mini-menu-btn">Fundamentos Lógicos</a>
+             <a href="progwebmob.html" class="mini-menu-btn active">Web & Mobile</a>
+             <a href="sistemas.html" class="mini-menu-btn">Infraestrutura</a>
+             <a href="lingprogramação.html" class="mini-menu-btn">Linguagens</a>
+             <a href="instalVscode.html" class="mini-menu-btn">Instalar VS Code</a>
+        </nav>
+        <div style="flex:1;">
+            <div style="flex:1;">
+                <section id="conteudos-curso">
+                    <figure>
+                        <img src="./assets/pwm(title).png" alt="Imagem de Programação Web e Mobile">
+                    </figure>
+                    <p>
+                        Este curso aborda os <strong>fundamentos do desenvolvimento para internet e dispositivos móveis</strong>, ensinando desde a criação de sites e aplicações web até a construção de apps otimizados para smartphones.
+                    </p>
+                    <p>
+                        Com foco em performance e boas práticas, você aprenderá a desenvolver projetos eficientes, rápidos e modernos.
+                    </p>
+                    <h2>Conteúdos do Curso</h2>
                     <ul>
-                        <li><b>Fundamentos do Design</b>: Princípios básicos (hierarquia, contraste, alinhamento), psicologia das cores e tipografia.</li>
-                        <li><b>HTML & CSS</b>: Estrutura de páginas, estilização (Flexbox, Grid, responsividade).</li>
-                        <li><b>Ferramentas Básicas</b>: Figma/Adobe XD (prototipagem), VS Code (editor de código).</li>
+                        <li><strong>Web Coding</strong>: Criação de sites e sistemas web.</li>
+                        <li><strong>Otimização Web</strong>: Técnicas para alta performance na internet.</li>
+                        <li><strong>Mobile Coding</strong>: Desenvolvimento de aplicativos para celular.</li>
+                        <li><strong>Otimização Mobile</strong>: Práticas para apps leves e rápidos.</li>
                     </ul>
-                </li>
-                <li>
-                    <b>Nível Intermediário</b>
+                    <p>
+                        Com esses conhecimentos, você estará preparado para criar soluções digitais modernas e adaptadas a diferentes plataformas.
+                    </p>
+                </section>
+                <section id="web-design">
+                    <h2>Web Design: Trilha de Aprendizado, Resumo e Recursos</h2>
+                    <h4>1. Trilha de Aprendizado</h4>
+                    <ol>
+                        <li>
+                            <b>Nível Iniciante</b>
+                            <ul>
+                                <li><b>Fundamentos do Design</b>: Princípios básicos (hierarquia, contraste, alinhamento), psicologia das cores e tipografia.</li>
+                                <li><b>HTML & CSS</b>: Estrutura de páginas, estilização (Flexbox, Grid, responsividade).</li>
+                                <li><b>Ferramentas Básicas</b>: Figma/Adobe XD (prototipagem), VS Code (editor de código).</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <b>Nível Intermediário</b>
+                            <ul>
+                                <li><b>Design Responsivo</b>: Media Queries, mobile-first vs. desktop-first.</li>
+                                <li><b>UI/UX Design</b>: Wireframing, prototipagem, usabilidade e experiência do usuário.</li>
+                                <li><b>JavaScript Básico</b>: Interatividade (menus, sliders), manipulação do DOM.</li>
+                                <li><b>Frameworks CSS</b>: Bootstrap, Tailwind CSS.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <b>Nível Avançado</b>
+                            <ul>
+                                <li><b>Front-End Moderno</b>: React/Vue.js, APIs REST e AJAX.</li>
+                                <li><b>Otimização e Performance</b>: SEO básico, carregamento rápido.</li>
+                                <li><b>Design Systems</b>: Bibliotecas de componentes (ex.: Storybook).</li>
+                                <li><b>Acessibilidade (WCAG)</b>: Design inclusivo (leitura de tela, contraste).</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <hr>
+                    <h4>2. Resumo do Conteúdo</h4>
+                    <h5>1. Fundamentos do Design</h5>
                     <ul>
-                        <li><b>Design Responsivo</b>: Media Queries, mobile-first vs. desktop-first.</li>
-                        <li><b>UI/UX Design</b>: Wireframing, prototipagem, usabilidade e experiência do usuário.</li>
-                        <li><b>JavaScript Básico</b>: Interatividade (menus, sliders), manipulação do DOM.</li>
-                        <li><b>Frameworks CSS</b>: Bootstrap, Tailwind CSS.</li>
+                        <li><b>Hierarquia Visual</b>: Elementos mais importantes devem chamar atenção.</li>
+                        <li><b>Cores</b>: Paletas harmônicas, psicologia das cores (ex.: azul = confiança).</li>
+                        <li><b>Tipografia</b>: Fontes serifadas (formal) vs. sans-serif (moderno), legibilidade.</li>
                     </ul>
-                </li>
-                <li>
-                    <b>Nível Avançado</b>
+                    <h5>2. HTML & CSS</h5>
                     <ul>
-                        <li><b>Front-End Moderno</b>: React/Vue.js, APIs REST e AJAX.</li>
-                        <li><b>Otimização e Performance</b>: SEO básico, carregamento rápido.</li>
-                        <li><b>Design Systems</b>: Bibliotecas de componentes (ex.: Storybook).</li>
-                        <li><b>Acessibilidade (WCAG)</b>: Design inclusivo (leitura de tela, contraste).</li>
+                        <li><b>HTML</b>: Estrutura o conteúdo (tags como <code>&lt;header&gt;</code>, <code>&lt;section&gt;</code>).</li>
+                        <li><b>CSS</b>: Aparência, layouts, animações.
+                            <ul>
+                                <li><b>Flexbox/Grid</b>: Layouts complexos e responsivos.</li>
+                            </ul>
+                        </li>
                     </ul>
-                </li>
-            </ol>
-            <hr>
-            <h4>2. Resumo do Conteúdo</h4>
-            <h5>1. Fundamentos do Design</h5>
-            <ul>
-                <li><b>Hierarquia Visual</b>: Elementos mais importantes devem chamar atenção.</li>
-                <li><b>Cores</b>: Paletas harmônicas, psicologia das cores (ex.: azul = confiança).</li>
-                <li><b>Tipografia</b>: Fontes serifadas (formal) vs. sans-serif (moderno), legibilidade.</li>
-            </ul>
-            <h5>2. HTML & CSS</h5>
-            <ul>
-                <li><b>HTML</b>: Estrutura o conteúdo (tags como <code>&lt;header&gt;</code>, <code>&lt;section&gt;</code>).</li>
-                <li><b>CSS</b>: Aparência, layouts, animações.
-                    <ul>
-                        <li><b>Flexbox/Grid</b>: Layouts complexos e responsivos.</li>
-                    </ul>
-                </li>
-            </ul>
-            <b>Exemplo (CSS Grid):</b>
-            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+                    <b>Exemplo (CSS Grid):</b>
+                    <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
-            </pre>
-            <h5>3. UI/UX Design</h5>
-            <ul>
-                <li><b>UI (User Interface)</b>: Aparência (botões, ícones).</li>
-                <li><b>UX (User Experience)</b>: Jornada do usuário, facilidade de uso.</li>
-                <li><b>Ferramentas</b>: Figma, Hotjar.</li>
-            </ul>
-            <h5>4. JavaScript para Interatividade</h5>
-            <b>Exemplo (Menu Mobile):</b>
-            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+                    </pre>
+                    <h5>3. UI/UX Design</h5>
+                    <ul>
+                        <li><b>UI (User Interface)</b>: Aparência (botões, ícones).</li>
+                        <li><b>UX (User Experience)</b>: Jornada do usuário, facilidade de uso.</li>
+                        <li><b>Ferramentas</b>: Figma, Hotjar.</li>
+                    </ul>
+                    <h5>4. JavaScript para Interatividade</h5>
+                    <b>Exemplo (Menu Mobile):</b>
+                    <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
 document.querySelector('.menu-btn').addEventListener('click', () => {
   document.querySelector('.nav-links').classList.toggle('active');
 });
-            </pre>
-            <h5>5. Design Responsivo</h5>
-            <b>Media Queries:</b>
-            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+                    </pre>
+                    <h5>5. Design Responsivo</h5>
+                    <b>Media Queries:</b>
+                    <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
 @media (max-width: 768px) {
   .container { grid-template-columns: 1fr; }
 }
-            </pre>
-            <h5>6. Frameworks CSS</h5>
-            <ul>
-                <li><b>Bootstrap</b>: Componentes prontos (navbar, cards).</li>
-                <li><b>Tailwind CSS</b>: Estilização utilitária (ex.: <code>bg-blue-500</code>).</li>
-            </ul>
-            <h5>7. SEO e Performance</h5>
-            <ul>
-                <li><b>SEO Básico</b>: Meta tags, imagens com <code>alt</code> descritivo.</li>
-                <li><b>Otimização</b>: Compressão de imagens, minificação de CSS/JS.</li>
-            </ul>
-            <hr>
-            <h4>3. Onde Continuar Aprendendo?</h4>
-            <h5>Cursos Recomendados</h5>
-            <ul>
-                <li>🎓 <b>Gratuitos</b>:
+                    </pre>
+                    <h5>6. Frameworks CSS</h5>
                     <ul>
-                        <li><a href="https://www.freecodecamp.org/" target="_blank">FreeCodeCamp (Web Design)</a></li>
-                        <li><a href="https://www.coursera.org/professional-certificates/google-ux-design" target="_blank">Coursera (UI/UX - Google)</a></li>
-                    </ul>
-                </li>
-                <li>🎓 <b>Pagos</b>:
+                        <li><b>Bootstrap</b>: Componentes prontos (navbar, cards).</li>
+                        <li><b>Tailwind CSS</b>: Estilização utilitária (ex.: <code>bg-blue-500</code>).</li>
+                    </li>
+                    <h5>7. SEO e Performance</h5>
                     <ul>
-                        <li><a href="https://www.udemy.com/course/web-design-for-beginners-real-world-coding-in-html-css/" target="_blank">Udemy (Web Design Completo)</a></li>
-                        <li><a href="https://www.interaction-design.org/" target="_blank">Interaction Design Foundation</a></li>
+                        <li><b>SEO Básico</b>: Meta tags, imagens com <code>alt</code> descritivo.</li>
+                        <li><b>Otimização</b>: Compressão de imagens, minificação de CSS/JS.</li>
                     </ul>
-                </li>
-            </ul>
-            <h5>Ferramentas Úteis</h5>
-            <ul>
-                <li>🛠️ <b>Design</b>:
+                    <hr>
+                    <h4>3. Onde Continuar Aprendendo?</h4>
+                    <h5>Cursos Recomendados</h5>
                     <ul>
-                        <li><a href="https://www.figma.com/" target="_blank">Figma</a></li>
-                        <li><a href="https://www.adobe.com/br/products/xd.html" target="_blank">Adobe XD</a></li>
+                        <li>🎓 <b>Gratuitos</b>:
+                            <ul>
+                                <li><a href="https://www.freecodecamp.org/" target="_blank">FreeCodeCamp (Web Design)</a></li>
+                                <li><a href="https://www.coursera.org/professional-certificates/google-ux-design" target="_blank">Coursera (UI/UX - Google)</a></li>
+                            </ul>
+                        </li>
+                        <li>🎓 <b>Pagos</b>:
+                            <ul>
+                                <li><a href="https://www.udemy.com/course/web-design-for-beginners-real-world-coding-in-html-css/" target="_blank">Udemy (Web Design Completo)</a></li>
+                                <li><a href="https://www.interaction-design.org/" target="_blank">Interaction Design Foundation</a></li>
+                            </ul>
+                        </li>
                     </ul>
-                </li>
-                <li>🛠️ <b>Desenvolvimento</b>:
+                    <h5>Ferramentas Úteis</h5>
                     <ul>
-                        <li><a href="https://codepen.io/" target="_blank">CodePen</a> (testes rápidos)</li>
-                        <li><a href="https://caniuse.com/" target="_blank">Can I Use</a> (compatibilidade de navegadores)</li>
+                        <li>🛠️ <b>Design</b>:
+                            <ul>
+                                <li><a href="https://www.figma.com/" target="_blank">Figma</a></li>
+                                <li><a href="https://www.adobe.com/br/products/xd.html" target="_blank">Adobe XD</a></li>
+                            </ul>
+                        </li>
+                        <li>🛠️ <b>Desenvolvimento</b>:
+                            <ul>
+                                <li><a href="https://codepen.io/" target="_blank">CodePen</a> (testes rápidos)</li>
+                                <li><a href="https://caniuse.com/" target="_blank">Can I Use</a> (compatibilidade de navegadores)</li>
+                            </ul>
+                        </li>
                     </ul>
-                </li>
-            </ul>
-            <h5>Comunidades</h5>
-            <ul>
-                <li>💬 <b>Fóruns</b>:
+                    <h5>Comunidades</h5>
                     <ul>
-                        <li><a href="https://stackoverflow.com/" target="_blank">Stack Overflow</a></li>
-                        <li><a href="https://www.reddit.com/r/web_design/" target="_blank">Reddit (r/web_design)</a></li>
+                        <li>💬 <b>Fóruns</b>:
+                            <ul>
+                                <li><a href="https://stackoverflow.com/" target="_blank">Stack Overflow</a></li>
+                                <li><a href="https://www.reddit.com/r/web_design/" target="_blank">Reddit (r/web_design)</a></li>
+                            </ul>
+                        </li>
+                        <li>📚 <b>Inspiração</b>:
+                            <ul>
+                                <li><a href="https://dribbble.com/" target="_blank">Dribbble</a></li>
+                                <li><a href="https://www.behance.net/" target="_blank">Behance</a></li>
+                            </ul>
+                        </li>
                     </ul>
-                </li>
-                <li>📚 <b>Inspiração</b>:
+                    <hr>
+                    <h4>Conclusão</h4>
+                    <p>
+                        Web Design combina <b>criatividade</b> e <b>técnica</b>. Comece com HTML/CSS, domine UI/UX, e depois avance para JavaScript e frameworks. Pratique criando projetos reais e acompanhe as tendências (ex.: dark mode, microinterações).
+                    </p>
+                    <p>
+                        <b>Próximo Passo:</b>
+                        <ol style="max-width:700px;margin:12px auto 0 auto;text-align:left;">
+                            <li>Escolha um curso (FreeCodeCamp ou Udemy).</li>
+                            <li>Crie um portfólio no Figma + GitHub Pages.</li>
+                            <li>Compartilhe seu trabalho no Dribbble/LinkedIn.</li>
+                        </ol>
+                        🚀 <b>Dica Extra</b>: Acesse <a href="https://www.frontendmentor.io/" target="_blank">Frontend Mentor</a> para desafios práticos!
+                    </p>
+                </section>
+                <section id="desenvolvimento-pratico">
+                    <h2>Desenvolvimento Prático</h2>
+                    <p>
+                        Em breve, conteúdos e exercícios práticos para você colocar em ação o que aprendeu e desenvolver seus próprios projetos web e mobile!
+                    </p>
+                </section>
+                <section id="otimizacao-web">
+                    <h2>Otimização Web: Guia Completo</h2>
+                    <h4>1. Por que a Otimização Web é Importante?</h4>
                     <ul>
-                        <li><a href="https://dribbble.com/" target="_blank">Dribbble</a></li>
-                        <li><a href="https://www.behance.net/" target="_blank">Behance</a></li>
+                        <li><b>Velocidade de carregamento</b>: Menor taxa de rejeição (bounce rate).</li>
+                        <li><b>Experiência do usuário (UX)</b>: Mais conversões e engajamento.</li>
+                        <li><b>SEO (Ranking no Google)</b>: Sites rápidos rankeiam melhor.</li>
+                        <li><b>Custos de hospedagem</b>: Menor consumo de banda e recursos.</li>
                     </ul>
-                </li>
-            </ul>
-            <hr>
-            <h4>Conclusão</h4>
-            <p>
-                Web Design combina <b>criatividade</b> e <b>técnica</b>. Comece com HTML/CSS, domine UI/UX, e depois avance para JavaScript e frameworks. Pratique criando projetos reais e acompanhe as tendências (ex.: dark mode, microinterações).
-            </p>
-            <p>
-                <b>Próximo Passo:</b>
-                <ol style="max-width:700px;margin:12px auto 0 auto;text-align:left;">
-                    <li>Escolha um curso (FreeCodeCamp ou Udemy).</li>
-                    <li>Crie um portfólio no Figma + GitHub Pages.</li>
-                    <li>Compartilhe seu trabalho no Dribbble/LinkedIn.</li>
-                </ol>
-                🚀 <b>Dica Extra</b>: Acesse <a href="https://www.frontendmentor.io/" target="_blank">Frontend Mentor</a> para desafios práticos!
-            </p>
-        </section>
-        <section>
-            <h2>Desenvolvimento Prático</h2>
-            <p>
-                Em breve, conteúdos e exercícios práticos para você colocar em ação o que aprendeu e desenvolver seus próprios projetos web e mobile!
-            </p>
-        </section>
-        <section>
-            <h2>Otimização Web: Guia Completo</h2>
-            <h4>1. Por que a Otimização Web é Importante?</h4>
-            <ul>
-                <li><b>Velocidade de carregamento</b>: Menor taxa de rejeição (bounce rate).</li>
-                <li><b>Experiência do usuário (UX)</b>: Mais conversões e engajamento.</li>
-                <li><b>SEO (Ranking no Google)</b>: Sites rápidos rankeiam melhor.</li>
-                <li><b>Custos de hospedagem</b>: Menor consumo de banda e recursos.</li>
-            </ul>
-            <hr>
-            <h4>2. Trilha de Aprendizado</h4>
-            <ol>
-                <li>
-                    <b>Nível Básico (Fundamentos)</b>
+                    <hr>
+                    <h4>2. Trilha de Aprendizado</h4>
+                    <ol>
+                        <li>
+                            <b>Nível Básico (Fundamentos)</b>
+                            <ul>
+                                <li><b>Otimização de Imagens</b>: Formatos (WebP, AVIF vs. JPEG/PNG), compressão (TinyPNG, Squoosh).</li>
+                                <li><b>Minificação de CSS/JS</b>: Remoção de espaços e comentários. Ferramentas: UglifyJS, CSSNano.</li>
+                                <li><b>Cache e CDN</b>: Configurar cabeçalhos <code>Cache-Control</code>, usar Cloudflare, AWS CloudFront.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <b>Nível Intermediário</b>
+                            <ul>
+                                <li><b>Carregamento Assíncrono/Adiado</b>: <code>async</code> e <code>defer</code> em scripts, lazy loading.</li>
+                                <li><b>Otimização de Fontes</b>: <code>font-display: swap;</code>, subset de fontes.</li>
+                                <li><b>Critical CSS</b>: Extrair CSS essencial para carregamento acima do fold.</li>
+                                <li><b>HTTP/2 e HTTP/3</b>: Multiplexação para carregamento paralelo.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <b>Nível Avançado</b>
+                            <ul>
+                                <li><b>Renderização no Lado do Servidor (SSR)</b>: Next.js, Nuxt.js para melhor performance.</li>
+                                <li><b>Otimização de Bancos de Dados</b>: Indexação, queries eficientes.</li>
+                                <li><b>Análise de Performance</b>: Lighthouse, WebPageTest, GTmetrix.</li>
+                                <li><b>PWA (Progressive Web Apps)</b>: Offline mode com Service Workers.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <hr>
+                    <h4>3. Resumo das Técnicas de Otimização</h4>
+                    <h5>1. Otimização de Imagens</h5>
                     <ul>
-                        <li><b>Otimização de Imagens</b>: Formatos (WebP, AVIF vs. JPEG/PNG), compressão (TinyPNG, Squoosh).</li>
-                        <li><b>Minificação de CSS/JS</b>: Remoção de espaços e comentários. Ferramentas: UglifyJS, CSSNano.</li>
-                        <li><b>Cache e CDN</b>: Configurar cabeçalhos <code>Cache-Control</code>, usar Cloudflare, AWS CloudFront.</li>
+                        <li><b>Formatos modernos</b>: <b>WebP</b> (30% menor que JPEG), <b>AVIF</b> (melhor compressão).</li>
+                        <li><b>Ferramentas</b>: <a href="https://squoosh.app/" target="_blank">Squoosh</a>, <code>sharp</code> (Node.js).</li>
                     </ul>
-                </li>
-                <li>
-                    <b>Nível Intermediário</b>
-                    <ul>
-                        <li><b>Carregamento Assíncrono/Adiado</b>: <code>async</code> e <code>defer</code> em scripts, lazy loading.</li>
-                        <li><b>Otimização de Fontes</b>: <code>font-display: swap;</code>, subset de fontes.</li>
-                        <li><b>Critical CSS</b>: Extrair CSS essencial para carregamento acima do fold.</li>
-                        <li><b>HTTP/2 e HTTP/3</b>: Multiplexação para carregamento paralelo.</li>
-                    </ul>
-                </li>
-                <li>
-                    <b>Nível Avançado</b>
-                    <ul>
-                        <li><b>Renderização no Lado do Servidor (SSR)</b>: Next.js, Nuxt.js para melhor performance.</li>
-                        <li><b>Otimização de Bancos de Dados</b>: Indexação, queries eficientes.</li>
-                        <li><b>Análise de Performance</b>: Lighthouse, WebPageTest, GTmetrix.</li>
-                        <li><b>PWA (Progressive Web Apps)</b>: Offline mode com Service Workers.</li>
-                    </ul>
-                </li>
-            </ol>
-            <hr>
-            <h4>3. Resumo das Técnicas de Otimização</h4>
-            <h5>1. Otimização de Imagens</h5>
-            <ul>
-                <li><b>Formatos modernos</b>: <b>WebP</b> (30% menor que JPEG), <b>AVIF</b> (melhor compressão).</li>
-                <li><b>Ferramentas</b>: <a href="https://squoosh.app/" target="_blank">Squoosh</a>, <code>sharp</code> (Node.js).</li>
-            </ul>
-            <b>Exemplo HTML:</b>
-            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+                    <b>Exemplo HTML:</b>
+                    <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
 &lt;picture&gt;
   &lt;source srcset="imagem.avif" type="image/avif"&gt;
   &lt;source srcset="imagem.webp" type="image/webp"&gt;
   &lt;img src="imagem.jpg" alt="Descrição"&gt;
 &lt;/picture&gt;
-            </pre>
-            <h5>2. Minificação e Bundling</h5>
-            <ul>
-                <li><b>CSS/JS</b>: Use <b>Webpack</b>, <b>Vite</b> ou <b>esbuild</b>.</li>
-                <li><b>HTML</b>: <code>html-minifier</code>.</li>
-            </ul>
-            <b>Exemplo (Webpack):</b>
-            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+                    </pre>
+                    <h5>2. Minificação e Bundling</h5>
+                    <ul>
+                        <li><b>CSS/JS</b>: Use <b>Webpack</b>, <b>Vite</b> ou <b>esbuild</b>.</li>
+                        <li><b>HTML</b>: <code>html-minifier</code>.</li>
+                    </ul>
+                    <b>Exemplo (Webpack):</b>
+                    <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
 // webpack.config.js
 module.exports = {
   optimization: { minimize: true },
   plugins: [new CssMinimizerPlugin()]
 };
-            </pre>
-            <h5>3. Cache e CDN</h5>
-            <ul>
-                <li><b>Cabeçalhos HTTP</b>:
-                    <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+                    </pre>
+                    <h5>3. Cache e CDN</h5>
+                    <ul>
+                        <li><b>Cabeçalhos HTTP</b>:
+                            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
 Cache-Control: public, max-age=31536000
-                    </pre>
-                </li>
-                <li><b>CDNs populares</b>: Cloudflare, BunnyCDN.</li>
-            </ul>
-            <h5>4. Lazy Loading</h5>
-            <ul>
-                <li><b>Imagens/Iframes</b>:
-                    <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+                            </pre>
+                        </li>
+                        <li><b>CDNs populares</b>: Cloudflare, BunnyCDN.</li>
+                    </ul>
+                    <h5>4. Lazy Loading</h5>
+                    <ul>
+                        <li><b>Imagens/Iframes</b>:
+                            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
 &lt;img src="placeholder.jpg" loading="lazy" data-src="imagem-real.jpg"&gt;
-                    </pre>
-                </li>
-                <li><b>Intersection Observer API</b> (JS avançado).</li>
-            </ul>
-            <h5>5. Otimização de Fontes</h5>
-            <ul>
-                <li>Evitar <code>@import</code>: Use <code>&lt;link&gt;</code> no HTML.</li>
-                <li>Subsetting: Remover glifos não usados.</li>
-            </ul>
-            <b>Exemplo CSS:</b>
-            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+                            </pre>
+                        </li>
+                        <li><b>Intersection Observer API</b> (JS avançado).</li>
+                    </ul>
+                    <h5>5. Otimização de Fontes</h5>
+                    <ul>
+                        <li>Evitar <code>@import</code>: Use <code>&lt;link&gt;</code> no HTML.</li>
+                        <li>Subsetting: Remover glifos não usados.</li>
+                    </ul>
+                    <b>Exemplo CSS:</b>
+                    <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
 @font-face {
   font-family: 'MinhaFonte';
   src: url('fonte.woff2') format('woff2');
   font-display: swap;
 }
-            </pre>
-            <h5>6. Critical CSS</h5>
-            <ul>
-                <li><b>Ferramentas</b>: Penthouse, Critters (Webpack plugin).</li>
-            </ul>
-            <h5>7. Monitoramento Contínuo</h5>
-            <ul>
-                <li><b>Lighthouse</b>:
-                    <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
-lighthouse https://seusite.com --view
                     </pre>
-                </li>
-                <li><b>Web Vitals</b>: LCP, CLS.</li>
-            </ul>
-            <hr>
-            <h4>4. Onde Aprender Mais?</h4>
-            <h5>Cursos Recomendados</h5>
-            <ul>
-                <li>🎓 <b>Gratuitos</b>:
+                    <h5>6. Critical CSS</h5>
                     <ul>
-                        <li><a href="https://www.udacity.com/course/website-performance-optimization--ud884" target="_blank">Web Performance Optimization - Udacity</a></li>
-                        <li><a href="https://web.dev/learn/" target="_blank">Google's Web Fundamentals</a></li>
+                        <li><b>Ferramentas</b>: Penthouse, Critters (Webpack plugin).</li>
                     </ul>
-                </li>
-                <li>🎓 <b>Pagos</b>:
+                    <h5>7. Monitoramento Contínuo</h5>
                     <ul>
-                        <li><a href="https://www.udemy.com/course/website-speed-optimization/" target="_blank">High Performance Websites - Udemy</a></li>
+                        <li><b>Lighthouse</b>:
+                            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+lighthouse https://seusite.com --view
+                            </pre>
+                        </li>
+                        <li><b>Web Vitals</b>: LCP, CLS.</li>
                     </ul>
-                </li>
-            </ul>
-            <h5>Ferramentas Úteis</h5>
-            <ul>
-                <li><a href="https://pagespeed.web.dev/" target="_blank">PageSpeed Insights</a></li>
-                <li><a href="https://gtmetrix.com/" target="_blank">GTmetrix</a></li>
-                <li><a href="https://www.webpagetest.org/" target="_blank">WebPageTest</a></li>
-            </ul>
-            <h5>Comunidades</h5>
-            <ul>
-                <li><a href="https://stackoverflow.com/questions/tagged/web-performance" target="_blank">Stack Overflow</a></li>
-                <li><a href="https://www.reddit.com/r/webdev/" target="_blank">Reddit (r/webdev)</a></li>
-            </ul>
-            <hr>
-            <h4>5. Conclusão</h4>
-            <p>
-                <b>Próximos Passos:</b>
-                <ol style="max-width:700px;margin:12px auto 0 auto;text-align:left;">
-                    <li>Teste seu site no Lighthouse e identifique gargalos.</li>
-                    <li>Otimize imagens e ative lazy loading.</li>
-                    <li>Implemente um CDN se seu site for global.</li>
-                    <li>Monitore continuamente com Web Vitals.</li>
-                </ol>
-                🚀 <b>Dica Final</b>:<br>
-                <i>"Um site que carrega em <b>menos de 2 segundos</b> tem <b>50% mais chances</b> de reter usuários." – Google Data</i>
-            </p>
-            <p>
-                Quer ir além? Estude <b>Server-Side Rendering (Next.js)</b> e <b>PWA</b> para otimização extrema!
-            </p>
-        </section>
-        <section>
-            <h2>Mobile Coding: Guia Completo</h2>
-            <h4>1. Por que Aprender Mobile Coding?</h4>
-            <ul>
-                <li>📱 <b>Maior alcance</b>: 6.92 bilhões de usuários de smartphones no mundo.</li>
-                <li>🚀 <b>Experiência otimizada</b>: Apps nativos têm melhor desempenho que web.</li>
-                <li>💼 <b>Oportunidades de carreira</b>: Mercado em crescimento (React Native, Flutter, Kotlin).</li>
-                <li>📊 <b>Monetização</b>: Apps geram receita via anúncios, assinaturas e vendas.</li>
-            </ul>
-            <hr>
-            <h4>2. Trilha de Aprendizado</h4>
-            <ol>
-                <li>
-                    <b>Nível Iniciante</b>
+                    <hr>
+                    <h4>4. Onde Aprender Mais?</h4>
+                    <h5>Cursos Recomendados</h5>
                     <ul>
-                        <li><b>Fundamentos de Programação</b>: Lógica, estruturas de dados e algoritmos. Sintaxe básica (JavaScript, Dart, Kotlin/Swift).</li>
-                        <li><b>Introdução ao Mobile</b>: Diferença entre <b>nativo</b> (Kotlin/Swift) e <b>cross-platform</b> (React Native/Flutter). Configurar ambiente (Android Studio, Xcode).</li>
-                        <li><b>UI/UX para Mobile</b>: Princípios de design (Material Design, Apple HIG). Ferramentas: Figma, Adobe XD.</li>
+                        <li>🎓 <b>Gratuitos</b>:
+                            <ul>
+                                <li><a href="https://www.udacity.com/course/website-performance-optimization--ud884" target="_blank">Web Performance Optimization - Udacity</a></li>
+                                <li><a href="https://web.dev/learn/" target="_blank">Google's Web Fundamentals</a></li>
+                            </ul>
+                        </li>
+                        <li>🎓 <b>Pagos</b>:
+                            <ul>
+                                <li><a href="https://www.udemy.com/course/website-speed-optimization/" target="_blank">High Performance Websites - Udemy</a></li>
+                            </ul>
+                        </li>
                     </ul>
-                </li>
-                <li>
-                    <b>Nível Intermediário</b>
+                    <h5>Ferramentas Úteis</h5>
                     <ul>
-                        <li><b>Desenvolvimento Nativo</b>: <b>Android</b> (Kotlin/Jetpack Compose), <b>iOS</b> (Swift/SwiftUI).</li>
-                        <li><b>Frameworks Cross-Platform</b>: React Native (JavaScript/TypeScript), Flutter (Dart).</li>
-                        <li><b>APIs e Backend</b>: Consumo de RESTful APIs (Fetch, Axios), Firebase (autenticação, banco de dados).</li>
-                        <li><b>Testes e Debugging</b>: Unit tests (JUnit, XCTest), Android Profiler, Xcode Instruments.</li>
+                        <li><a href="https://pagespeed.web.dev/" target="_blank">PageSpeed Insights</a></li>
+                        <li><a href="https://gtmetrix.com/" target="_blank">GTmetrix</a></li>
+                        <li><a href="https://www.webpagetest.org/" target="_blank">WebPageTest</a></li>
                     </ul>
-                </li>
-                <li>
-                    <b>Nível Avançado</b>
+                    <h5>Comunidades</h5>
                     <ul>
-                        <li><b>Otimização de Performance</b>: Reduzir consumo de bateria e memória, lazy loading, code splitting.</li>
-                        <li><b>Publicação na App Store/Google Play</b>: Guidelines de submissão, metadados (screenshots, descrição).</li>
-                        <li><b>Segurança</b>: Criptografia (HTTPS, Keychain), prevenção a reverse engineering (ProGuard, R8).</li>
-                        <li><b>Tendências</b>: IA integrada (ML Kit, Core ML), apps offline-first (SQLite, Realm).</li>
+                        <li><a href="https://stackoverflow.com/questions/tagged/web-performance" target="_blank">Stack Overflow</a></li>
+                        <li><a href="https://www.reddit.com/r/webdev/" target="_blank">Reddit (r/webdev)</a></li>
                     </ul>
-                </li>
-            </ol>
-            <hr>
-            <h4>3. Resumo das Principais Tecnologias</h4>
-            <h5>1. Nativo vs. Cross-Platform</h5>
-            <table style="margin:16px auto; border-collapse:collapse; min-width:320px;">
-                <tr style="background:#e3f2fd;">
-                    <th style="border:1px solid #b3c6e7;padding:4px 10px;">Plataforma</th>
-                    <th style="border:1px solid #b3c6e7;padding:4px 10px;">Linguagem</th>
-                    <th style="border:1px solid #b3c6e7;padding:4px 10px;">Vantagens</th>
-                </tr>
-                <tr>
-                    <td>Android (Kotlin)</td>
-                    <td>Kotlin</td>
-                    <td>Melhor performance, acesso total ao SO</td>
-                </tr>
-                <tr style="background:#f7fafd;">
-                    <td>iOS (Swift)</td>
-                    <td>Swift</td>
-                    <td>Integração perfeita com ecossistema Apple</td>
-                </tr>
-                <tr>
-                    <td>React Native</td>
-                    <td>JavaScript</td>
-                    <td>Reutilização de código, comunidade grande</td>
-                </tr>
-                <tr style="background:#f7fafd;">
-                    <td>Flutter</td>
-                    <td>Dart</td>
-                    <td>UI consistente, alto desempenho</td>
-                </tr>
-            </table>
-            <h5>2. Ferramentas Essenciais</h5>
-            <ul>
-                <li><b>Android Studio</b> (para Kotlin/Java)</li>
-                <li><b>Xcode</b> (para Swift)</li>
-                <li><b>VS Code</b> (React Native/Flutter)</li>
-                <li><b>Expo</b> (prototipagem rápida em React Native)</li>
-            </ul>
-            <h5>3. Bibliotecas Populares</h5>
-            <ul>
-                <li><b>React Native</b>: Redux, React Navigation</li>
-                <li><b>Flutter</b>: Provider, Bloc</li>
-                <li><b>Kotlin</b>: Retrofit (APIs), Room (database)</li>
-            </ul>
-            <h5>4. Exemplo de Código (Flutter)</h5>
-            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+                    <hr>
+                    <h4>5. Conclusão</h4>
+                    <p>
+                        <b>Próximos Passos:</b>
+                        <ol style="max-width:700px;margin:12px auto 0 auto;text-align:left;">
+                            <li>Teste seu site no Lighthouse e identifique gargalos.</li>
+                            <li>Otimize imagens e ative lazy loading.</li>
+                            <li>Implemente um CDN se seu site for global.</li>
+                            <li>Monitore continuamente com Web Vitals.</li>
+                        </ol>
+                        🚀 <b>Dica Final</b>:<br>
+                        <i>"Um site que carrega em <b>menos de 2 segundos</b> tem <b>50% mais chances</b> de reter usuários." – Google Data</i>
+                    </p>
+                    <p>
+                        Quer ir além? Estude <b>Server-Side Rendering (Next.js)</b> e <b>PWA</b> para otimização extrema!
+                    </p>
+                </section>
+                <section id="mobile-coding">
+                    <h2>Mobile Coding: Guia Completo</h2>
+                    <h4>1. Por que Aprender Mobile Coding?</h4>
+                    <ul>
+                        <li>📱 <b>Maior alcance</b>: 6.92 bilhões de usuários de smartphones no mundo.</li>
+                        <li>🚀 <b>Experiência otimizada</b>: Apps nativos têm melhor desempenho que web.</li>
+                        <li>💼 <b>Oportunidades de carreira</b>: Mercado em crescimento (React Native, Flutter, Kotlin).</li>
+                        <li>📊 <b>Monetização</b>: Apps geram receita via anúncios, assinaturas e vendas.</li>
+                    </ul>
+                    <hr>
+                    <h4>2. Trilha de Aprendizado</h4>
+                    <ol>
+                        <li>
+                            <b>Nível Iniciante</b>
+                            <ul>
+                                <li><b>Fundamentos de Programação</b>: Lógica, estruturas de dados e algoritmos. Sintaxe básica (JavaScript, Dart, Kotlin/Swift).</li>
+                                <li><b>Introdução ao Mobile</b>: Diferença entre <b>nativo</b> (Kotlin/Swift) e <b>cross-platform</b> (React Native/Flutter). Configurar ambiente (Android Studio, Xcode).</li>
+                                <li><b>UI/UX para Mobile</b>: Princípios de design (Material Design, Apple HIG). Ferramentas: Figma, Adobe XD.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <b>Nível Intermediário</b>
+                            <ul>
+                                <li><b>Desenvolvimento Nativo</b>: <b>Android</b> (Kotlin/Jetpack Compose), <b>iOS</b> (Swift/SwiftUI).</li>
+                                <li><b>Frameworks Cross-Platform</b>: React Native (JavaScript/TypeScript), Flutter (Dart).</li>
+                                <li><b>APIs e Backend</b>: Consumo de RESTful APIs (Fetch, Axios), Firebase (autenticação, banco de dados).</li>
+                                <li><b>Testes e Debugging</b>: Unit tests (JUnit, XCTest), Android Profiler, Xcode Instruments.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <b>Nível Avançado</b>
+                            <ul>
+                                <li><b>Otimização de Performance</b>: Reduzir consumo de bateria e memória, lazy loading, code splitting.</li>
+                                <li><b>Publicação na App Store/Google Play</b>: Guidelines de submissão, metadados (screenshots, descrição).</li>
+                                <li><b>Segurança</b>: Criptografia (HTTPS, Keychain), prevenção a reverse engineering (ProGuard, R8).</li>
+                                <li><b>Tendências</b>: IA integrada (ML Kit, Core ML), apps offline-first (SQLite, Realm).</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <hr>
+                    <h4>3. Resumo das Principais Tecnologias</h4>
+                    <h5>1. Nativo vs. Cross-Platform</h5>
+                    <table style="margin:16px auto; border-collapse:collapse; min-width:320px;">
+                        <tr style="background:#e3f2fd;">
+                            <th style="border:1px solid #b3c6e7;padding:4px 10px;">Plataforma</th>
+                            <th style="border:1px solid #b3c6e7;padding:4px 10px;">Linguagem</th>
+                            <th style="border:1px solid #b3c6e7;padding:4px 10px;">Vantagens</th>
+                        </tr>
+                        <tr>
+                            <td>Android (Kotlin)</td>
+                            <td>Kotlin</td>
+                            <td>Melhor performance, acesso total ao SO</td>
+                        </tr>
+                        <tr style="background:#f7fafd;">
+                            <td>iOS (Swift)</td>
+                            <td>Swift</td>
+                            <td>Integração perfeita com ecossistema Apple</td>
+                        </tr>
+                        <tr>
+                            <td>React Native</td>
+                            <td>JavaScript</td>
+                            <td>Reutilização de código, comunidade grande</td>
+                        </tr>
+                        <tr style="background:#f7fafd;">
+                            <td>Flutter</td>
+                            <td>Dart</td>
+                            <td>UI consistente, alto desempenho</td>
+                        </tr>
+                    </table>
+                    <h5>2. Ferramentas Essenciais</h5>
+                    <ul>
+                        <li><b>Android Studio</b> (para Kotlin/Java)</li>
+                        <li><b>Xcode</b> (para Swift)</li>
+                        <li><b>VS Code</b> (React Native/Flutter)</li>
+                        <li><b>Expo</b> (prototipagem rápida em React Native)</li>
+                    </ul>
+                    <h5>3. Bibliotecas Populares</h5>
+                    <ul>
+                        <li><b>React Native</b>: Redux, React Navigation</li>
+                        <li><b>Flutter</b>: Provider, Bloc</li>
+                        <li><b>Kotlin</b>: Retrofit (APIs), Room (database)</li>
+                    </ul>
+                    <h5>4. Exemplo de Código (Flutter)</h5>
+                    <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -813,114 +946,114 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-            </pre>
-            <hr>
-            <h4>4. Onde Continuar Aprendendo?</h4>
-            <h5>Cursos Recomendados</h5>
-            <ul>
-                <li>🎓 <b>Gratuitos</b>:
+                    </pre>
+                    <hr>
+                    <h4>4. Onde Continuar Aprendendo?</h4>
+                    <h5>Cursos Recomendados</h5>
                     <ul>
-                        <li><a href="https://codelabs.developers.google.com/?cat=Flutter" target="_blank">Flutter - Google Codelabs</a></li>
-                        <li><a href="https://www.freecodecamp.org/learn/" target="_blank">React Native - FreeCodeCamp</a></li>
+                        <li>🎓 <b>Gratuitos</b>:
+                            <ul>
+                                <li><a href="https://codelabs.developers.google.com/?cat=Flutter" target="_blank">Flutter - Google Codelabs</a></li>
+                                <li><a href="https://www.freecodecamp.org/learn/" target="_blank">React Native - FreeCodeCamp</a></li>
+                            </ul>
+                        </li>
+                        <li>🎓 <b>Pagos</b>:
+                            <ul>
+                                <li><a href="https://www.udemy.com/course/the-complete-react-native-and-redux-course/" target="_blank">The Complete React Native Course - Udemy</a></li>
+                                <li><a href="https://www.udemy.com/course/flutter-bootcamp-with-dart/" target="_blank">Flutter Bootcamp - Angela Yu</a></li>
+                            </ul>
+                        </li>
                     </ul>
-                </li>
-                <li>🎓 <b>Pagos</b>:
+                    <h5>Documentação Oficial</h5>
                     <ul>
-                        <li><a href="https://www.udemy.com/course/the-complete-react-native-and-redux-course/" target="_blank">The Complete React Native Course - Udemy</a></li>
-                        <li><a href="https://www.udemy.com/course/flutter-bootcamp-with-dart/" target="_blank">Flutter Bootcamp - Angela Yu</a></li>
+                        <li><a href="https://flutter.dev" target="_blank">Flutter</a></li>
+                        <li><a href="https://reactnative.dev" target="_blank">React Native</a></li>
+                        <li><a href="https://kotlinlang.org" target="_blank">Kotlin</a></li>
                     </ul>
-                </li>
-            </ul>
-            <h5>Documentação Oficial</h5>
-            <ul>
-                <li><a href="https://flutter.dev" target="_blank">Flutter</a></li>
-                <li><a href="https://reactnative.dev" target="_blank">React Native</a></li>
-                <li><a href="https://kotlinlang.org" target="_blank">Kotlin</a></li>
-            </ul>
-            <h5>Comunidades</h5>
-            <ul>
-                <li><a href="https://stackoverflow.com/questions/tagged/react-native" target="_blank">Stack Overflow (react-native)</a></li>
-                <li><a href="https://github.com/" target="_blank">GitHub</a> (explore projetos open-source)</li>
-                <li><a href="https://www.reddit.com/r/FlutterDev/" target="_blank">Reddit (r/FlutterDev)</a>, <a href="https://www.reddit.com/r/reactnative/" target="_blank">r/reactnative</a></li>
-            </ul>
-            <hr>
-            <h4>5. Conclusão</h4>
-            <p>
-                <b>Próximos Passos:</b>
-                <ol style="max-width:700px;margin:12px auto 0 auto;text-align:left;">
-                    <li>Escolha uma tecnologia (ex.: Flutter para MVP rápido).</li>
-                    <li>Crie um app simples (to-do list, clima).</li>
-                    <li>Publique na Play Store/App Store.</li>
-                </ol>
-                💡 <b>Dica Final</b>:<br>
-                <i>"O segredo é <b>construir e iterar</b>. Comece com um projeto pequeno e vá adicionando features complexas."</i>
-            </p>
-            <p>
-                Quer se destacar? Aprenda <b>Integração com APIs</b> e <b>Animações Avançadas</b>! 🚀
-            </p>
-        </section>
-        <section>
-            <h2>Otimização Mobile: Guia Completo</h2>
-            <h4>1. Por que Otimizar Aplicativos Mobile?</h4>
-            <ul>
-                <li>⚡ <b>Melhora a performance</b>: Apps rápidos retêm 2x mais usuários.</li>
-                <li>🔋 <b>Reduz consumo de recursos</b>: Bateria, memória e dados.</li>
-                <li>📈 <b>Aumenta conversões</b>: 1s de atraso pode reduzir vendas em 7%.</li>
-                <li>⭐ <b>Melhora avaliações</b>: Apps otimizados têm melhor rating nas lojas.</li>
-            </ul>
-            <hr>
-            <h4>2. Trilha de Aprendizado</h4>
-            <ol>
-                <li>
-                    <b>Nível Básico</b>
+                    <h5>Comunidades</h5>
                     <ul>
-                        <li><b>Otimização de Imagens e Assets</b>: Compressão (WebP, AVIF), vector drawables (Android), PDF (iOS).</li>
-                        <li><b>Redução de Tamanho do APK/IPA</b>: ProGuard/R8, remoção de recursos não usados.</li>
-                        <li><b>Gerenciamento de Memória</b>: Evitar vazamentos (LeakCanary), uso eficiente de bitmaps.</li>
+                        <li><a href="https://stackoverflow.com/questions/tagged/react-native" target="_blank">Stack Overflow (react-native)</a></li>
+                        <li><a href="https://github.com/" target="_blank">GitHub</a> (explore projetos open-source)</li>
+                        <li><a href="https://www.reddit.com/r/FlutterDev/" target="_blank">Reddit (r/FlutterDev)</a>, <a href="https://www.reddit.com/r/reactnative/" target="_blank">r/reactnative</a></li>
                     </ul>
-                </li>
-                <li>
-                    <b>Nível Intermediário</b>
+                    <hr>
+                    <h4>5. Conclusão</h4>
+                    <p>
+                        <b>Próximos Passos:</b>
+                        <ol style="max-width:700px;margin:12px auto 0 auto;text-align:left;">
+                            <li>Escolha uma tecnologia (ex.: Flutter para MVP rápido).</li>
+                            <li>Crie um app simples (to-do list, clima).</li>
+                            <li>Publique na Play Store/App Store.</li>
+                        </ol>
+                        💡 <b>Dica Final</b>:<br>
+                        <i>"O segredo é <b>construir e iterar</b>. Comece com um projeto pequeno e vá adicionando features complexas."</i>
+                    </p>
+                    <p>
+                        Quer se destacar? Aprenda <b>Integração com APIs</b> e <b>Animações Avançadas</b>! 🚀
+                    </p>
+                </section>
+                <section id="otimizacao-mobile">
+                    <h2>Otimização Mobile: Guia Completo</h2>
+                    <h4>1. Por que Otimizar Aplicativos Mobile?</h4>
                     <ul>
-                        <li><b>Otimização de Rede</b>: Cache de API (Retrofit, OkHttp), compressão GZIP/Brotli.</li>
-                        <li><b>Renderização Eficiente</b>: RecyclerView (Android) vs. ListView, DiffUtil.</li>
-                        <li><b>Multithreading</b>: Coroutines (Kotlin), GCD (Swift), evitar bloqueios na UI thread.</li>
-                        <li><b>Bateria</b>: WorkManager (Android), Background Tasks (iOS), evitar wake locks desnecessários.</li>
+                        <li>⚡ <b>Melhora a performance</b>: Apps rápidos retêm 2x mais usuários.</li>
+                        <li>🔋 <b>Reduz consumo de recursos</b>: Bateria, memória e dados.</li>
+                        <li>📈 <b>Aumenta conversões</b>: 1s de atraso pode reduzir vendas em 7%.</li>
+                        <li>⭐ <b>Melhora avaliações</b>: Apps otimizados têm melhor rating nas lojas.</li>
                     </ul>
-                </li>
-                <li>
-                    <b>Nível Avançado</b>
-                    <ul>
-                        <li><b>Native Code Optimization</b>: NDK (Android), Metal (iOS), AOT vs JIT (Flutter).</li>
-                        <li><b>Monitoramento em Tempo Real</b>: Firebase Performance Monitoring, Sentry.</li>
-                        <li><b>App Bundle e Split APKs</b>: Redução de tamanho por dispositivo, Dynamic Feature Modules.</li>
-                        <li><b>Benchmarking</b>: Android Profiler, Xcode Instruments, Macrobenchmarks.</li>
-                    </ul>
-                </li>
-            </ol>
-            <hr>
-            <h4>3. Técnicas de Otimização</h4>
-            <h5>1. Tamanho do App</h5>
-            <table style="margin:16px auto; border-collapse:collapse; min-width:320px;">
-                <tr style="background:#e3f2fd;">
-                    <th style="border:1px solid #b3c6e7;padding:4px 10px;">Técnica</th>
-                    <th style="border:1px solid #b3c6e7;padding:4px 10px;">Redução Típica</th>
-                </tr>
-                <tr>
-                    <td>ProGuard/R8</td>
-                    <td>Até 30%</td>
-                </tr>
-                <tr style="background:#f7fafd;">
-                    <td>WebP em vez de PNG</td>
-                    <td>25-30%</td>
-                </tr>
-                <tr>
-                    <td>Dynamic Delivery</td>
-                    <td>Até 60%</td>
-                </tr>
-            </table>
-            <b>Exemplo (build.gradle):</b>
-            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+                    <hr>
+                    <h4>2. Trilha de Aprendizado</h4>
+                    <ol>
+                        <li>
+                            <b>Nível Básico</b>
+                            <ul>
+                                <li><b>Otimização de Imagens e Assets</b>: Compressão (WebP, AVIF), vector drawables (Android), PDF (iOS).</li>
+                                <li><b>Redução de Tamanho do APK/IPA</b>: ProGuard/R8, remoção de recursos não usados.</li>
+                                <li><b>Gerenciamento de Memória</b>: Evitar vazamentos (LeakCanary), uso eficiente de bitmaps.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <b>Nível Intermediário</b>
+                            <ul>
+                                <li><b>Otimização de Rede</b>: Cache de API (Retrofit, OkHttp), compressão GZIP/Brotli.</li>
+                                <li><b>Renderização Eficiente</b>: RecyclerView (Android) vs. ListView, DiffUtil.</li>
+                                <li><b>Multithreading</b>: Coroutines (Kotlin), GCD (Swift), evitar bloqueios na UI thread.</li>
+                                <li><b>Bateria</b>: WorkManager (Android), Background Tasks (iOS), evitar wake locks desnecessários.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <b>Nível Avançado</b>
+                            <ul>
+                                <li><b>Native Code Optimization</b>: NDK (Android), Metal (iOS), AOT vs JIT (Flutter).</li>
+                                <li><b>Monitoramento em Tempo Real</b>: Firebase Performance Monitoring, Sentry.</li>
+                                <li><b>App Bundle e Split APKs</b>: Redução de tamanho por dispositivo, Dynamic Feature Modules.</li>
+                                <li><b>Benchmarking</b>: Android Profiler, Xcode Instruments, Macrobenchmarks.</li>
+                            </ul>
+                        </li>
+                    </ol>
+                    <hr>
+                    <h4>3. Técnicas de Otimização</h4>
+                    <h5>1. Tamanho do App</h5>
+                    <table style="margin:16px auto; border-collapse:collapse; min-width:320px;">
+                        <tr style="background:#e3f2fd;">
+                            <th style="border:1px solid #b3c6e7;padding:4px 10px;">Técnica</th>
+                            <th style="border:1px solid #b3c6e7;padding:4px 10px;">Redução Típica</th>
+                        </tr>
+                        <tr>
+                            <td>ProGuard/R8</td>
+                            <td>Até 30%</td>
+                        </tr>
+                        <tr style="background:#f7fafd;">
+                            <td>WebP em vez de PNG</td>
+                            <td>25-30%</td>
+                        </tr>
+                        <tr>
+                            <td>Dynamic Delivery</td>
+                            <td>Até 60%</td>
+                        </tr>
+                    </table>
+                    <b>Exemplo (build.gradle):</b>
+                    <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
 android {
     buildTypes {
         release {
@@ -930,27 +1063,27 @@ android {
         }
     }
 }
-            </pre>
-            <h5>2. Rede (Latência é Inimiga)</h5>
-            <ul>
-                <li><b>HTTP/3</b>: 30% mais rápido que HTTP/2 em redes instáveis.</li>
-                <li><b>Prefetching</b>: Carregar dados antes do usuário precisar.</li>
-            </ul>
-            <b>Exemplo (Retrofit + Cache):</b>
-            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+                    </pre>
+                    <h5>2. Rede (Latência é Inimiga)</h5>
+                    <ul>
+                        <li><b>HTTP/3</b>: 30% mais rápido que HTTP/2 em redes instáveis.</li>
+                        <li><b>Prefetching</b>: Carregar dados antes do usuário precisar.</li>
+                    </ul>
+                    <b>Exemplo (Retrofit + Cache):</b>
+                    <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
 val okHttpClient = OkHttpClient.Builder()
     .cache(Cache(cacheDir, 10 * 1024 * 1024)) // 10MB cache
     .build()
-    </pre>
-            <h5>3. UI Fluida</h5>
-            <ul>
-                <li><b>Evitar overdraw</b>:
-                    <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
-android:background="?attr/colorBackground" <!-- Usar tema em vez de cores fixas -->
                     </pre>
-                </li>
-                <li><b>Jetpack Compose</b>:
-                    <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+                    <h5>3. UI Fluida</h5>
+                    <ul>
+                        <li><b>Evitar overdraw</b>:
+                            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
+android:background="?attr/colorBackground" <!-- Usar tema em vez de cores fixas -->
+                            </pre>
+                        </li>
+                        <li><b>Jetpack Compose</b>:
+                            <pre style="background:#f7fafd;padding:10px;border-radius:7px;">
 @Composable
 fun FastList(items: List&lt;String&gt;) {
     LazyColumn { // Renderiza apenas itens visíveis
@@ -959,69 +1092,71 @@ fun FastList(items: List&lt;String&gt;) {
         }
     }
 }
-                    </pre>
-                </li>
-            </ul>
-            <h5>4. Bateria</h5>
-            <table style="margin:16px auto; border-collapse:collapse; min-width:320px;">
-                <tr style="background:#e3f2fd;">
-                    <th style="border:1px solid #b3c6e7;padding:4px 10px;">Problema</th>
-                    <th style="border:1px solid #b3c6e7;padding:4px 10px;">Solução</th>
-                </tr>
-                <tr>
-                    <td>GPS constante</td>
-                    <td>Usar FusedLocationProvider</td>
-                </tr>
-                <tr style="background:#f7fafd;">
-                    <td>Notificações frequentes</td>
-                    <td>Batch processing</td>
-                </tr>
-                <tr>
-                    <td>Wake locks</td>
-                    <td>Usar WorkManager com constraints</td>
-                </tr>
-            </table>
-            <hr>
-            <h4>4. Ferramentas Essenciais</h4>
-            <ul>
-                <li>🛠 <b>Android</b>: Android Studio Profiler, Baseline Profiles.</li>
-                <li>🍏 <b>iOS</b>: Xcode Instruments, MetricKit.</li>
-                <li>📊 <b>Cross-Platform</b>: Flutter DevTools, React Native Flipper.</li>
-            </ul>
-            <hr>
-            <h4>5. Onde Aprender Mais?</h4>
-            <h5>Cursos</h5>
-            <ul>
-                <li><a href="https://www.udacity.com/course/optimizing-your-android-app--ud825" target="_blank">Android Performance - Udacity</a></li>
-                <li><a href="https://www.raywenderlich.com/" target="_blank">iOS Performance - Ray Wenderlich</a></li>
-            </ul>
-            <h5>Documentação</h5>
-            <ul>
-                <li><a href="https://developer.android.com/topic/performance" target="_blank">Android Developers - Performance</a></li>
-                <li><a href="https://developer.apple.com/documentation/metrickit" target="_blank">Apple - Optimizing Your App</a></li>
-            </ul>
-            <h5>Comunidades</h5>
-            <ul>
-                <li><a href="https://www.reddit.com/r/androiddev/" target="_blank">r/androiddev</a>: Otimização avançada</li>
-                <li><a href="https://www.reddit.com/r/iOSProgramming/" target="_blank">iOS Programming Subreddit</a>: Dicas para Swift</li>
-            </ul>
-            <hr>
-            <h4>6. Conclusão</h4>
-            <p>
-                <b>Checklist de Otimização:</b>
-                <ol style="max-width:700px;margin:12px auto 0 auto;text-align:left;">
-                    <li>Reduza o APK/IPA (WebP + ProGuard).</li>
-                    <li>Monitore rede (Cache + HTTP/3).</li>
-                    <li>Elimine jank (RecyclerView, Compose).</li>
-                    <li>Teste em dispositivos reais (especialmente low-end).</li>
-                </ol>
-                🚀 <b>Dica Final:</b><br>
-                <i>"Apps no top 10% de performance têm taxas de retenção <b>2.5x maiores</b>." – Google Play Data</i>
-            </p>
-            <p>
-                Próximo nível? Explore <b>AOT Compilation</b> (Flutter) e <b>Metal API</b> (iOS)!
-            </p>
-        </section>
+                            </pre>
+                        </li>
+                    </ul>
+                    <h5>4. Bateria</h5>
+                    <table style="margin:16px auto; border-collapse:collapse; min-width:320px;">
+                        <tr style="background:#e3f2fd;">
+                            <th style="border:1px solid #b3c6e7;padding:4px 10px;">Problema</th>
+                            <th style="border:1px solid #b3c6e7;padding:4px 10px;">Solução</th>
+                        </tr>
+                        <tr>
+                            <td>GPS constante</td>
+                            <td>Usar FusedLocationProvider</td>
+                        </tr>
+                        <tr style="background:#f7fafd;">
+                            <td>Notificações frequentes</td>
+                            <td>Batch processing</td>
+                        </tr>
+                        <tr>
+                            <td>Wake locks</td>
+                            <td>Usar WorkManager com constraints</td>
+                        </tr>
+                    </table>
+                    <hr>
+                    <h4>4. Ferramentas Essenciais</h4>
+                    <ul>
+                        <li>🛠 <b>Android</b>: Android Studio Profiler, Baseline Profiles.</li>
+                        <li>🍏 <b>iOS</b>: Xcode Instruments, MetricKit.</li>
+                        <li>📊 <b>Cross-Platform</b>: Flutter DevTools, React Native Flipper.</li>
+                    </ul>
+                    <hr>
+                    <h4>5. Onde Aprender Mais?</h4>
+                    <h5>Cursos</h5>
+                    <ul>
+                        <li><a href="https://www.udacity.com/course/optimizing-your-android-app--ud825" target="_blank">Android Performance - Udacity</a></li>
+                        <li><a href="https://www.raywenderlich.com/" target="_blank">iOS Performance - Ray Wenderlich</a></li>
+                    </ul>
+                    <h5>Documentação</h5>
+                    <ul>
+                        <li><a href="https://developer.android.com/topic/performance" target="_blank">Android Developers - Performance</a></li>
+                        <li><a href="https://developer.apple.com/documentation/metrickit" target="_blank">Apple - Optimizing Your App</a></li>
+                    </ul>
+                    <h5>Comunidades</h5>
+                    <ul>
+                        <li><a href="https://www.reddit.com/r/androiddev/" target="_blank">r/androiddev</a>: Otimização avançada</li>
+                        <li><a href="https://www.reddit.com/r/iOSProgramming/" target="_blank">iOS Programming Subreddit</a>: Dicas para Swift</li>
+                    </ul>
+                    <hr>
+                    <h4>6. Conclusão</h4>
+                    <p>
+                        <b>Checklist de Otimização:</b>
+                        <ol style="max-width:700px;margin:12px auto 0 auto;text-align:left;">
+                            <li>Reduza o APK/IPA (WebP + ProGuard).</li>
+                            <li>Monitore rede (Cache + HTTP/3).</li>
+                            <li>Elimine jank (RecyclerView, Compose).</li>
+                            <li>Teste em dispositivos reais (especialmente low-end).</li>
+                        </ol>
+                        🚀 <b>Dica Final:</b><br>
+                        <i>"Apps no top 10% de performance têm taxas de retenção <b>2.5x maiores</b>." – Google Play Data</i>
+                    </p>
+                    <p>
+                        Próximo nível? Explore <b>AOT Compilation</b> (Flutter) e <b>Metal API</b> (iOS)!
+                    </p>
+                </section>
+            </div>
+        </div>
     </main>
     <!-- Modal de Cadastro -->
     <div id="register-modal" class="modal-bg">
@@ -1082,11 +1217,36 @@ fun FastList(items: List&lt;String&gt;) {
             <span class="acess-btn-text">Parar</span>
         </button>
     </div>
+    <!-- Botão Back to the Top -->
+    <button id="back-to-top-btn" title="Voltar ao topo" style="
+        position:fixed;
+        right:24px;
+        bottom:80px;
+        z-index:999;
+        background:linear-gradient(90deg,#4fc3f7 0%,#1976d2 100%);
+        color:#fff;
+        border:none;
+        border-radius:50%;
+        width:72px;
+        height:72px;
+        box-shadow:0 2px 12px rgba(33,150,243,0.18);
+        font-size:2.4em;
+        cursor:pointer;
+        align-items:center;
+        justify-content:center;
+        display:flex;
+        opacity:0;
+        visibility:hidden;
+        transition:opacity 0.4s, visibility 0.4s;
+    ">
+        ↑
+    </button>
     <footer>
         &copy; 2025 Ponto de Partida Dev. Todos os direitos reservados.
     </footer>
     <script src="funcionalidadejs.js"></script>
     <script>
+        // Audiodescrição
         document.addEventListener('DOMContentLoaded', function () {
             function iniciarAudiodescricao() {
                 let texto = "";
@@ -1108,6 +1268,72 @@ fun FastList(items: List&lt;String&gt;) {
             if (btnAudio) btnAudio.addEventListener('click', iniciarAudiodescricao);
             if (btnParar) btnParar.addEventListener('click', pararAudiodescricao);
         });
+
+        // Back to the Top with fade in/out at bottom/top
+        const backToTopBtn = document.getElementById('back-to-top-btn');
+        let ticking = false;
+
+        function handleBackToTopVisibility() {
+            const scrollY = window.scrollY || window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            const docHeight = document.documentElement.scrollHeight;
+
+            // Show when near the bottom (100px from bottom)
+            if (scrollY + windowHeight >= docHeight - 100) {
+                if (!backToTopBtn.classList.contains('visible')) {
+                    backToTopBtn.classList.add('fade-in-btn');
+                    backToTopBtn.classList.remove('fade-out-btn');
+                    backToTopBtn.classList.add('visible');
+                }
+            } else if (scrollY <= 50) {
+                if (backToTopBtn.classList.contains('visible')) {
+                    backToTopBtn.classList.remove('fade-in-btn');
+                    backToTopBtn.classList.add('fade-out-btn');
+                    setTimeout(() => {
+                        backToTopBtn.classList.remove('visible');
+                    }, 400); // tempo igual ao transition
+                }
+            }
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    handleBackToTopVisibility();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        // Initial check
+        window.addEventListener('DOMContentLoaded', handleBackToTopVisibility);
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Fade-in ao carregar a página
+        window.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('fade-in');
+        });
+
+        // Fade-out ao clicar no menu lateral (exceto página atual)
+        document.querySelectorAll('.mini-vertical-menu .navbar-link, .mini-vertical-menu .mini-menu-btn').forEach(btn => {
+            if (!btn.classList.contains('active')) {
+                btn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.body.classList.remove('fade-in');
+                    document.body.classList.add('fade-out');
+                    setTimeout(() => {
+                        window.location = this.href;
+                    }, 400); // tempo igual ao transition
+                });
+            }
+        });
     </script>
     <!-- VLibras Plugin (Intérprete de Libras) -->
     <div vw class="enabled">
@@ -1120,5 +1346,15 @@ fun FastList(items: List&lt;String&gt;) {
     <script>
         new window.VLibras.Widget("https://vlibras.gov.br/app");
     </script>
+    <style>
+    body.fadeout {
+        opacity: 0 !important;
+        transition: opacity 0.5s !important;
+    }
+    #back-to-top-btn.visible {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    </style>
 </body>
 </html>

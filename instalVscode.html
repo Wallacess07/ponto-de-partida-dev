@@ -10,6 +10,14 @@
             font-family: 'Segoe UI', Arial, sans-serif;
             background: #f0f8ff;
             color: #222;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        body.fade-out {
+            opacity: 0 !important;
+        }
+        body.fade-in {
+            opacity: 1 !important;
         }
         .navbar {
             position: fixed;
@@ -107,6 +115,51 @@
             max-width: 900px;
             margin: 30px auto;
             padding: 0 20px;
+            display: flex;
+            align-items: flex-start;
+        }
+        nav.mini-vertical-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            min-width: 180px;
+            margin-top: 0;
+            align-items: stretch;
+            position: sticky;
+            top: 64px;
+            z-index: 100;
+            margin-right: 30px;
+            animation: slide-in-left 0.5s;
+        }
+        nav.mini-vertical-menu a {
+            display: block;
+            background: linear-gradient(90deg, #4fc3f7 0%, #1976d2 100%);
+            color: #fff;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: 500;
+            padding: 18px 16px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(33,150,243,0.10);
+            transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.15s;
+            text-align: center;
+            margin: 0;
+        }
+        nav.mini-vertical-menu a:hover,
+        nav.mini-vertical-menu a:focus {
+            background: linear-gradient(90deg, #1976d2 0%, #4fc3f7 100%);
+            color: #e3f2fd;
+            box-shadow: 0 4px 16px rgba(33,150,243,0.18);
+            transform: scale(1.04);
+        }
+        nav.mini-vertical-menu a.active,
+        nav.mini-vertical-menu a.active:focus {
+            background: #fff;
+            color: #1976d2;
+            border: 2px solid #1976d2;
+            font-weight: bold;
+            box-shadow: 0 4px 16px rgba(33,150,243,0.13);
+            transform: none;
         }
         section {
             margin-bottom: 40px;
@@ -115,6 +168,7 @@
             box-shadow: 0 2px 12px rgba(0,0,0,0.06);
             padding: 30px 0;
             text-align: center;
+            flex: 1;
         }
         section img {
             width: 350px;
@@ -304,49 +358,73 @@
         .acess-btn-text {
             display: inline;
         }
+        @keyframes slide-in-left {
+            0% {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        #back-to-top-btn {
+            display: none;
+            position: fixed;
+            right: 24px;
+            bottom: 80px;
+            z-index: 999;
+            background: linear-gradient(90deg, #4fc3f7 0%, #1976d2 100%);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 72px;
+            height: 72px;
+            font-size: 2.4em;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 12px rgba(33,150,243,0.18);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s, visibility 0.4s;
+        }
+        #back-to-top-btn.visible {
+            display: flex !important;
+            opacity: 1;
+            visibility: visible;
+        }
+        #back-to-top-btn:not(.visible) {
+            opacity: 0;
+            visibility: hidden;
+        }
+        #back-to-top-btn:hover, #back-to-top-btn:focus {
+            background: linear-gradient(90deg, #1976d2 0%, #4fc3f7 100%);
+            box-shadow: 0 4px 16px rgba(33,150,243,0.28);
+            transform: scale(1.08);
+            outline: none;
+        }
+        #back-to-top-btn.fade-in-btn {
+            animation: fadeInBtn 0.4s;
+        }
+        #back-to-top-btn.fade-out-btn {
+            animation: fadeOutBtn 0.4s;
+        }
+        @keyframes fadeInBtn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeOutBtn {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
         @media (max-width: 700px) {
-            main {
-                padding: 0 5px;
-            }
-            section img {
-                width: 95vw;
-            }
-            #header-buttons {
-                top: 10px;
-                right: 10px;
-            }
-            .register-form {
-                width: 98vw;
-                padding: 0 5vw 28px 5vw;
-            }
-            .navbar {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 10px;
-                height: auto;
-            }
-            .navbar-links {
-                flex-direction: column;
-                width: 100%;
-            }
-            .navbar-link {
-                padding: 10px 0;
-                width: 100%;
-                text-align: center;
-            }
-            .navbar-space {
-                height: 60px;
-            }
-            .acessibilidade-btns {
-                bottom: 8px;
-                left: 8px;
-            }
-            .acess-btn {
-                padding: 5px 8px;
-                font-size: 0.85em;
-            }
-            .acess-btn-text {
-                display: none;
+            #back-to-top-btn {
+                right: 12px;
+                bottom: 12px;
+                width: 52px;
+                height: 52px;
+                font-size: 2em;
             }
         }
     </style>
@@ -385,78 +463,89 @@
         <img src="./assets/logoppd.jpeg" alt="Logo do site Ponto de Partida Dev.">
         <h1>Como Instalar o VS Code e Linguagens</h1>
     </header>
-    <main>
-        <section>
-            <figure>
-                <img src="./assets/vscode.png" alt="Logo do Visual Studio Code">
-            </figure>
-            <p>
-                O <strong>Visual Studio Code (VS Code)</strong> é um dos editores de código mais populares e gratuitos para programadores. Veja como instalar o VS Code e as principais linguagens para começar a programar!
-            </p>
-            <h2>1. Instalando o VS Code</h2>
-            <ul>
-                <li>Acesse o site oficial: <a href="https://code.visualstudio.com/" target="_blank">code.visualstudio.com</a></li>
-                <li>Clique em <strong>Download</strong> e escolha a versão para seu sistema operacional (Windows, Mac ou Linux).</li>
-                <li>Execute o instalador e siga as instruções na tela.</li>
-            </ul>
-            <p>
-                Após a instalação, abra o VS Code para começar a configurar seu ambiente de programação.
-            </p>
-        </section>
-        <section>
-            <h2>2. Instalando Extensões Essenciais</h2>
-            <p>
-                Extensões recomendadas para cada linguagem:
-            </p>
-            <ul>
-                <li><strong>Python</strong>: <code>Python</code> (Microsoft)</li>
-                <li><strong>JavaScript/HTML/CSS</strong>: <code>ES7+ React/Redux/JS Snippets</code>, <code>HTML CSS Support</code></li>
-                <li><strong>C++</strong>: <code>C/C++</code> (Microsoft)</li>
-                <li><strong>Live Server</strong>: Para testar páginas HTML em tempo real</li>
-            </ul>
-            <p>
-                Pesquise e instale as extensões no VS Code:
-            </p>
-            <ol>
-                <li>Clique no ícone de <strong>Extensões</strong> (ou pressione <code>Ctrl+Shift+X</code>).</li>
-                <li>Busque pelas extensões mencionadas.</li>
-                <li>Instale e reinicie o VS Code se necessário.</li>
-            </ol>
-        </section>
-        <section>
-            <h2>3. Instalando as Linguagens no Computador</h2>
-            <p>
-                Para programar em diferentes linguagens, você precisa tê-las instaladas em seu computador. Veja como instalar as principais linguagens:
-            </p>
-            <ul>
-                <li><strong>Python</strong>:<br>
-                    Baixe em <a href="https://www.python.org/downloads/" target="_blank">python.org/downloads</a> e siga o instalador.<br>
-                    Após a instalação, verifique no terminal com <code>python --version</code> se a instalação foi bem-sucedida.
-                </li>
-                <li><strong>Node.js (JavaScript)</strong>:<br>
-                    Baixe em <a href="https://nodejs.org/" target="_blank">nodejs.org</a>.<br>
-                    Após a instalação, verifique no terminal com <code>node --version</code> se a instalação foi bem-sucedida.
-                </li>
-                <li><strong>C++</strong>:<br>
-                    Instale o <a href="https://jmeubank.github.io/tdm-gcc/" target="_blank">TDM-GCC</a> (Windows) ou <a href="https://www.mingw-w64.org/" target="_blank">MinGW-w64</a>.<br>
-                    Após a instalação, verifique no terminal com <code>g++ --version</code> se a instalação foi bem-sucedida.
-                </li>
-                <li><strong>HTML/CSS</strong>:<br>
-                    Não é necessário instalar, basta criar arquivos <code>.html</code> e <code>.css</code> e abrir no VS Code.
-                </li>
-            </ul>
-        </section>
-        <section>
-            <h2>Dicas Finais</h2>
-            <ul>
-                <li>Explore temas e atalhos para personalizar seu ambiente.</li>
-                <li>Use o terminal integrado do VS Code (<code>Ctrl+`</code>) para rodar comandos.</li>
-                <li>Reinicie o VS Code após instalar extensões ou linguagens.</li>
-            </ul>
-            <p>
-                Pronto! Agora você está com o ambiente preparado para programar em <strong>Python, JavaScript, C++ e HTML/CSS</strong> no VS Code.
-            </p>
-        </section>
+    <main style="display: flex; align-items: flex-start;">
+        <nav class="mini-vertical-menu">
+            <a href="index.html" class="mini-menu-btn">Início</a>
+            <a href="FLM.html" class="mini-menu-btn">Fundamentos Lógicos</a>
+            <a href="progwebmob.html" class="mini-menu-btn">Web & Mobile</a>
+            <a href="sistemas.html" class="mini-menu-btn">Infraestrutura</a>
+            <a href="lingprogramação.html" class="mini-menu-btn">Linguagens</a>
+            <a href="instalVscode.html" class="mini-menu-btn active">Instalar VS Code</a>
+        </nav>
+        <div style="flex:1;">
+            <!-- Todo o conteúdo principal já existente do <main> deve ser movido para cá -->
+            <section>
+                <figure>
+                    <img src="./assets/vscode.png" alt="Logo do Visual Studio Code">
+                </figure>
+                <p>
+                    O <strong>Visual Studio Code (VS Code)</strong> é um dos editores de código mais populares e gratuitos para programadores. Veja como instalar o VS Code e as principais linguagens para começar a programar!
+                </p>
+                <h2>1. Instalando o VS Code</h2>
+                <ul>
+                    <li>Acesse o site oficial: <a href="https://code.visualstudio.com/" target="_blank">code.visualstudio.com</a></li>
+                    <li>Clique em <strong>Download</strong> e escolha a versão para seu sistema operacional (Windows, Mac ou Linux).</li>
+                    <li>Execute o instalador e siga as instruções na tela.</li>
+                </ul>
+                <p>
+                    Após a instalação, abra o VS Code para começar a configurar seu ambiente de programação.
+                </p>
+            </section>
+            <section>
+                <h2>2. Instalando Extensões Essenciais</h2>
+                <p>
+                    Extensões recomendadas para cada linguagem:
+                </p>
+                <ul>
+                    <li><strong>Python</strong>: <code>Python</code> (Microsoft)</li>
+                    <li><strong>JavaScript/HTML/CSS</strong>: <code>ES7+ React/Redux/JS Snippets</code>, <code>HTML CSS Support</code></li>
+                    <li><strong>C++</strong>: <code>C/C++</code> (Microsoft)</li>
+                    <li><strong>Live Server</strong>: Para testar páginas HTML em tempo real</li>
+                </ul>
+                <p>
+                    Pesquise e instale as extensões no VS Code:
+                </p>
+                <ol>
+                    <li>Clique no ícone de <strong>Extensões</strong> (ou pressione <code>Ctrl+Shift+X</code>).</li>
+                    <li>Busque pelas extensões mencionadas.</li>
+                    <li>Instale e reinicie o VS Code se necessário.</li>
+                </ol>
+            </section>
+            <section>
+                <h2>3. Instalando as Linguagens no Computador</h2>
+                <p>
+                    Para programar em diferentes linguagens, você precisa tê-las instaladas em seu computador. Veja como instalar as principais linguagens:
+                </p>
+                <ul>
+                    <li><strong>Python</strong>:<br>
+                        Baixe em <a href="https://www.python.org/downloads/" target="_blank">python.org/downloads</a> e siga o instalador.<br>
+                        Após a instalação, verifique no terminal com <code>python --version</code> se a instalação foi bem-sucedida.
+                    </li>
+                    <li><strong>Node.js (JavaScript)</strong>:<br>
+                        Baixe em <a href="https://nodejs.org/" target="_blank">nodejs.org</a>.<br>
+                        Após a instalação, verifique no terminal com <code>node --version</code> se a instalação foi bem-sucedida.
+                    </li>
+                    <li><strong>C++</strong>:<br>
+                        Instale o <a href="https://jmeubank.github.io/tdm-gcc/" target="_blank">TDM-GCC</a> (Windows) ou <a href="https://www.mingw-w64.org/" target="_blank">MinGW-w64</a>.<br>
+                        Após a instalação, verifique no terminal com <code>g++ --version</code> se a instalação foi bem-sucedida.
+                    </li>
+                    <li><strong>HTML/CSS</strong>:<br>
+                        Não é necessário instalar, basta criar arquivos <code>.html</code> e <code>.css</code> e abrir no VS Code.
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>Dicas Finais</h2>
+                <ul>
+                    <li>Explore temas e atalhos para personalizar seu ambiente.</li>
+                    <li>Use o terminal integrado do VS Code (<code>Ctrl+`</code>) para rodar comandos.</li>
+                    <li>Reinicie o VS Code após instalar extensões ou linguagens.</li>
+                </ul>
+                <p>
+                    Pronto! Agora você está com o ambiente preparado para programar em <strong>Python, JavaScript, C++ e HTML/CSS</strong> no VS Code.
+                </p>
+            </section>
+        </div>
     </main>
     <!-- Modal de Cadastro -->
     <div id="register-modal" class="modal-bg">
@@ -517,27 +606,76 @@
             <span class="acess-btn-text">Parar</span>
         </button>
     </div>
+    <button id="back-to-top-btn" title="Voltar ao topo">
+        ↑
+    </button>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            function iniciarAudiodescricao() {
-                let texto = "";
-                const header = document.querySelector("header");
-                if (header) texto += header.innerText + ". ";
-                const main = document.querySelector("main");
-                if (main) texto += main.innerText;
-                if (texto.trim() === "") return;
-                const synth = window.speechSynthesis;
-                const utterThis = new SpeechSynthesisUtterance(texto);
-                utterThis.lang = "pt-BR";
-                synth.speak(utterThis);
+        // Fade-in ao carregar a página
+        window.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('fade-in');
+        });
+
+        // Fade-out ao clicar no menu lateral (exceto página atual)
+        document.querySelectorAll('.mini-vertical-menu .mini-menu-btn').forEach(btn => {
+            if (!btn.classList.contains('active')) {
+                btn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.body.classList.remove('fade-in');
+                    setTimeout(() => {
+                        document.body.classList.add('fade-out');
+                        setTimeout(() => {
+                            window.location = this.href;
+                        }, 400); // tempo igual ao transition
+                    }, 150); // pequeno delay antes do fade-out
+                });
             }
-            function pararAudiodescricao() {
-                window.speechSynthesis.cancel();
+        });
+
+        // Back to the Top com fade in/out ao chegar no final/topo da página
+        const backToTopBtn = document.getElementById('back-to-top-btn');
+        let ticking = false;
+
+        function handleBackToTopVisibility() {
+            const scrollY = window.scrollY || window.pageYOffset;
+            const windowHeight = window.innerHeight;
+            const docHeight = document.documentElement.scrollHeight;
+
+            // Mostra quando está perto do final (100px do final)
+            if (scrollY + windowHeight >= docHeight - 100) {
+                if (!backToTopBtn.classList.contains('visible')) {
+                    backToTopBtn.classList.add('fade-in-btn');
+                    backToTopBtn.classList.remove('fade-out-btn');
+                    backToTopBtn.classList.add('visible');
+                }
+            } else if (scrollY <= 50) {
+                if (backToTopBtn.classList.contains('visible')) {
+                    backToTopBtn.classList.remove('fade-in-btn');
+                    backToTopBtn.classList.add('fade-out-btn');
+                    setTimeout(() => {
+                        backToTopBtn.classList.remove('visible');
+                    }, 400); // tempo igual ao transition
+                }
             }
-            const btnAudio = document.getElementById('btn-audiodescricao');
-            const btnParar = document.getElementById('btn-parar-audiodescricao');
-            if (btnAudio) btnAudio.addEventListener('click', iniciarAudiodescricao);
-            if (btnParar) btnParar.addEventListener('click', pararAudiodescricao);
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    handleBackToTopVisibility();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        // Checagem inicial
+        window.addEventListener('DOMContentLoaded', handleBackToTopVisibility);
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     </script>
     <footer>
